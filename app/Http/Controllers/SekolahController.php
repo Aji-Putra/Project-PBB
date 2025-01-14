@@ -12,7 +12,8 @@ class SekolahController extends Controller
      */
     public function index()
     {
-        //
+        $sekolah = Sekolah::all();
+        return view('sekolah.index', compact('sekolah'));
     }
 
     /**
@@ -20,7 +21,7 @@ class SekolahController extends Controller
      */
     public function create()
     {
-        //
+        return view('sekolah.create');
     }
 
     /**
@@ -28,7 +29,14 @@ class SekolahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_sekolah' => 'required|string|max:255',
+            'nomor_peserta' => 'required|string|max:255',
+        ]);
+
+        Sekolah::create($request->all());
+
+        return redirect()->route('sekolah.index')->with('success', 'Data sekolah berhasil ditambahkan.');
     }
 
     /**
@@ -36,7 +44,7 @@ class SekolahController extends Controller
      */
     public function show(Sekolah $sekolah)
     {
-        //
+        return view('sekolah.show', compact('sekolah'));
     }
 
     /**
@@ -44,7 +52,7 @@ class SekolahController extends Controller
      */
     public function edit(Sekolah $sekolah)
     {
-        //
+        return view('sekolah.edit', compact('sekolah'));
     }
 
     /**
@@ -52,7 +60,14 @@ class SekolahController extends Controller
      */
     public function update(Request $request, Sekolah $sekolah)
     {
-        //
+        $request->validate([
+            'nama_sekolah' => 'required|string|max:255',
+            'nomor_peserta' => 'required|string|max:255',
+        ]);
+
+        $sekolah->update($request->all());
+
+        return redirect()->route('sekolah.index')->with('success', 'Data sekolah berhasil diupdate.');
     }
 
     /**
@@ -60,6 +75,8 @@ class SekolahController extends Controller
      */
     public function destroy(Sekolah $sekolah)
     {
-        //
+        $sekolah->delete();
+
+        return redirect()->route('sekolah.index')->with('success', 'Data sekolah berhasil dihapus.');
     }
 }

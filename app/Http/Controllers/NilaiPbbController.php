@@ -12,7 +12,8 @@ class NilaiPbbController extends Controller
      */
     public function index()
     {
-        //
+        $nilaiPbb = NilaiPbb::all();
+        return view('nilai_pbb.index', compact('nilaiPbb'));
     }
 
     /**
@@ -20,7 +21,7 @@ class NilaiPbbController extends Controller
      */
     public function create()
     {
-        //
+        return view('nilai_pbb.create');
     }
 
     /**
@@ -28,7 +29,16 @@ class NilaiPbbController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'sekolah_id' => 'required|string',
+            'bersaf_kumpul' => 'required|integer',
+            'sikap_sempurna' => 'required|integer',
+            // Tambahkan validasi lainnya sesuai kebutuhan
+        ]);
+
+        NilaiPbb::create($validatedData);
+
+        return redirect()->route('nilai_pbb.index')->with('success', 'Nilai PBB berhasil ditambahkan!');
     }
 
     /**
@@ -36,7 +46,8 @@ class NilaiPbbController extends Controller
      */
     public function show(NilaiPbb $nilaiPbb)
     {
-        //
+        $nilaiPbb = NilaiPbb::findOrFail($nilaiPbb);
+        return view('nilai_pbb.show', compact('nilaiPbb'));
     }
 
     /**
@@ -44,7 +55,8 @@ class NilaiPbbController extends Controller
      */
     public function edit(NilaiPbb $nilaiPbb)
     {
-        //
+        // $nilaiPbb = NilaiPbb::findOrFail($id);
+        // return view('nilai_pbb.edit', compact('nilaiPbb'));
     }
 
     /**
@@ -60,6 +72,9 @@ class NilaiPbbController extends Controller
      */
     public function destroy(NilaiPbb $nilaiPbb)
     {
-        //
+        $nilaiPbb = NilaiPbb::findOrFail($nilaiPbb);
+        $nilaiPbb->delete();
+
+        return redirect()->route('nilai_pbb.index')->with('success', 'Nilai PBB berhasil dihapus!');
     }
 }
