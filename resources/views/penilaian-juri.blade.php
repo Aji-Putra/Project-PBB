@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="font-bold text-xl">Penilaian PBB Dasar</h1>
+    <h1 class="font-bold text-xl">Penilaian Baris-Berbaris Dasar</h1>
     <hr class="mt border-black">
     <x-materi-pertama></x-materi-pertama>
     <x-gerakan-di-tempat></x-gerakan-di-tempat>
