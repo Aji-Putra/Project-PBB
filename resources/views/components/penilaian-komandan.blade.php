@@ -45,10 +45,10 @@
         </select>
     </div>
     <div class="flex gap-2 items-center justify-between">
-        <label for="penguasaan_lapang_pasukan">Penguasaan Lapang & Pasukan</label>
+        <label for="penguasaan_lapangan_pasukan">Penguasaan Lapang & Pasukan</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="penguasaan_lapang_pasukan" id="penguasaan_lapang_pasukan">
+            name="penguasaan_lapangan_pasukan" id="penguasaan_lapangan_pasukan">
             <option value="" selected>Nilai Maks: 10</option>
             <?php for ($i = 1; $i <= 10; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>

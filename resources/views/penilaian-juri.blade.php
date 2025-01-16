@@ -1,8 +1,18 @@
 <x-layout>
+    {{-- @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif --}}
     <form action="{{ route('penilaian') }}" method="POST">
         @csrf
     <h1 class="font-bold text-xl">Penilaian Baris-Berbaris Dasar</h1>
     <hr class="mt border-black">
+    <input type="hidden" name="sekolah_id" id="" value="{{ $sekolahID->id }}">
     <x-materi-pertama></x-materi-pertama>
     <x-gerakan-di-tempat></x-gerakan-di-tempat>
     <x-gerakan-berpindah-tempat></x-gerakan-berpindah-tempat>
@@ -27,7 +37,7 @@
     <x-penalti></x-penalti>
     <div x-data="{ kirimPenilaian: false, email: '' }">
         <!-- Button to open the modal -->
-        <button @click="kirimPenilaian = true" class="w-full px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"> Kirim </button>
+        <a @click="kirimPenilaian = true" class="w-full px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"> Kirim </a>
         <!-- Background overlay -->
         <div x-show="kirimPenilaian" class="fixed inset-0 transition-opacity" aria-hidden="true" @click="kirimPenilaian = false">
             <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
@@ -48,7 +58,7 @@
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                 <!-- Subscribe button -->
-                <a @click="subscribeToNewsletter" href="/" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"> Lanjutkan </a>
+                <button @click="subscribeToNewsletter" type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"> Lanjutkan </button>
                 <!-- Cancel button -->
                 <button @click="kirimPenilaian = false" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"> Batalkan </button>
                 </div>

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class NilaiPbb extends Model
 {
     use HasFactory;
-
+    
+    protected $table = 'nilai_pbb';
     protected $fillable = [
         'sekolah_id',
         'bersaf_kumpul',

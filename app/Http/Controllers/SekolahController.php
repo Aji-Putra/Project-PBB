@@ -13,7 +13,7 @@ class SekolahController extends Controller
     public function index()
     {
         $sekolah = Sekolah::all();
-        return view('sekolah.index', compact('sekolah'));
+        return view('components.table-participants', compact('sekolah'));
     }
 
     /**
