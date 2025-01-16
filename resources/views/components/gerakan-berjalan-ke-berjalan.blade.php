@@ -1,10 +1,10 @@
 <div class="flex flex-col gap-2 mb-4">
     <h2 class="font-medium text-lg">5. Gerakan Berjalan ke Berjalan</h2>
     <div class="flex gap-2 items-center justify-between">
-        <label for="">Hormat Kiri</label>
+        <label for="hormat_kiri">Hormat Kiri</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="numbers" id="numbers">
+            name="hormat_kiri" id="hormat_kiri">
             <option value="" selected>Nilai Maks: 20</option>
             <?php for ($i = 1; $i <= 20; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -12,10 +12,10 @@
         </select>
     </div>
     <div class="flex gap-2 items-center justify-between">
-        <label for="">Tiap-Tiap Banjar 2x Belok Kanan</label>
+        <label for="tiap_banjar_belok_kanan">Tiap-Tiap Banjar 2x Belok Kanan</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="numbers" id="numbers">
+            name="tiap_banjar_belok_kanan" id="tiap_banjar_belok_kanan">
             <option value="" selected>Nilai Maks: 20</option>
             <?php for ($i = 1; $i <= 20; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -23,10 +23,10 @@
         </select>
     </div>
     <div class="flex gap-2 items-center justify-between">
-        <label for="">Melintang Kiri</label>
+        <label for="melintang_kiri">Melintang Kiri</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="numbers" id="numbers">
+            name="melintang_kiri" id="melintang_kiri">
             <option value="" selected>Nilai Maks: 30</option>
             <?php for ($i = 1; $i <= 30; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -34,10 +34,10 @@
         </select>
     </div>
     <div class="flex gap-2 items-center justify-between">
-        <label for="">Haluan Kiri</label>
+        <label for="haluan_kiri">Haluan Kiri</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="numbers" id="numbers">
+            name="haluan_kiri" id="haluan_kiri">
             <option value="" selected>Nilai Maks: 30</option>
             <?php for ($i = 1; $i <= 30; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -45,10 +45,10 @@
         </select>
     </div>
     <div class="flex gap-2 items-center justify-between">
-        <label for="">Tiap-Tiap Banjar 2x Belok Kiri</label>
+        <label for="tiap_banjar_belok_kiri">Tiap-Tiap Banjar 2x Belok Kiri</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="numbers" id="numbers">
+            name="tiap_banjar_belok_kiri" id="tiap_banjar_belok_kiri">
             <option value="" selected>Nilai Maks: 20</option>
             <?php for ($i = 1; $i <= 20; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
