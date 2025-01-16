@@ -29,6 +29,7 @@ class NilaiPbbController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $validatedData = $request->validate([
             'sekolah_id' => 'required|string',
             'bersaf_kumpul' => 'required|integer',

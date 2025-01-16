@@ -1,4 +1,6 @@
 <x-layout>
+    <form action="{{ route('penilaian') }}" method="POST">
+        @csrf
     <h1 class="font-bold text-xl">Penilaian Baris-Berbaris Dasar</h1>
     <hr class="mt border-black">
     <x-materi-pertama></x-materi-pertama>
@@ -54,4 +56,5 @@
             </div>
         </div>
     </div>
+</form>
 </x-layout>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NilaiPbbController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NilaiVaforController;
 
@@ -18,5 +19,7 @@ Route::get('/register', function () {
 Route::get('/penilaian-juri', function () {
     return view('penilaian-juri');
 });
+
+Route::post('/sumbit/penilaian',[NilaiPbbController::class,'store'])->name('penilaian');
 
 Route::resource('nilai_vafor', NilaiVaforController::class);
