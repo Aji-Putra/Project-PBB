@@ -4,7 +4,7 @@
         <label for="postur">Postur</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="postur" id="postur">
+            name="postur" id="postur" required>
             <option value="" selected>Nilai Maks: 10</option>
             <?php for ($i = 1; $i <= 10; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -15,7 +15,7 @@
         <label for="suara">Suara</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="suara" id="suara">
+            name="suara" id="suara" required>
             <option value="" selected>Nilai Maks: 10</option>
             <?php for ($i = 1; $i <= 10; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -26,7 +26,7 @@
         <label for="intonasi">Intonasi, Kata, Irama, Tempo</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="intonasi" id="intonasi">
+            name="intonasi" id="intonasi" required>
             <option value="" selected>Nilai Maks: 10</option>
             <?php for ($i = 1; $i <= 10; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -37,7 +37,7 @@
         <label for="penguasaan_materi">Penguasaan Materi</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="penguasaan_materi" id="penguasaan_materi">
+            name="penguasaan_materi" id="penguasaan_materi" required>
             <option value="" selected>Nilai Maks: 10</option>
             <?php for ($i = 1; $i <= 10; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -48,7 +48,7 @@
         <label for="penguasaan_lapangan_pasukan">Penguasaan Lapang & Pasukan</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="penguasaan_lapangan_pasukan" id="penguasaan_lapangan_pasukan">
+            name="penguasaan_lapangan_pasukan" id="penguasaan_lapangan_pasukan" required>
             <option value="" selected>Nilai Maks: 10</option>
             <?php for ($i = 1; $i <= 10; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>

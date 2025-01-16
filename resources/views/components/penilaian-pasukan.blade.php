@@ -4,7 +4,7 @@
         <label for="kerapihan_saf">Kerapihan Saf</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="kerapihan_saf" id="kerapihan_saf">
+            name="kerapihan_saf" id="kerapihan_saf" required>
             <option value="" selected>Nilai Maks: 7</option>
             <?php for ($i = 1; $i <= 7; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -15,7 +15,7 @@
         <label for="kerapihan_banjar">Kerapihan Banjar</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="kerapihan_banjar" id="kerapihan_banjar">
+            name="kerapihan_banjar" id="kerapihan_banjar" required>
             <option value="" selected>Nilai Maks: 7</option>
             <?php for ($i = 1; $i <= 7; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -26,7 +26,7 @@
         <label for="kekompakan_gerak">Kekompakan Gerak</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="kekompakan_gerak" id="kekompakan_gerak">
+            name="kekompakan_gerak" id="kekompakan_gerak" required>
             <option value="" selected>Nilai Maks: 9</option>
             <?php for ($i = 1; $i <= 9; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -37,7 +37,7 @@
         <label for="penempatan_ketinggian_personel">Penempatan Ketinggian Personel</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="penempatan_ketinggian_personel" id="penempatan_ketinggian_personel">
+            name="penempatan_ketinggian_personel" id="penempatan_ketinggian_personel" required>
             <option value="" selected>Nilai Maks: 8</option>
             <?php for ($i = 1; $i <= 8; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
@@ -48,7 +48,7 @@
         <label for="formasi_keseluruhan">Performance Keseluruhan</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="formasi_keseluruhan" id="formasi_keseluruhan">
+            name="formasi_keseluruhan" id="formasi_keseluruhan" required>
             <option value="" selected>Nilai Maks: 9</option>
             <?php for ($i = 1; $i <= 9; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>

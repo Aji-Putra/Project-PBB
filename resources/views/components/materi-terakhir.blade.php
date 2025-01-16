@@ -4,7 +4,7 @@
         <label for="bubar_jalan">Bubar Jalan</label>
         <select
             class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="bubar_jalan" id="bubar_jalan">
+            name="bubar_jalan" id="bubar_jalan" required>
             <option value="" selected>Nilai Maks: 20</option>
             <?php for ($i = 1; $i <= 20; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
