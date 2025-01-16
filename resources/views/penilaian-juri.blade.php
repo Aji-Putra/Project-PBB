@@ -10,6 +10,10 @@
     @endif --}}
     <form action="{{ route('penilaian') }}" method="POST">
         @csrf
+    <div class="bg-white p-4 rounded shadow-lg mb-4">
+        <h1 class="text-xl font-medium">Nomor Peserta: {{ $sekolahID->nomor_peserta }} </h1>
+        <h1 class="text-xl font-medium">Nama Sekolah: {{ $sekolahID->nama_sekolah }} </h1>
+    </div>
     <h1 class="font-bold text-xl">Penilaian Baris-Berbaris Dasar</h1>
     <hr class="mt border-black">
     <input type="hidden" name="sekolah_id" id="" value="{{ $sekolahID->id }}">
@@ -37,7 +41,7 @@
     <x-penalti></x-penalti>
     <div x-data="{ kirimPenilaian: false, email: '' }">
         <!-- Button to open the modal -->
-        <a @click="kirimPenilaian = true" class="w-full px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"> Kirim </a>
+        <a @click="kirimPenilaian = true" class="w-full px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500 cursor-pointer"> Kirim </a>
         <!-- Background overlay -->
         <div x-show="kirimPenilaian" class="fixed inset-0 transition-opacity" aria-hidden="true" @click="kirimPenilaian = false">
             <div class="absolute inset-0 bg-gray-500 opacity-75"></div>

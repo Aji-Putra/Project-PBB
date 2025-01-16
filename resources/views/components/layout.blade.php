@@ -13,7 +13,7 @@
     href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
   />
 </head>
-<body>
+<body class="bg-gray-100">
     <x-header></x-header>
     <main class="my-6 mb-20 max-w-screen-xl px-4 mx-auto md:px-6 lg:px-8 ">
         {{ $slot }}
