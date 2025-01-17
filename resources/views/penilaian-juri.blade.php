@@ -41,7 +41,7 @@
     <x-penalti></x-penalti>
     <div x-data="{ kirimPenilaian: false, email: '' }">
         <!-- Button to open the modal -->
-        <a @click="kirimPenilaian = true" class="w-full px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500 cursor-pointer"> Kirim </a>
+        <a @click="kirimPenilaian = true" class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500 cursor-pointer"> Kirim </a>
         <!-- Background overlay -->
         <div x-show="kirimPenilaian" class="fixed inset-0 transition-opacity" aria-hidden="true" @click="kirimPenilaian = false">
             <div class="absolute inset-0 bg-gray-500 opacity-75"></div>

@@ -4,7 +4,7 @@
     </div>
     <div class="md:max-w-[1080px] max-w-[720px] mx-auto">
         <div class="w-full flex justify-end" x-data="{ tambahPeserta: false }">
-            <button @click="tambahPeserta = true" class="w-40 mb-4 px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+            <button @click="tambahPeserta = true" class="w-40 mb-4 px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
                 Tambah Peserta
             </button>
             <div x-show="tambahPeserta" class="fixed inset-0 transition-opacity" aria-hidden="true" @click="tambahPeserta = false">

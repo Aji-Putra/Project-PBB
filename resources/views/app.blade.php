@@ -5,13 +5,14 @@
     <div class="flex flex-col gap-2 max-w-screen-xl px-0 mx-auto mb-3 md:px-2 lg:px-3">
         <h1 class="text-2xl">Selamat Datang, {{ Auth::user()->name }}</h1>
         <p class="text-lg">Pilih Peserta yang akan dinilai</p>
-        
+
     </div>
-    <a href="{{ url('/rekap') }}"> Rekap</a>
-    
+
+
     <div class="md:max-w-[1080px] max-w-[720px] mx-auto">
-        <div class="w-full flex justify-end" x-data="{ tambahPeserta: false }">
-            <button @click="tambahPeserta = true" class="w-40 mb-4 px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+        <div class="w-full flex justify-end items-center gap-2" x-data="{ tambahPeserta: false }">
+            <a class="w-40 bg-green-500 text-white px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500" href="{{ url('/rekap') }}">Rekap</a>
+            <button @click="tambahPeserta = true" class="w-40 mb-4 px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
                 Tambah Peserta
             </button>
             <div x-show="tambahPeserta" class="fixed inset-0 transition-opacity" aria-hidden="true" @click="tambahPeserta = false">
@@ -81,11 +82,10 @@
                         </td>
                         <td class="p-4 border-b border-slate-700 bg-slate-800">
                             @if ($item->status === 'Sudah Di Nilai')
-                                <h3>Sudah di Nilai</h3>
+                            <p class="text-sm font-medium text-slate-300">Sudah di Nilai</p>
                             @else
-                                
                             <div x-data="{ showModal: false }">
-                                <button @click="showModal = true" class="w-full px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+                                <button @click="showModal = true" class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
                                     Nilai
                                 </button>
                                 <div x-show="showModal" class="fixed inset-0 transition-opacity" aria-hidden="true" @click="showModal = false">
@@ -122,8 +122,8 @@
                     </tr>
                     @endforeach
                 </tbody>
-            </table>    
+            </table>
             </div>
-        
+
     </div>
 </x-layout>
