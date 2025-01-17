@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_sekolah');
             $table->string('nomor_peserta');
+            $table->string('status');
             $table->timestamps();
         });
     }
