@@ -32,11 +32,12 @@ class SekolahController extends Controller
         $request->validate([
             'nama_sekolah' => 'required|string|max:255',
             'nomor_peserta' => 'required|string|max:255',
+            'status' => 'required|string|max:255',
         ]);
 
         Sekolah::create($request->all());
 
-        return redirect()->route('sekolah.index')->with('success', 'Data sekolah berhasil ditambahkan.');
+        return redirect()->route('dashboard')->with('success', 'Data sekolah berhasil ditambahkan.');
     }
 
     /**

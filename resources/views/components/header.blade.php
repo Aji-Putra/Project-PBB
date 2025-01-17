@@ -15,7 +15,15 @@
         </button>
       </div>
       <nav :class="{'flex': !open, 'hidden': open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
-        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-red-300 rounded-lg dark-mode:bg-red-300 dark-mode:hover:bg-red-400 dark-mode:focus:bg-red-400 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-red-200 md:mt-0 md:ml-4 hover:text-red-900 focus:text-red-900 hover:bg-red-400 focus:bg-red-400 focus:outline-none focus:shadow-outline" href="#">Keluar</a>
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+
+          <x-dropdown-link :href="route('logout')"
+                  onclick="event.preventDefault();
+                              this.closest('form').submit();">
+              {{ __('Log Out') }}
+          </x-dropdown-link>
+      </form>
       </nav>
     </div>
   </div>

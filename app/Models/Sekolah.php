@@ -14,5 +14,6 @@ class Sekolah extends Model
     protected $fillable = [
         'nama_sekolah',
         'nomor_peserta',
+        'status',
     ];
 }
