@@ -30,6 +30,7 @@ Route::post('/tambah/sekolah',[SekolahController::class,'store']);
 Route::post('/sumbit/penilaian',[NilaiPbbController::class,'store'])->name('penilaian');
 
 Route::resource('nilai_vafor', NilaiVaforController::class);
+Route::get('/registrasi/{id}',[SekolahController::class ,'registrasi']);
 
 Route::get('/admin', function () {
     return view('admin');

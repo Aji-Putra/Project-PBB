@@ -16,4 +16,9 @@ class Sekolah extends Model
         'nomor_peserta',
         'status',
     ];
+
+    public function nilaiPbb()
+    {
+        return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+    }
 }

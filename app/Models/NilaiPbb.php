@@ -43,4 +43,9 @@ class NilaiPbb extends Model
         'penguasaan_materi',
         'penguasaan_lapangan_pasukan',
     ];
+
+    public function sekolah()
+    {
+        return $this->belongsTo(Sekolah::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+    }
 }

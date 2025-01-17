@@ -24,6 +24,14 @@ class SekolahController extends Controller
         return view('sekolah.create');
     }
 
+    public function registrasi($id) {
+        $sekolah = Sekolah::findOrFail($id);
+        $sekolah->status = 'Sudah Registrasi';
+        $sekolah->save();
+
+        return back();
+    }
+
     /**
      * Store a newly created resource in storage.
      */

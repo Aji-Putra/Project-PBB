@@ -20,7 +20,7 @@
             </div>
             <form action="{{ url('/tambah/sekolah') }}" method="POST">
                 @csrf
-                <input type="hidden" name="status" value="Belum Di Nilai">
+                <input type="hidden" name="status" value="Belum Registrasi Ulang">
                 <div x-show="tambahPeserta" class="fixed z-10 inset-0 overflow-y-auto">
                     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                         <div class="w-full inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all my-20 sm:my-40 sm:align-middle sm:max-w-lg sm:w-full" role="dialog">
@@ -85,7 +85,8 @@
                             <p class="text-sm font-medium text-slate-300">Sudah di Nilai</p>
                             @else
                             <div x-data="{ showModal: false }">
-                                <button @click="showModal = true" class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+                                <a href="/registrasi/{{ $item->id }}">Registrasi </a>
+                                <button @click="showModal = true" class="w-full px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
                                     Nilai
                                 </button>
                                 <div x-show="showModal" class="fixed inset-0 transition-opacity" aria-hidden="true" @click="showModal = false">

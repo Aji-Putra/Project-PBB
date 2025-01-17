@@ -130,9 +130,9 @@ class NilaiPbbController extends Controller
         NilaiKostum::create($dataKostum);
         NilaiPasukan::create($dataPasukan);
         NilaiPbb::create($validatedData);
-        $sekolah = Sekolah::findOrFail($request->sekolah_id);
-        $sekolah->status = 'Sudah Di Nilai';
-        $sekolah->save();
+        // $sekolah = Sekolah::findOrFail($request->sekolah_id);
+        // $sekolah->status = 'Sudah Di Nilai';
+        // $sekolah->save();
 
         return redirect()->route('dashboard')->with('success', 'Nilai PBB berhasil ditambahkan!');
     }

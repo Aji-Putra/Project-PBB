@@ -53,29 +53,35 @@
             <table class="min-w-full table-auto">
                 <thead>
                     <tr>
-                        <th class="border px-4 py-2">Sekolah ID</th>
+                        <th class="border px-4 py-2">Juara</th>
+                        <th class="border px-4 py-2">Nomor Peserta</th>
+                        <th class="border px-4 py-2">Nama Sekolah</th>
                         <th class="border px-4 py-2">PBB</th>
-                        <th class="border px-4 py-2">Danton</th>
                         <th class="border px-4 py-2">Pasukan</th>
                         <th class="border px-4 py-2">VAFOR</th>
                         <th class="border px-4 py-2">Kostum</th>
                         <th class="border px-4 py-2">Penalti</th>
+                        <th class="border px-4 py-2">Total Nilai</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($rekapData as $sekolah_id => $data)
+                    @foreach($rekapData as $rank => $data)
                         <tr>
-                            <td class="border px-4 py-2">{{ $sekolah_id }}</td>
-                            <td class="border px-4 py-2">{{ $data['pbb'] ?? 0 }}</td>
-                            <td class="border px-4 py-2">{{ $data['komandan'] ?? 0 }}</td>
-                            <td class="border px-4 py-2">{{ $data['pasukan'] ?? 0 }}</td>
-                            <td class="border px-4 py-2">{{ $data['vafor'] ?? 0 }}</td>
-                            <td class="border px-4 py-2">{{ $data['kostum'] ?? 0 }}</td>
-                            <td class="border px-4 py-2">{{ $data['penalti'] ?? 0 }}</td>
+                            <td class="border px-4 py-2">{{ $rank + 1 }}</td>
+                            <td class="border px-4 py-2">{{ $data['nomor_peserta'] }}</td>
+                            <td class="border px-4 py-2">{{ $data['nama_sekolah'] }}</td>
+                            <td class="border px-4 py-2">{{ $data['pbb'] }}</td>
+                            <td class="border px-4 py-2">{{ $data['pasukan'] }}</td>
+                            <td class="border px-4 py-2">{{ $data['vafor'] }}</td>
+                            <td class="border px-4 py-2">{{ $data['kostum'] }}</td>
+                            <td class="border px-4 py-2">{{ $data['penalti'] }}</td>
+                            <td class="border px-4 py-2">{{ $data['total_nilai'] }}</td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            
+            
             </div>
 
     </div>
