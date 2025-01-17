@@ -32,3 +32,8 @@ Route::get('/sekolah', [SekolahController::class, 'index'])->name('sekolah.index
 Route::post('/sumbit/penilaian',[NilaiPbbController::class,'store'])->name('penilaian');
 
 Route::resource('nilai_vafor', NilaiVaforController::class);
+
+
+Route::get('/admin', function () {
+    return view('admin');
+});
