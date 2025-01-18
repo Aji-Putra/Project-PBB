@@ -11,6 +11,7 @@ class NilaiPasukan extends Model
 
     protected $table = 'nilai_pasukan';
     protected $fillable = [
+        'nama_juri',
         'sekolah_id',
         'kerapihan_saf',
         'kerapihan_banjar',

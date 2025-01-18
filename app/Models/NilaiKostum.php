@@ -11,6 +11,7 @@ class NilaiKostum extends Model
 
     protected $table = 'nilai_kostum';
     protected $fillable = [
+        'nama_juri',
         'sekolah_id',
         'kelengkapan_atribut',
         'keindahan_kerapihan'

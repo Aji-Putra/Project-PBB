@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('nilai_vafor', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_juri');
             $table->string('sekolah_id');
             $table->integer('kekompakan_variasi');
             $table->integer('tingkat_kesulitan_variasi');

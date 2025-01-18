@@ -10,6 +10,7 @@
     @endif
     <form action="{{ route('penilaian') }}" method="POST">
         @csrf
+        <input type="hidden" value="{{ auth()->user()->name }}" name="nama_juri">
     <div class="bg-white p-4 rounded shadow-lg mb-4">
         <h1 class="text-xl font-medium">Nomor Peserta: {{ $sekolahID->nomor_peserta }} </h1>
         <h1 class="text-xl font-medium">Nama Sekolah: {{ $sekolahID->nama_sekolah }} </h1>

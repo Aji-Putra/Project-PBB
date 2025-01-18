@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('nilai_pbb', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_juri');
             $table->string('sekolah_id');
             $table->integer('bersaf_kumpul');
             $table->integer('sikap_sempurna');

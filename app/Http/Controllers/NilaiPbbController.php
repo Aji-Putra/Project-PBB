@@ -44,6 +44,7 @@ class NilaiPbbController extends Controller
     {
         // dd($request);
         $validatedData = $request->validate([
+            'nama_juri' => 'required',
             'sekolah_id' => 'required',
             'bersaf_kumpul' => 'required|integer',
             'sikap_sempurna' => 'required|integer',
@@ -79,6 +80,7 @@ class NilaiPbbController extends Controller
         ]);
 
         $dataVariasi = $request->validate([
+            'nama_juri' => 'required',
             'sekolah_id' => 'required',
             'kekompakan_variasi'        => 'required',
             'tingkat_kesulitan_variasi'        => 'required',
@@ -93,12 +95,14 @@ class NilaiPbbController extends Controller
         ]);
 
         $dataKostum = $request->validate([
+            'nama_juri' => 'required',
             'sekolah_id' => 'required',
             'kelengkapan_atribut'        => 'required',
             'keindahan_kerapihan'        => 'required',
         ]);
 
         $dataPasukan = $request->validate([
+            'nama_juri' => 'required',
             'sekolah_id' => 'required',
             'kerapihan_saf'        => 'required',
             'kerapihan_banjar'        => 'required',
@@ -110,6 +114,7 @@ class NilaiPbbController extends Controller
         
 
         $penalti = DB::table('nilai_penalti')->insert([
+            'nama_juri' => 'required',
             'sekolah_id' => $request->input('sekolah_id'),
             'tidak_ikut_daftar_ulang' => $request->input('tidak_ikut_daftar_ulang', 0),
             'tidak_ikut_upacara_pembukaan' => $request->input('tidak_ikut_upacara_pembukaan', 0),

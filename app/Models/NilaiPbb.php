@@ -11,6 +11,7 @@ class NilaiPbb extends Model
     
     protected $table = 'nilai_pbb';
     protected $fillable = [
+        'nama_juri',
         'sekolah_id',
         'bersaf_kumpul',
         'sikap_sempurna',

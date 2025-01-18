@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('nilai_penalti', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_juri');
             $table->string('sekolah_id')->nullable();
             $table->integer('tidak_ikut_daftar_ulang')->nullable();
             $table->integer('tidak_ikut_upacara_pembukaan')->nullable();
