@@ -15,6 +15,10 @@ Route::get('/dash', function () {
     return view('dashboard');
 });
 
+Route::get('/total-juri', function () {
+    return view('total-setiap-juri');
+});
+
 Route::get('/penilaian-juri/{id}',[NilaiPbbController::class,'create']);
 
 Route::get('/sekolah', [SekolahController::class, 'index'])->name('sekolah.index');
