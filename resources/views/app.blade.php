@@ -30,9 +30,9 @@
                                         <h3 class="text-lg leading-6 font-medium text-gray-900">Tambah Peserta</h3>
                                         <div class="mt-2 flex flex-col gap-1">
                                             <label for="">Nomor Peserta</label>
-                                            <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nomor_peserta">
+                                            <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nomor_peserta" required>
                                             <label for="">Nama Sekolah</label>
-                                            <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nama_sekolah">
+                                            <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nama_sekolah" required>
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +85,9 @@
                             <p class="text-sm font-medium text-slate-300">Sudah di Nilai</p>
                             @else
                             <div class="flex gap-4 items-center" x-data="{ showModal: false }">
+                                @if ($item->status !== 'Sudah Registrasi')
                                 <a class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-green-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500" href="/registrasi/{{ $item->id }}">Registrasi</a>
+                                @endif
                                 <button @click="showModal = true" class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
                                     Nilai
                                 </button>
