@@ -31,6 +31,7 @@ Route::post('/sumbit/penilaian',[NilaiPbbController::class,'store'])->name('peni
 
 Route::resource('nilai_vafor', NilaiVaforController::class);
 Route::get('/registrasi/{id}',[SekolahController::class ,'registrasi']);
+Route::get('/rekap/cetak-pdf/{sekolah_id}', [RekapController::class, 'cetakPdf'])->name('rekap.cetakPdf');
 
 Route::get('/admin', function () {
     return view('admin');

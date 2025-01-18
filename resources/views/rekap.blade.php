@@ -77,7 +77,10 @@
                             <td class="border px-4 py-2">{{ $data['kostum'] }}</td>
                             <td class="border px-4 py-2">{{ $data['penalti'] }}</td>
                             <td class="border px-4 py-2">{{ $data['total_nilai'] }}</td>
-                            <td class="border px-4 py-2"><a href=""></a></td>
+                            <td class="border px-4 py-2">
+                                <a href="{{ route('rekap.cetakPdf', $data['sekolah_id']) }}" class="text-blue-500">Cetak PDF</a>
+                            </td>
+                            
                         </tr>
                     @endforeach
                 </tbody>
