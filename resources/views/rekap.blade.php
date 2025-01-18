@@ -62,6 +62,7 @@
                         <th class="border px-4 py-2">Kostum</th>
                         <th class="border px-4 py-2">Penalti</th>
                         <th class="border px-4 py-2">Total Nilai</th>
+                        <th class="border px-4 py-2">Cetak</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,12 +77,13 @@
                             <td class="border px-4 py-2">{{ $data['kostum'] }}</td>
                             <td class="border px-4 py-2">{{ $data['penalti'] }}</td>
                             <td class="border px-4 py-2">{{ $data['total_nilai'] }}</td>
+                            <td class="border px-4 py-2"><a href=""></a></td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            
-            
+
+
             </div>
 
     </div>
