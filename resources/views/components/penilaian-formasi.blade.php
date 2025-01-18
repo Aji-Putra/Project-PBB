@@ -54,7 +54,7 @@
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
             <div>
-                <input class="w-7 h-7 peer hidden font-bold" id="pengunaan_pbb_murni_formasi_<?= $value ?>" type="radio" name="pengunaan_pbb_murni_formasi" value="<?= $value ?>" required>
+                <input class="w-7 h-7 peer hidden font-bold" id="pengunaan_pbb_murni_formasi_<?= $value ?>" type="radio" name="penggunaan_pbb_murni_formasi" value="<?= $value ?>" required>
                 <label for="pengunaan_pbb_murni_formasi_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
             </div>
             <?php endforeach; ?>

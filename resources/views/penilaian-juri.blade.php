@@ -1,5 +1,5 @@
 <x-layout>
-    {{-- @if ($errors->any())
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -7,7 +7,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif --}}
+    @endif
     <form action="{{ route('penilaian') }}" method="POST">
         @csrf
     <div class="bg-white p-4 rounded shadow-lg mb-4">
