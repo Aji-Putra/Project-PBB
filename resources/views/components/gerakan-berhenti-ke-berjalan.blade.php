@@ -2,35 +2,47 @@
     <h2 class="font-medium text-lg">4. Gerakan Berhenti ke Berjalan</h2>
     <div class="flex gap-2 items-center justify-between">
         <label for="maju_jalan">Maju Jalan</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="maju_jalan" id="maju_jalan" required>
-            <option value="" selected>Nilai Maks: 20</option>
-            <?php for ($i = 1; $i <= 20; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="maju_jalan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [8, 10, 12, 14, 16, 18, 20];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="maju_jalan_<?= $value ?>" type="radio" name="maju_jalan" value="<?= $value ?>" required>
+                <label for="maju_jalan_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="langkah_tegap">Langkah Tegap</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="langkah_tegap" id="langkah_tegap" required>
-            <option value="" selected>Nilai Maks: 20</option>
-            <?php for ($i = 1; $i <= 20; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="langkah_tegap" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [8, 10, 12, 14, 16, 18, 20];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="langkah_tegap_<?= $value ?>" type="radio" name="langkah_tegap" value="<?= $value ?>" required>
+                <label for="langkah_tegap_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="langkah_berlari">Langkah Berlari</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="langkah_berlari" id="langkah_berlari" required>
-            <option value="" selected>Nilai Maks: 30</option>
-            <?php for ($i = 1; $i <= 30; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="langkah_berlari" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [12, 15, 18, 21, 24, 27, 30];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="langkah_berlari_<?= $value ?>" type="radio" name="langkah_berlari" value="<?= $value ?>" required>
+                <label for="langkah_berlari_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>

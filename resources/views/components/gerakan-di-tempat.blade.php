@@ -2,123 +2,167 @@
     <h2 class="font-medium text-lg">2. Gerakan di Tempat</h2>
     <div class="flex gap-2 items-center justify-between">
         <label for="sikap_sempurna">Sikap Sempurna</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="sikap_sempurna" id="sikap_sempurna" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="sikap_sempurna" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="sikap_sempurna_<?= $value ?>" type="radio" name="sikap_sempurna" value="<?= $value ?>" required>
+                <label for="sikap_sempurna_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="istirahat_di_tempat">Istirahat di Tempat &#40;Biasa&#41;</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="istirahat_di_tempat" id="istirahat_di_tempat" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="istirahat_di_tempat" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="istirahat_di_tempat_<?= $value ?>" type="radio" name="istirahat_di_tempat" value="<?= $value ?>" required>
+                <label for="istirahat_di_tempat_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="hormat">Hormat</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="hormat" id="hormat" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="hormat" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="hormat_<?= $value ?>" type="radio" name="hormat" value="<?= $value ?>" required>
+                <label for="hormat_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="periksa_kerapihan">Periksa Kerapihan &#40;Parade&#41;</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="periksa_kerapihan" id="periksa_kerapihan" required>
-            <option value="" selected>Nilai Maks: 20</option>
-            <?php for ($i = 1; $i <= 20; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="periksa_kerapihan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [8, 10, 12, 14, 16, 18, 20];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="periksa_kerapihan_<?= $value ?>" type="radio" name="periksa_kerapihan" value="<?= $value ?>" required>
+                <label for="periksa_kerapihan_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="setengah_lengan_lencang_kiri">1/2 Lengan Lencang Kiri</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="setengah_lengan_lencang_kiri" id="setengah_lengan_lencang_kiri" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="setengah_lengan_lencang_kiri" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="setengah_lengan_lencang_kiri_<?= $value ?>" type="radio" name="setengah_lengan_lencang_kiri" value="<?= $value ?>" required>
+                <label for="setengah_lengan_lencang_kiri_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="lencang_kanan">Lencang Kanan</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="lencang_kanan" id="lencang_kanan" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="lencang_kanan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="lencang_kanan_<?= $value ?>" type="radio" name="lencang_kanan" value="<?= $value ?>" required>
+                <label for="lencang_kanan_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="hadap_kanan">Hadap Kanan</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="hadap_kanan" id="hadap_kanan" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="hadap_kanan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="hadap_kanan_<?= $value ?>" type="radio" name="hadap_kanan" value="<?= $value ?>" required>
+                <label for="hadap_kanan_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="lencang_depan">Lencang Depan</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="lencang_depan" id="lencang_depan" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="lencang_depan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="lencang_depan_<?= $value ?>" type="radio" name="lencang_depan" value="<?= $value ?>" required>
+                <label for="lencang_depan_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="hadap_kiri">Hadap Kiri</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="hadap_kiri" id="hadap_kiri" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="hadap_kiri" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="hadap_kiri_<?= $value ?>" type="radio" name="hadap_kiri" value="<?= $value ?>" required>
+                <label for="hadap_kiri_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="jalan_di_tempat">Jalan di Tempat</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="jalan_di_tempat" id="jalan_di_tempat" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="jalan_di_tempat" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+                $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="jalan_di_tempat_<?= $value ?>" type="radio" name="jalan_di_tempat" value="<?= $value ?>" required>
+                <label for="jalan_di_tempat_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="flex gap-2 items-center justify-between">
         <label for="balik_kanan_henti">Balik Kanan Henti</label>
-        <select
-            class="px-2 py-1 border border-black rounded focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name="balik_kanan_henti" id="balik_kanan_henti" required>
-            <option value="" selected>Nilai Maks: 10</option>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-            <option value="<?= $i ?>"><?= $i ?></option>
-            <?php endfor; ?>
-        </select>
+        <div id="balik_kanan_henti" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
+            <?php
+            $values = [4, 5, 6, 7, 8, 9, 10];
+            foreach ($values as $value):
+            $paddingClass = $value < 10 ? 'px-3' : 'px-2';
+            ?>
+            <div>
+                <input class="w-7 h-7 peer hidden font-bold" id="balik_kanan_henti_<?= $value ?>" type="radio" name="balik_kanan_henti" value="<?= $value ?>" required>
+                <label for="balik_kanan_henti_<?= $value ?>" class="block border border-gray-500 cursor-pointer select-none rounded-xl p-1 <?= $paddingClass ?> text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all"><?= $value ?></label>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>

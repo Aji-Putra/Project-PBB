@@ -30,7 +30,7 @@
                 </td>
                 <td class="p-4 border-b border-slate-700 bg-slate-800">
                     <div x-data="{ showModal: false }">
-                        <button @click="showModal = true" class="w-full px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+                        <button @click="showModal = true" class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
                             Nilai
                         </button>
                         <div x-show="showModal" class="fixed inset-0 transition-opacity" aria-hidden="true" @click="showModal = false">
@@ -66,5 +66,5 @@
             </tr>
             @endforeach
         </tbody>
-    </table>    
+    </table>
     </div>

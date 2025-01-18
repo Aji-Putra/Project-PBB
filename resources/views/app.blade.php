@@ -41,7 +41,7 @@
                                 <button type="submit"  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 sm:ml-3 sm:w-auto sm:text-sm">
                                     Lanjutkan
                                 </button>
-                                <button @click="tambahPeserta = false" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                <button type="button" @click="tambahPeserta = false" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                                     Batalkan
                                 </button>
                             </div>
@@ -84,9 +84,9 @@
                             @if ($item->status === 'Sudah Di Nilai')
                             <p class="text-sm font-medium text-slate-300">Sudah di Nilai</p>
                             @else
-                            <div x-data="{ showModal: false }">
-                                <a href="/registrasi/{{ $item->id }}">Registrasi </a>
-                                <button @click="showModal = true" class="w-full px-4 py-2 text-sm text-white font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+                            <div class="flex gap-4 items-center" x-data="{ showModal: false }">
+                                <a class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-green-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500" href="/registrasi/{{ $item->id }}">Registrasi</a>
+                                <button @click="showModal = true" class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
                                     Nilai
                                 </button>
                                 <div x-show="showModal" class="fixed inset-0 transition-opacity" aria-hidden="true" @click="showModal = false">
