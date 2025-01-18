@@ -96,7 +96,7 @@ class RekapController extends Controller
             ->first();
 
             $pasukanData = NilaiPasukan::selectRaw('sekolah_id, SUM(kerapihan_saf + kerapihan_banjar + kekompakan_gerak + penempatan_ketinggian_personel + formasi_keseluruhan) as total_nilai')
-            ->where('sekolah_id', 2) // Pastikan filter diterapkan sebelum grup
+            ->where('sekolah_id', $sekolah_id) // Pastikan filter diterapkan sebelum grup
             ->groupBy('sekolah_id')   // Tambahkan klausa groupBy
             ->first();
 
@@ -105,13 +105,13 @@ class RekapController extends Controller
                 kreativitas_variasi + keindahan_variasi + perpaduan_pbb_murni_variasi + 
                 kekompakan_formasi + tingkat_kesulitan_formasi + dinamis_struktur_formasi + 
                 penggunaan_pbb_murni_formasi + bentuk_akhir_formasi) as total_nilai')
-            ->where('sekolah_id', 2) // Pastikan filter diterapkan sebelum grup
+            ->where('sekolah_id', $sekolah_id) // Pastikan filter diterapkan sebelum grup
             ->groupBy('sekolah_id')
             ->first();
 
         $kostumData = NilaiKostum::where('sekolah_id', $sekolah_id)
             ->selectRaw('sekolah_id, SUM(kelengkapan_atribut + keindahan_kerapihan) as total_nilai')
-            ->where('sekolah_id', 2) // Pastikan filter diterapkan sebelum grup
+            ->where('sekolah_id', $sekolah_id) // Pastikan filter diterapkan sebelum grup
             ->groupBy('sekolah_id')
             ->first();
 
@@ -120,7 +120,7 @@ class RekapController extends Controller
                 terlambat_ke_dp_1 + tidak_sesuai_nomor_urut + terlewat_tampil + kurang_lebih_personil + 
                 anggota_sakit_di_lapangan + merusak_properti + melewati_garis_batas + melebihi_waktu + 
                 manipulasi_anggota) as total_nilai')
-            ->where('sekolah_id', 2) // Pastikan filter diterapkan sebelum grup
+            ->where('sekolah_id', $sekolah_id) // Pastikan filter diterapkan sebelum grup
             ->groupBy('sekolah_id')
             ->first();
 
