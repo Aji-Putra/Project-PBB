@@ -15,9 +15,10 @@ Route::get('/dash', function () {
     return view('dashboard');
 });
 
-Route::get('/total-juri', function () {
-    return view('total-setiap-juri');
-});
+Route::get('/total-juri',[RekapController::class,'rekapJuri']);
+// Route::get('/total-juri', function () {
+//     return view('total_setiap_juri');
+// });
 
 Route::get('/penilaian-juri/{id}',[NilaiPbbController::class,'create']);
 

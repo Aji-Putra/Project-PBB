@@ -16,4 +16,9 @@ class NilaiKostum extends Model
         'kelengkapan_atribut',
         'keindahan_kerapihan'
     ];
+
+    public function sekolah()
+    {
+        return $this->belongsTo(Sekolah::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+    }
 }

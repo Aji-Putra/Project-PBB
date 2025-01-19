@@ -26,4 +26,9 @@ class NilaiPenalti extends Model
         'melebihi_waktu',
         'manipulasi_anggota',
     ];
+
+    public function sekolah()
+    {
+        return $this->belongsTo(Sekolah::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+    }
 }

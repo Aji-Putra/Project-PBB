@@ -21,4 +21,20 @@ class Sekolah extends Model
     {
         return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
     }
+    public function nilaiPasukan()
+    {
+        return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+    }
+    public function nilaiKostum()
+    {
+        return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+    }
+    public function nilaiVafor()
+    {
+        return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+    }
+    public function nilaiPenalti()
+    {
+        return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+    }
 }

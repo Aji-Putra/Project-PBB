@@ -19,4 +19,9 @@ class NilaiPasukan extends Model
         'penempatan_ketinggian_personel',
         'formasi_keseluruhan'
     ];
+
+    public function sekolah()
+    {
+        return $this->belongsTo(Sekolah::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+    }
 }
