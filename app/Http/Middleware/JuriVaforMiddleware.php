@@ -4,10 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
-class RoleMiddleware
+class JuriVaforMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role === 'Admin') {
+        if (Auth::check() && Auth::user()->role === 'vafor') {
             return $next($request);
         }
 

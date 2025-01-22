@@ -1,6 +1,6 @@
-@php
+{{-- @php
     dd($pbbData);
-@endphp
+@endphp --}}
 <x-layout>
     <div class="flex flex-col gap-2 max-w-screen-xl px-0 mx-auto mb-3 md:px-2 lg:px-3">
         <h1 class="text-2xl">Selamat Datang, {{ Auth::user()->name }}</h1>

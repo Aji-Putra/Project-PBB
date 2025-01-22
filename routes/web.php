@@ -7,6 +7,7 @@ use App\Http\Controllers\NilaiVaforController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\SekolahController;
 use App\Models\Sekolah;
+use Illuminate\Routing\RouteGroup;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -14,11 +15,35 @@ Route::get('/', function () {
 Route::get('/dash', function () {
     return view('dashboard');
 });
+Route::middleware('auth','admin')->group(function () {
+
+
+
+});
 
 Route::get('/total-juri',[RekapController::class,'rekapJuri']);
 // Route::get('/total-juri', function () {
 //     return view('total_setiap_juri');
 // });
+
+//Route Role PBB
+Route::middleware('auth','pbb')->group(function () {
+
+
+
+});
+//Route Role kostum
+Route::middleware('auth','kostum')->group(function () {
+
+
+
+});
+//Route Role vafor
+Route::middleware('auth','vafor')->group(function () {
+
+
+
+});
 
 Route::get('/penilaian-juri/{id}',[NilaiPbbController::class,'create']);
 
