@@ -18,15 +18,26 @@ class UserSeeder extends Seeder
             'username' => 'admin',
             'role' => 'Admin',
             'password' => bcrypt('password'), // Ganti dengan kata sandi aman
-            'role' => 'admin',
+
         ]);
 
         User::create([
             'name' => 'Juri PBB',
-            'username' => 'juri',
+            'username' => 'juripbb',
             'role' => 'PBB',
+            'password' => bcrypt('password'), // Ganti dengan kata sandi aman,
+        ]);
+        User::create([
+            'name' => 'Juri Vafor',
+            'username' => 'jurivafor',
+            'role' => 'vafor',
             'password' => bcrypt('password'), // Ganti dengan kata sandi aman
-            'role' => 'juri',
+        ]);
+        User::create([
+            'name' => 'Juri Kostum',
+            'username' => 'jurikostum',
+            'role' => 'kostum',
+            'password' => bcrypt('password'), // Ganti dengan kata sandi aman
         ]);
     }
 }
