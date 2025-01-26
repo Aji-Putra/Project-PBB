@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NilaiKostumController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NilaiPbbController;
 use Illuminate\Support\Facades\Route;
@@ -29,23 +30,26 @@ Route::get('/total-juri',[RekapController::class,'rekapJuri']);
 //Route Role PBB
 Route::middleware('auth','pbb')->group(function () {
 
-
+    Route::get('/penilaian-juri/{id}',[NilaiPbbController::class,'create']);
+    Route::post('/sumbit/penilaian/pbb',[NilaiPbbController::class,'store'])->name('penilaian-pbb');
 
 });
 //Route Role kostum
 Route::middleware('auth','kostum')->group(function () {
 
-
+    Route::get('/penilaian-juri-kostum/{id}',[NilaiKostumController::class,'create']);
+    Route::post('/sumbit/penilaian/kostum',[NilaiKostumController::class,'store'])->name('penilaian-kostum');
 
 });
 //Route Role vafor
 Route::middleware('auth','vafor')->group(function () {
 
-
+    Route::get('/penilaian-juri-vafor/{id}',[NilaiVaforController::class,'create']);
+    Route::post('/sumbit/penilaian/vafor',[NilaiVaforController::class,'store'])->name('penilaian-vafor');
 
 });
 
-Route::get('/penilaian-juri/{id}',[NilaiPbbController::class,'create']);
+
 
 Route::get('/sekolah', [SekolahController::class, 'index'])->name('sekolah.index');
 
@@ -57,7 +61,7 @@ Route::get('/rekap',[RekapController::class,'rekap']);
 
 Route::post('/tambah/sekolah',[SekolahController::class,'store']);
 
-Route::post('/sumbit/penilaian',[NilaiPbbController::class,'store'])->name('penilaian');
+// Route::post('/sumbit/penilaian',[NilaiPbbController::class,'store'])->name('penilaian');
 
 Route::resource('nilai_vafor', NilaiVaforController::class);
 Route::get('/registrasi/{id}',[SekolahController::class ,'registrasi']);

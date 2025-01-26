@@ -30,7 +30,7 @@ class NilaiPbbController extends Controller
     {
        $sekolahID = Sekolah::find($id);
        if ($sekolahID) {
-        return view('penilaian-juri', compact('sekolahID'));
+        return view('penilaian-juri-pbb', compact('sekolahID'));
     } else {
         return redirect()->route('penilaian-juri')->with('error', 'Penilaian Juri not found.');
     }
@@ -79,37 +79,8 @@ class NilaiPbbController extends Controller
             // Tambahkan validasi lainnya sesuai kebutuhan
         ]);
 
-        $dataVariasi = $request->validate([
-            'nama_juri' => 'required',
-            'sekolah_id' => 'required',
-            'kekompakan_variasi'        => 'required',
-            'tingkat_kesulitan_variasi'        => 'required',
-            'kreativitas_variasi'        => 'required',
-            'keindahan_variasi'        => 'required',
-            'perpaduan_pbb_murni_variasi'        => 'required',
-            'kekompakan_formasi'        => 'required',
-            'tingkat_kesulitan_formasi'        => 'required',
-            'dinamis_struktur_formasi'        => 'required',
-            'penggunaan_pbb_murni_formasi'        => 'required',
-            'bentuk_akhir_formasi'        => 'required',
-        ]);
 
-        $dataKostum = $request->validate([
-            'nama_juri' => 'required',
-            'sekolah_id' => 'required',
-            'kelengkapan_atribut'        => 'required',
-            'keindahan_kerapihan'        => 'required',
-        ]);
-
-        $dataPasukan = $request->validate([
-            'nama_juri' => 'required',
-            'sekolah_id' => 'required',
-            'kerapihan_saf'        => 'required',
-            'kerapihan_banjar'        => 'required',
-            'kekompakan_gerak'        => 'required',
-            'penempatan_ketinggian_personel'        => 'required',
-            'formasi_keseluruhan'        => 'required',
-        ]);
+       
 
         
 
@@ -131,9 +102,8 @@ class NilaiPbbController extends Controller
             'updated_at' => now(),
         ]);
 
-        NilaiVafor::create($dataVariasi);
-        NilaiKostum::create($dataKostum);
-        NilaiPasukan::create($dataPasukan);
+ 
+       
         NilaiPbb::create($validatedData);
         // $sekolah = Sekolah::findOrFail($request->sekolah_id);
         // $sekolah->status = 'Sudah Di Nilai';

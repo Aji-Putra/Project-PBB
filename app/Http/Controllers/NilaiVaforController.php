@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NilaiPasukan;
 use App\Models\NilaiVafor;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 
 class NilaiVaforController extends Controller
@@ -19,9 +21,14 @@ class NilaiVaforController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        return view('nilai_vafor.create');
+        $sekolahID = Sekolah::find($id);
+        if ($sekolahID) {
+         return view('penilaian-juri-vafor', compact('sekolahID'));
+     } else {
+         return redirect()->route('penilaian-juri')->with('error', 'Penilaian Juri not found.');
+     }
     }
 
     /**
@@ -29,23 +36,35 @@ class NilaiVaforController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'sekolah_id' => 'required|string',
-            'kekompakan_variasi' => 'required|integer',
-            'tingkat_kesulitan_variasi' => 'required|integer',
-            'kreativitas_variasi' => 'required|integer',
-            'keindahan_variasi' => 'required|integer',
-            'perpaduan_pbb_murni_variasi' => 'required|integer',
-            'kekompakan_formasi' => 'required|integer',
-            'tingkat_kesulitan_formasi' => 'required|integer',
-            'dinamis_struktur_formasi' => 'required|integer',
-            'penggunaan_pbb_murni_formasi' => 'required|integer',
-            'bentuk_akhir_formasi' => 'required|integer',
+        $dataVariasi = $request->validate([
+            'nama_juri' => 'required',
+            'sekolah_id' => 'required',
+            'kekompakan_variasi'        => 'required',
+            'tingkat_kesulitan_variasi'        => 'required',
+            'kreativitas_variasi'        => 'required',
+            'keindahan_variasi'        => 'required',
+            'perpaduan_pbb_murni_variasi'        => 'required',
+            'kekompakan_formasi'        => 'required',
+            'tingkat_kesulitan_formasi'        => 'required',
+            'dinamis_struktur_formasi'        => 'required',
+            'penggunaan_pbb_murni_formasi'        => 'required',
+            'bentuk_akhir_formasi'        => 'required',
         ]);
 
-        NilaiVafor::create($validatedData);
+        $dataPasukan = $request->validate([
+            'nama_juri' => 'required',
+            'sekolah_id' => 'required',
+            'kerapihan_saf'        => 'required',
+            'kerapihan_banjar'        => 'required',
+            'kekompakan_gerak'        => 'required',
+            'penempatan_ketinggian_personel'        => 'required',
+            'formasi_keseluruhan'        => 'required',
+        ]);
 
-        return redirect()->route('nilai_vafor.index')->with('success', 'Nilai Vafor berhasil ditambahkan!');
+        NilaiVafor::create($dataVariasi);
+        NilaiPasukan::create($dataPasukan);
+
+        return redirect()->route('dashboard')->with('success', 'Nilai Vafor berhasil ditambahkan!');
     }
 
     /**

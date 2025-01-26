@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NilaiKostum;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 
 class NilaiKostumController extends Controller
@@ -18,9 +19,14 @@ class NilaiKostumController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $sekolahID = Sekolah::find($id);
+        if ($sekolahID) {
+         return view('penilaian-juri-kostum', compact('sekolahID'));
+     } else {
+         return redirect()->route('penilaian-juri')->with('error', 'Penilaian Juri not found.');
+     }
     }
 
     /**
@@ -29,6 +35,15 @@ class NilaiKostumController extends Controller
     public function store(Request $request)
     {
         //
+        $dataKostum = $request->validate([
+            'nama_juri' => 'required',
+            'sekolah_id' => 'required',
+            'kelengkapan_atribut'        => 'required',
+            'keindahan_kerapihan'        => 'required',
+        ]);
+        NilaiKostum::create($dataKostum);
+        return redirect()->route('dashboard')->with('success', 'Nilai PBB berhasil ditambahkan!');
+
     }
 
     /**
