@@ -4,7 +4,7 @@
         <label for="kekompakan_variasi">Kekompakan</label>
         <div id="kekompakan_variasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [8, 10, 12, 14, 16, 18, 20];
+            $values = [14, 16, 18, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -19,7 +19,7 @@
         <label for="tingkat_kesulitan_variasi">Tingkat Kesulitan</label>
         <div id="tingkat_kesulitan_variasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 16, 18, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -34,7 +34,7 @@
         <label for="kreativitas_variasi">Kreativitas</label>
         <div id="kreativitas_variasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [8, 10, 12, 14, 16, 18, 20];
+            $values = [14, 16, 18, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -49,7 +49,7 @@
         <label for="keindahan_variasi">Keindahan/Estestis</label>
         <div id="keindahan_variasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -64,7 +64,7 @@
         <label for="perpaduan_pbb_murni_variasi">Perpaduan dengan PBB Murni</label>
         <div id="perpaduan_pbb_murni_variasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [21, 24, 27, 30];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>

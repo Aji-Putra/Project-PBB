@@ -4,7 +4,7 @@
         <label for="bersaf_kumpul">Bersaf Kumpul</label>
         <div id="bersaf_kumpul" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
                 <?php
-                $values = [12, 15, 18, 21, 24, 27, 30];
+                $values = [22, 25, 28, 31, 34, 37, 40];
                 foreach ($values as $value):
                 ?>
                 <div>

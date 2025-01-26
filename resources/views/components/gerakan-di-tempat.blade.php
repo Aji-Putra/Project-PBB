@@ -4,7 +4,7 @@
         <label for="sikap_sempurna">Sikap Sempurna</label>
         <div id="sikap_sempurna" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -19,7 +19,7 @@
         <label for="istirahat_di_tempat">Istirahat di Tempat &#40;Biasa&#41;</label>
         <div id="istirahat_di_tempat" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -34,7 +34,7 @@
         <label for="hormat">Hormat</label>
         <div id="hormat" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -49,7 +49,7 @@
         <label for="periksa_kerapihan">Periksa Kerapihan &#40;Parade&#41;</label>
         <div id="periksa_kerapihan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [8, 10, 12, 14, 16, 18, 20];
+            $values = [22, 25, 28, 31, 34, 37, 40];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -64,7 +64,7 @@
         <label for="setengah_lengan_lencang_kiri">1/2 Lengan Lencang Kiri</label>
         <div id="setengah_lengan_lencang_kiri" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -79,7 +79,7 @@
         <label for="lencang_kanan">Lencang Kanan</label>
         <div id="lencang_kanan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -94,7 +94,7 @@
         <label for="hadap_kanan">Hadap Kanan</label>
         <div id="hadap_kanan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -109,7 +109,7 @@
         <label for="lencang_depan">Lencang Depan</label>
         <div id="lencang_depan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -124,7 +124,7 @@
         <label for="hadap_kiri">Hadap Kiri</label>
         <div id="hadap_kiri" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -139,7 +139,7 @@
         <label for="jalan_di_tempat">Jalan di Tempat</label>
         <div id="jalan_di_tempat" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -154,7 +154,7 @@
         <label for="balik_kanan_henti">Balik Kanan Henti</label>
         <div id="balik_kanan_henti" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [14, 15, 16, 17, 18, 19, 20];
             foreach ($values as $value):
             $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>

@@ -27,16 +27,6 @@
     <h1 class="font-bold text-xl">Penilaian Komandan</h1>
     <hr class="mt border-black">
     <x-penilaian-komandan></x-penilaian-komandan>
-    <h1 class="font-bold text-xl">Penilaian Variasi dan Formasi</h1>
-    <hr class="mt border-black">
-    <x-penilaian-variasi></x-penilaian-variasi>
-    <x-penilaian-formasi></x-penilaian-formasi>
-    <h1 class="font-bold text-xl">Penilaian Kostum</h1>
-    <hr class="mt border-black">
-    <x-penilaian-kostum></x-penilaian-kostum>
-    <h1 class="font-bold text-xl">Penilaian Pasukan</h1>
-    <hr class="mt border-black">
-    <x-penilaian-pasukan></x-penilaian-pasukan>
     <h1 class="font-bold text-xl">Penalti</h1>
     <hr class="mt border-black">
     <x-penalti></x-penalti>
