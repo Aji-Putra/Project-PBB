@@ -4,7 +4,7 @@
         <label for="kekompakan_formasi">Kekompakan</label>
         <div id="kekompakan_formasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [14, 16, 18, 20];
+            $values = [0, 14, 16, 18, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -19,7 +19,7 @@
         <label for="tingkat_kesulitan_formasi">Tingkat Kesulitan</label>
         <div id="tingkat_kesulitan_formasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [14, 16, 18, 20];
+            $values = [0, 14, 16, 18, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -34,7 +34,7 @@
         <label for="dinamis_struktur_formasi">Dinamis Struktur</label>
         <div id="dinamis_struktur_formasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [14, 16, 18, 20];
+            $values = [0, 14, 16, 18, 20];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -49,7 +49,7 @@
         <label for="pengunaan_pbb_murni_formasi">Penggunaan PBB Murni</label>
         <div id="pengunaan_pbb_murni_formasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [21, 24, 27, 30];
+            $values = [0, 21, 24, 27, 30];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -64,7 +64,7 @@
         <label for="bentuk_akhir_formasi">Bentuk Akhir Formasi</label>
         <div id="bentuk_akhir_formasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [7, 8, 9, 10];
+            $values = [0, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>

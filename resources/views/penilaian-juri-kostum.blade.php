@@ -19,9 +19,6 @@
     <h1 class="font-bold text-xl">Penilaian Kostum</h1>
     <hr class="mt border-black">
     <x-penilaian-kostum></x-penilaian-kostum>
-    <h1 class="font-bold text-xl">Penalti</h1>
-    <hr class="mt border-black">
-    <x-penalti></x-penalti>
     <div x-data="{ kirimPenilaian: false, email: '' }">
         <!-- Button to open the modal -->
         <a @click="kirimPenilaian = true" class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500 cursor-pointer"> Kirim </a>
@@ -54,32 +51,5 @@
         </div>
     </div>
 </form>
-<script>
-    document.getElementById('submit-btn').addEventListener('click', function (event) {
-        // Cari semua input radio yang bersifat "required"
-        const requiredRadios = document.querySelectorAll('input[type="radio"][required]');
-        let allFilled = true;
-
-        requiredRadios.forEach((radio) => {
-            // Cari semua radio dengan name yang sama
-            const groupName = radio.name;
-            const radiosInGroup = document.querySelectorAll(`input[name="${groupName}"]`);
-            const isSelected = Array.from(radiosInGroup).some(radio => radio.checked);
-
-            // Highlight jika tidak ada yang dipilih
-            const parentDiv = radio.closest('.flex'); // Cari parent div terdekat untuk highlight
-            if (!isSelected) {
-                allFilled = false;
-                parentDiv.classList.add('border-red-500'); // Tambahkan highlight
-            } else {
-                parentDiv.classList.remove('border-red-500'); // Hapus highlight
-            }
-        });
-
-        if (!allFilled) {
-            event.preventDefault(); // Hentikan submit
-            alert('Harap isi semua pilihan yang diperlukan.');
-        }
-    });
-</script>
+<script src="{{ Storage::url('js/radio-btn.js') }}"></script>
 </x-layout>

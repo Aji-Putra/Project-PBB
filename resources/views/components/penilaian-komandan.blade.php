@@ -4,7 +4,7 @@
         <label for="postur">Postur</label>
         <div id="postur" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -19,7 +19,7 @@
         <label for="suara">Suara</label>
         <div id="suara" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -34,7 +34,7 @@
         <label for="intonasi">Intonasi, Kata, Irama, Tempo</label>
         <div id="intonasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -49,7 +49,7 @@
         <label for="penguasaan_materi">Penguasaan Materi</label>
         <div id="penguasaan_materi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -64,7 +64,7 @@
         <label for="penguasaan_lapangan_pasukan">Penguasaan Lapang & Pasukan</label>
         <div id="penguasaan_lapangan_pasukan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>

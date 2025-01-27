@@ -4,7 +4,7 @@
         <label for="bubar_jalan">Bubar Jalan</label>
         <div id="bubar_jalan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [18, 20, 22, 24, 26, 28, 30];
+            $values = [0, 18, 20, 22, 24, 26, 28, 30];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>

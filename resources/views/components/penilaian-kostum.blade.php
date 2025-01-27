@@ -4,7 +4,7 @@
         <label for="kelengkapan_atribut">Kelengkapan & Atribut</label>
         <div id="kelengkapan_atribut" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [2, 3, 4, 5, 6, 7, 8, 9];
+            $values = [0, 2, 3, 4, 5, 6, 7, 8, 9];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -19,7 +19,7 @@
         <label for="keindahan_kerapihan">Keindahan & Kerapihan</label>
         <div id="keindahan_kerapihan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [2, 3, 4, 5, 6, 7, 8, 9];
+            $values = [0, 2, 3, 4, 5, 6, 7, 8, 9];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>

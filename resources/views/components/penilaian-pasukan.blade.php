@@ -4,7 +4,7 @@
         <label for="kerapihan_saf">Kerapihan Saf</label>
         <div id="kerapihan_saf" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -19,7 +19,7 @@
         <label for="kerapihan_banjar">Kerapihan Banjar</label>
         <div id="kerapihan_banjar" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -34,7 +34,7 @@
         <label for="kekompakan_gerak">Kekompakan Gerak</label>
         <div id="kekompakan_gerak" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -49,7 +49,7 @@
         <label for="penempatan_ketinggian_personel">Penempatan Ketinggian Personel</label>
         <div id="penempatan_ketinggian_personel" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -64,7 +64,7 @@
         <label for="formasi_keseluruhan">Performance Keseluruhan</label>
         <div id="formasi_keseluruhan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [4, 5, 6, 7, 8, 9, 10];
+            $values = [0, 4, 5, 6, 7, 8, 9, 10];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>

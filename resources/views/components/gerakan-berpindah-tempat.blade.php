@@ -4,7 +4,7 @@
         <label for="tiga_langkah_kanan">3 Langkah ke Kanan</label>
         <div id="tiga_langkah_kanan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [18, 20, 22, 24, 26, 28, 30];
+            $values = [0, 18, 20, 22, 24, 26, 28, 30];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -19,7 +19,7 @@
         <label for="tiga_langkah_kiri">3 Langkah ke Kiri</label>
         <div id="tiga_langkah_kiri" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [18, 20, 22, 24, 26, 28, 30];
+            $values = [0, 18, 20, 22, 24, 26, 28, 30];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -34,7 +34,7 @@
         <label for="tiga_langkah_depan">3 Langkah ke Depan</label>
         <div id="tiga_langkah_depan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [18, 20, 22, 24, 26, 28, 30];
+            $values = [0, 18, 20, 22, 24, 26, 28, 30];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -49,7 +49,7 @@
         <label for="tiga_langkah_belakang">3 Langkah ke Belakang</label>
         <div id="tiga_langkah_belakang" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [18, 20, 22, 24, 26, 28, 30];
+            $values = [0, 18, 20, 22, 24, 26, 28, 30];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>

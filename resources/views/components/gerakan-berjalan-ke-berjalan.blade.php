@@ -4,7 +4,7 @@
         <label for="tiap_banjar_belok_kanan">Tiap-Tiap Banjar 2x Belok Kanan</label>
         <div id="tiap_banjar_belok_kanan" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [18, 20, 22, 24, 26, 28, 30];
+            $values = [0, 18, 20, 22, 24, 26, 28, 30];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -19,7 +19,7 @@
         <label for="melintang_kiri">Melintang Kiri</label>
         <div id="melintang_kiri" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [22, 25, 28, 31, 34, 37, 40];
+            $values = [0, 22, 25, 28, 31, 34, 37, 40];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -34,7 +34,7 @@
         <label for="haluan_kiri">Haluan Kiri</label>
         <div id="haluan_kiri" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [22, 25, 28, 31, 34, 37, 40];
+            $values = [0, 22, 25, 28, 31, 34, 37, 40];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
@@ -49,7 +49,7 @@
         <label for="tiap_banjar_belok_kiri">Tiap-Tiap Banjar 2x Belok Kiri</label>
         <div id="tiap_banjar_belok_kiri" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
             <?php
-            $values = [18, 20, 22, 24, 26, 28, 30];
+            $values = [0, 18, 20, 22, 24, 26, 28, 30];
             foreach ($values as $value):
                 $paddingClass = $value < 10 ? 'px-3' : 'px-2';
             ?>
