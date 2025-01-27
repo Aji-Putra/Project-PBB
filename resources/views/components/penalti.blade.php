@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-2 mb-4">
-    <h2 class="font-medium text-lg">12. Penalti</h2>
+    <h2 class="font-medium text-lg">Penalti</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-5">
         <label for="tidak_daftar_ulang" class="flex gap-2 items-center justify-between">Tidak Daftar Ulang
             <input class="w-5 h-5" type="checkbox" name="tidak_daftar_ulang" id="tidak_daftar_ulang" value="25">

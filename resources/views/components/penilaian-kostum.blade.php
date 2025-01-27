@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-2 mb-4">
-    <h2 class="font-medium text-lg">10. Kostum</h2>
+    <h2 class="font-medium text-lg">1. Kostum</h2>
     <div class="flex gap-2 items-center justify-between">
         <label for="kelengkapan_atribut">Kelengkapan & Atribut</label>
         <div id="kelengkapan_atribut" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">

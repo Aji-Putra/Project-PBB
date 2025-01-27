@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-2 mb-4">
-    <h2 class="font-medium text-lg">9. Formasi (Merubah Bentuk)</h2>
+    <h2 class="font-medium text-lg">2. Formasi (Merubah Bentuk)</h2>
     <div class="flex gap-2 items-center justify-between">
         <label for="kekompakan_formasi">Kekompakan</label>
         <div id="kekompakan_formasi" class="flex flex-wrap gap-4 bg-white p-1 px-2 rounded">
