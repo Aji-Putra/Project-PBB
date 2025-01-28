@@ -2,6 +2,12 @@
     dd($sekolah);
 @endphp --}}
 <x-layout>
+    @if (Auth::user()->role === 'panitia')
+    {{-- Panitia --}}
+
+
+    @else
+
     <div class="flex flex-col gap-2 max-w-screen-xl px-0 mx-auto mb-3 md:px-2 lg:px-3">
         <h1 class="text-2xl">Selamat Datang, {{ Auth::user()->name }}</h1>
         <p class="text-lg">Pilih Peserta yang akan dinilai</p>
@@ -11,12 +17,12 @@
 
     <div class="md:max-w-[1080px] max-w-[720px] mx-auto">
         <div class="w-full flex justify-end items-center gap-2" x-data="{ tambahPeserta: false }">
-            <a class="w-40 bg-green-500 text-white px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
+            {{-- <a class="w-40 bg-green-500 text-white px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
                 href="{{ url('/rekap') }}">Rekap</a>
             <button @click="tambahPeserta = true"
                 class="w-40 mb-4 px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
                 Tambah Peserta
-            </button>
+            </button> --}}
             <div x-show="tambahPeserta" class="fixed inset-0 transition-opacity" aria-hidden="true"
                 @click="tambahPeserta = false">
                 <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
@@ -96,10 +102,10 @@
                                     <p class="text-sm font-medium text-slate-300">Sudah di Nilai</p>
                                 @else
                                     <div class="flex gap-4 items-center" x-data="{ showModal: false }">
-                                        @if ($item->status !== 'Sudah Registrasi')
+                                        {{-- @if ($item->status !== 'Sudah Registrasi')
                                             <a class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-green-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
                                                 href="/registrasi/{{ $item->id }}">Registrasi</a>
-                                        @endif
+                                        @endif --}}
                                         <button @click="showModal = true"
                                             class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
                                             Nilai
@@ -168,4 +174,5 @@
         </div>
 
     </div>
+    @endif
 </x-layout>

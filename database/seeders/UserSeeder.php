@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin User',
             'username' => 'admin',
-            'role' => 'Admin',
+            'role' => 'panitia',
             'password' => bcrypt('password'), // Ganti dengan kata sandi aman
 
         ]);

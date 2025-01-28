@@ -16,7 +16,7 @@ Route::get('/', function () {
 Route::get('/dash', function () {
     return view('dashboard');
 });
-Route::middleware('auth','admin')->group(function () {
+Route::middleware('auth','panitia')->group(function () {
 
 
 

@@ -3,6 +3,7 @@
 use App\Http\Middleware\JuriKostumMiddleware;
 use App\Http\Middleware\JuriPbbMiddleware;
 use App\Http\Middleware\JuriVaforMiddleware;
+use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -15,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
+            'panitia' => RoleMiddleware::class,
             'pbb' => JuriPbbMiddleware::class,
             'kostum' => JuriKostumMiddleware::class,
             'vafor' => JuriVaforMiddleware::class
