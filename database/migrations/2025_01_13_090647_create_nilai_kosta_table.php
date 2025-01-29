@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('nilai_kostum', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_juri');
+            $table->string('juri_id');
             $table->string('sekolah_id');
             $table->integer('kelengkapan_atribut');
             $table->integer('keindahan_kerapihan');

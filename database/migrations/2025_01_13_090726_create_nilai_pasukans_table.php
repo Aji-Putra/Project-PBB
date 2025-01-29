@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('nilai_pasukan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_juri');
+            $table->string('juri_id');
             $table->string('sekolah_id');
             $table->integer('kerapihan_saf');
             $table->integer('kerapihan_banjar');

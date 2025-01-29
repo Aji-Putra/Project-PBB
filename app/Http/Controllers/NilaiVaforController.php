@@ -37,7 +37,7 @@ class NilaiVaforController extends Controller
     public function store(Request $request)
     {
         $dataVariasi = $request->validate([
-            'nama_juri' => 'required',
+            'juri_id' => 'required',
             'sekolah_id' => 'required',
             'kekompakan_variasi'        => 'required',
             'tingkat_kesulitan_variasi'        => 'required',

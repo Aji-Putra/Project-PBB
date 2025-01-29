@@ -12,7 +12,7 @@ class NilaiPenalti extends Model
     protected $table = 'nilai_penalti';
 
     protected $fillable = [
-        'nama_juri',
+        'juri_id',
         'sekolah_id',
         'tidak_ikut_daftar_ulang',
         'tidak_ikut_upacara_pembukaan',

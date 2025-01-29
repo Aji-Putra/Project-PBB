@@ -11,7 +11,7 @@ class NilaiVafor extends Model
 
     protected $table = 'nilai_vafor';
     protected $fillable = [
-        'nama_juri',
+        'juri_id',
         'sekolah_id',
         'kekompakan_variasi',
         'tingkat_kesulitan_variasi',

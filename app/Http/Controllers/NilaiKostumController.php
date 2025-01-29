@@ -36,7 +36,7 @@ class NilaiKostumController extends Controller
     {
         //
         $dataKostum = $request->validate([
-            'nama_juri' => 'required',
+            'juri_id' => 'required',
             'sekolah_id' => 'required',
             'kelengkapan_atribut'        => 'required',
             'keindahan_kerapihan'        => 'required',

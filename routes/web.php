@@ -3,10 +3,12 @@
 use App\Http\Controllers\NilaiKostumController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NilaiPbbController;
+use App\Http\Controllers\NilaiPenaltiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NilaiVaforController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\SekolahController;
+
 use App\Models\Sekolah;
 use Illuminate\Routing\RouteGroup;
 
@@ -16,8 +18,9 @@ Route::get('/', function () {
 Route::get('/dash', function () {
     return view('dashboard');
 });
-Route::middleware('auth','panitia')->group(function () {
 
+Route::middleware('auth','panitia')->group(function () {
+    Route::get('/penalti/{id}',[NilaiPenaltiController::class ,'create']);
 
 
 });
