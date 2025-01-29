@@ -22,7 +22,7 @@ class NilaiPenaltiController extends Controller
      */
     public function create($id)
     {
-        
+
         $sekolahID = Sekolah::find($id);
         if ($sekolahID) {
          return view('penalti-page', compact('sekolahID'));
@@ -54,7 +54,7 @@ class NilaiPenaltiController extends Controller
             'updated_at' => now(),
         ]);
 
-        return view('dashboard');
+        return view('app');
     }
 
     /**

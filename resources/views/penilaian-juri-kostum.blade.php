@@ -8,7 +8,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ url('/sumbit/penilaian/kostum') }}" method="POST">
+    <form action="{{ url('/submit/penilaian/kostum') }}" method="POST">
         @csrf
         <input type="hidden" value="{{ auth()->user()->id }}" name="juri_id">
         <input type="hidden" value=" {{ $sekolahID->id }}" name="sekolah_id">
