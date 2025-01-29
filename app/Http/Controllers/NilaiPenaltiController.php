@@ -54,7 +54,7 @@ class NilaiPenaltiController extends Controller
             'updated_at' => now(),
         ]);
 
-        return view('app');
+        return redirect('/dashboard');
     }
 
     /**
