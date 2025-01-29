@@ -23,18 +23,18 @@ class Sekolah extends Model
     }
     public function nilaiPasukan()
     {
-        return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+        return $this->hasMany(NilaiPasukan::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
     }
     public function nilaiKostum()
     {
-        return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+        return $this->hasMany(NilaiKostum::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
     }
     public function nilaiVafor()
     {
-        return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+        return $this->hasMany(NilaiVafor::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
     }
     public function nilaiPenalti()
     {
-        return $this->hasMany(NilaiPbb::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
+        return $this->hasMany(NilaiPenalti::class, 'sekolah_id', 'id'); // Sesuaikan foreign key dan local key jika berbeda
     }
 }

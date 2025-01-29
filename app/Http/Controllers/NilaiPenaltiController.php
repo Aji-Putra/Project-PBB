@@ -37,7 +37,7 @@ class NilaiPenaltiController extends Controller
     public function store(Request $request)
     {
         $penalti = DB::table('nilai_penalti')->insert([
-            'juri_id' => 'required',
+            'juri_id' => $request->input('juri_id'),
             'sekolah_id' => $request->input('sekolah_id'),
             'tidak_ikut_daftar_ulang' => $request->input('tidak_ikut_daftar_ulang', 0),
             'tidak_ikut_upacara_pembukaan' => $request->input('tidak_ikut_upacara_pembukaan', 0),

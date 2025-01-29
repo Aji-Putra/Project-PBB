@@ -1,5 +1,5 @@
 {{-- @php
-    dd($pbbData);
+    dd($datapbb);
 @endphp --}}
 <x-layout>
     <div class="flex flex-col gap-2 max-w-screen-xl px-0 mx-auto mb-3 md:px-2 lg:px-3">
@@ -69,37 +69,42 @@
                         {{-- <th class="border px-4 py-2">Juara</th> --}}
                         <th class="border px-4 py-2">Nomor Peserta</th>
                         <th class="border px-4 py-2">Nama Sekolah</th>
-                        <th class="border px-4 py-2">Juri 1</th>
-                        <th class="border px-4 py-2">Juri 2</th>
-                        <th class="border px-4 py-2">Juri 3</th>
+                        <th class="border px-4 py-2">Juri PBB 1</th>
+                        <th class="border px-4 py-2">Juri PBB 2</th>
+                        <th class="border px-4 py-2">Juri PBB 3</th>
+                        <th class="border px-4 py-2">Juri Vafor </th>
+                        <th class="border px-4 py-2">Juri KOSTUM </th>
                         <th class="border px-4 py-2">Total Nilai</th>
                         <th class="border px-4 py-2">Cetak</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($totalNilai as $data)
+                    @foreach ($datapbb as $data)
                         <tr>
-                            <td class="border px-4 py-2">{{ $data->juara }}</td>
-                            <td class="border px-4 py-2">{{ $data->nomor_peserta }}</td>
-                            <td class="border px-4 py-2">{{ $data->nama_sekolah }}</td>
+                            <td class="border px-4 py-2">{{ $data->sekolah->nomor_peserta }}</td>
+                            <td class="border px-4 py-2">{{ $data->sekolah->nama_sekolah ?? 'Tidak Diketahui' }}</td>
                             <td class="border px-4 py-2">{{ $data->nilai_juri_1 }}</td>
                             <td class="border px-4 py-2">{{ $data->nilai_juri_2 }}</td>
                             <td class="border px-4 py-2">{{ $data->nilai_juri_3 }}</td>
-                            <td class="border px-4 py-2">{{ $totalNilai }}</td>
+                            <td class="border px-4 py-2">
+                                @foreach($data->sekolah->nilaivafor as $vafor)
+                                    {{ $vafor->kekompakan_variasi + $vafor->tingkat_kesulitan_variasi + $vafor->kreativitas_variasi + $vafor->keindahan_variasi + $vafor->perpaduan_pbb_murni_variasi + $vafor->kekompakan_formasi + $vafor->tingkat_kesulitan_formasi + $vafor->dinamis_struktur_formasi + $vafor->penggunaan_pbb_murni_formasi +$vafor->bentuk_akhir_formasi}}
+                                @endforeach
+                            </td>
+                            <td class="border px-4 py-2">
+                                @foreach($data->sekolah->nilaiKostum as $kostum)
+                                    {{ $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan }}
+                                @endforeach
+                            </td>
+                            <td class="border px-4 py-2">
+                                <a href="{{ url('/cetak-sekolah/' . $data->sekolah_id) }}"
+                                    class="bg-blue-500 text-white px-4 py-2 rounded">
+                                    Cetak
+                                </a>
+                            </td>
                         </tr>
-                    @endforeach --}}
-                    @foreach ($pbbData as $data)
-                    <td class="border px-4 py-2">{{ $data->Sekolah->nomor_peserta }}</td>
-                    <td class="border px-4 py-2">{{ $data->Sekolah->nama_sekolah }}</td>
-                    @foreach ($data->total_nilai as $data)
-                        
-                    <td class="border px-4 py-2">{{ $data->total_nilai }}</td>
                     @endforeach
-                    @endforeach
-                    {{-- <tr>
-                        <td class="border px-4 py-2">{{ $totalNilai }}</td>
-                        <td class="border px-4 py-2">{{ $nilaiPasukan }}</td>
-                    </tr> --}}
+
                 </tbody>
             </table>
 

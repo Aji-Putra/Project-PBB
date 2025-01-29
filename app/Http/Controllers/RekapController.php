@@ -7,6 +7,7 @@ use App\Models\NilaiPasukan;
 use App\Models\NilaiPbb;
 use App\Models\NilaiPenalti;
 use App\Models\NilaiVafor;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -83,8 +84,6 @@ class RekapController extends Controller
 
     public function cetakPdf($sekolah_id)
     {
-
-        
         // Ambil data untuk sekolah tertentu
         $pbbData = NilaiPbb::where('sekolah_id', $sekolah_id)
             ->selectRaw('sekolah_id, SUM(bersaf_kumpul + sikap_sempurna + istirahat_di_tempat + 
@@ -153,35 +152,70 @@ class RekapController extends Controller
 
     public function rekapJuri()
     {
-        $pbbData = NilaiPbb::selectRaw('sekolah_id,nama_juri, SUM(bersaf_kumpul + sikap_sempurna + istirahat_di_tempat + 
-        hormat + periksa_kerapihan + setengah_lengan_lencang_kiri + lencang_kanan + 
-        hadap_kanan + lencang_depan + hadap_kiri + jalan_di_tempat + balik_kanan_henti + 
-        tiga_langkah_kanan + tiga_langkah_kiri + tiga_langkah_depan + tiga_langkah_belakang + 
-        maju_jalan + langkah_tegap + langkah_berlari + hormat_kiri + tiap_banjar_belok_kanan + melintang_kiri + haluan_kiri + tiap_banjar_belok_kiri + bubar_jalan + postur + 
-        suara + intonasi + penguasaan_materi + penguasaan_lapangan_pasukan) as total_nilai')
-            ->with('sekolah')
-            ->groupBy('sekolah_id', 'nama_juri')
-            ->get();
+        // $data = [
+        //     'datapbb' => NilaiPbb::selectRaw('sekolah_id,juri_id, SUM(bersaf_kumpul + sikap_sempurna + istirahat_di_tempat + 
+        //     hormat + periksa_kerapihan + setengah_lengan_lencang_kiri + lencang_kanan + 
+        //     hadap_kanan + lencang_depan + hadap_kiri + jalan_di_tempat + balik_kanan_henti + 
+        //     tiga_langkah_kanan + tiga_langkah_kiri + tiga_langkah_depan + tiga_langkah_belakang + 
+        //     maju_jalan + langkah_tegap + langkah_berlari + hormat_kiri + tiap_banjar_belok_kanan + melintang_kiri + haluan_kiri + tiap_banjar_belok_kiri + bubar_jalan + postur + 
+        //     suara + intonasi + penguasaan_materi + penguasaan_lapangan_pasukan) as total_nilai')
+        //         ->with('sekolah')
+        //         ->groupBy('sekolah_id', 'juri_id')
+        //         ->get()
+        // ];
+        
+        $data = [
+            'datapbb' => NilaiPbb::selectRaw('
+                    sekolah_id, 
+                    SUM(CASE WHEN juri_id = 2 THEN bersaf_kumpul + sikap_sempurna + istirahat_di_tempat + hormat + periksa_kerapihan + setengah_lengan_lencang_kiri + lencang_kanan + hadap_kanan + lencang_depan + hadap_kiri + jalan_di_tempat + balik_kanan_henti + tiga_langkah_kanan + tiga_langkah_kiri + tiga_langkah_depan + tiga_langkah_belakang + maju_jalan + langkah_tegap + langkah_berlari + hormat_kiri + tiap_banjar_belok_kanan + melintang_kiri + haluan_kiri + tiap_banjar_belok_kiri + bubar_jalan + postur + suara + intonasi + penguasaan_materi + penguasaan_lapangan_pasukan ELSE 0 END) as nilai_juri_1,
+                    SUM(CASE WHEN juri_id = 3 THEN bersaf_kumpul + sikap_sempurna + istirahat_di_tempat + hormat + periksa_kerapihan + setengah_lengan_lencang_kiri + lencang_kanan + hadap_kanan + lencang_depan + hadap_kiri + jalan_di_tempat + balik_kanan_henti + tiga_langkah_kanan + tiga_langkah_kiri + tiga_langkah_depan + tiga_langkah_belakang + maju_jalan + langkah_tegap + langkah_berlari + hormat_kiri + tiap_banjar_belok_kanan + melintang_kiri + haluan_kiri + tiap_banjar_belok_kiri + bubar_jalan + postur + suara + intonasi + penguasaan_materi + penguasaan_lapangan_pasukan ELSE 0 END) as nilai_juri_2,
+                    SUM(CASE WHEN juri_id = 4 THEN bersaf_kumpul + sikap_sempurna + istirahat_di_tempat + hormat + periksa_kerapihan + setengah_lengan_lencang_kiri + lencang_kanan + hadap_kanan + lencang_depan + hadap_kiri + jalan_di_tempat + balik_kanan_henti + tiga_langkah_kanan + tiga_langkah_kiri + tiga_langkah_depan + tiga_langkah_belakang + maju_jalan + langkah_tegap + langkah_berlari + hormat_kiri + tiap_banjar_belok_kanan + melintang_kiri + haluan_kiri + tiap_banjar_belok_kiri + bubar_jalan + postur + suara + intonasi + penguasaan_materi + penguasaan_lapangan_pasukan ELSE 0 END) as nilai_juri_3,
+                    SUM(bersaf_kumpul + sikap_sempurna + istirahat_di_tempat + hormat + periksa_kerapihan + setengah_lengan_lencang_kiri + lencang_kanan + hadap_kanan + lencang_depan + hadap_kiri + jalan_di_tempat + balik_kanan_henti + tiga_langkah_kanan + tiga_langkah_kiri + tiga_langkah_depan + tiga_langkah_belakang + maju_jalan + langkah_tegap + langkah_berlari + hormat_kiri + tiap_banjar_belok_kanan + melintang_kiri + haluan_kiri + tiap_banjar_belok_kiri + bubar_jalan + postur + suara + intonasi + penguasaan_materi + penguasaan_lapangan_pasukan) as total_nilai
+                ')
+                ->with('sekolah')
+                ->groupBy('sekolah_id')
+                ->get(),
+
+            'datavafor'
+        ];
 
         // $nilaiPasukan = NilaiPasukan::where('sekolah_id', 1)
-        //         ->where('nama_juri', 'Juri User')
+        //         ->where('juri_id', 'Juri User')
         //         ->selectRaw('SUM(kerapihan_saf + kerapihan_banjar + kekompakan_gerak + penempatan_ketinggian_personel + formasi_keseluruhan) as total')
         //                     ->get();
 
         $nilaiPbb = NilaiPbb::where('sekolah_id', 1)
-                            ->where('nama_juri', 'Juri User')
+                            ->where('juri_id', '1')
                             ->selectRaw('SUM(bersaf_kumpul + sikap_sempurna + istirahat_di_tempat + hormat + periksa_kerapihan + setengah_lengan_lencang_kiri + lencang_kanan + hadap_kanan + lencang_depan + hadap_kiri + jalan_di_tempat + balik_kanan_henti + tiga_langkah_kanan + tiga_langkah_kiri + tiga_langkah_depan + tiga_langkah_belakang + maju_jalan + langkah_tegap + langkah_berlari + hormat_kiri + tiap_banjar_belok_kanan + melintang_kiri + haluan_kiri + tiap_banjar_belok_kiri + bubar_jalan + postur + suara + intonasi + penguasaan_materi + penguasaan_lapangan_pasukan) as total')
                             ->get();
         $nilaiPenalti = NilaiPenalti::where('sekolah_id', 1)
-                            ->where('nama_juri', 'Juri User')
+                            ->where('juri_id', '1')
                             ->selectRaw('SUM(tidak_ikut_daftar_ulang + tidak_ikut_upacara_pembukaan + terlambat_ke_dp_1 + tidak_sesuai_nomor_urut + terlewat_tampil + kurang_lebih_personil + anggota_sakit_di_lapangan + merusak_properti + melewati_garis_batas + melebihi_waktu + manipulasi_anggota) as total')
                             ->get();
         $nilaiVariasi = NilaiVafor::where('sekolah_id', 1)
-                            ->where('nama_juri', 'Juri User')
+                            ->where('juri_id', '1')
                             ->selectRaw('SUM(kekompakan_variasi + tingkat_kesulitan_variasi + kreativitas_variasi + keindahan_variasi + perpaduan_pbb_murni_variasi + kekompakan_formasi + tingkat_kesulitan_formasi + dinamis_struktur_formasi + penggunaan_pbb_murni_formasi + bentuk_akhir_formasi) as total')
                             ->get();
 
-        return view('total_setiap_juri', compact('pbbData'));
+        return view('total_setiap_juri', $data);
+    }
+
+    public function cetakSekolah($sekolah_id)
+    {
+        // Ambil data tanpa SUM
+        $juri1 = NilaiPbb::where('sekolah_id', $sekolah_id)->where('juri_id', 2)->get();
+        $juri2 = NilaiPbb::where('sekolah_id', $sekolah_id)->where('juri_id', 3)->get();
+        $juri3 = NilaiPbb::where('sekolah_id', $sekolah_id)->where('juri_id', 4)->get();
+        $pasukanData = NilaiPasukan::where('sekolah_id', $sekolah_id)->get();
+        $vaforData = NilaiVafor::where('sekolah_id', $sekolah_id)->get();
+        $kostumData = NilaiKostum::where('sekolah_id', $sekolah_id)->get();
+        $penaltiData = NilaiPenalti::where('sekolah_id', $sekolah_id)->get();
+        $sekolah = Sekolah::findOrFail($sekolah_id);
+
+        $pdf = PDF::loadView('cetak-nilai-sekolah', compact('juri1', 'juri2', 'juri3', 'pasukanData', 'vaforData', 'kostumData', 'penaltiData','sekolah'));
+
+    // Download PDF
+    return $pdf->download('cetak-nilai-sekolah' . $sekolah_id . '.pdf');
     }
 }
 
