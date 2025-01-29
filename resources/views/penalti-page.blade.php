@@ -8,7 +8,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ url('/sumbit/penilaian/kostum') }}" method="POST">
+    <form action="{{ url('/sumbit/penilaian/penalti') }}" method="POST">
         @csrf
         <input type="hidden" value="{{ auth()->user()->id }}" name="juri_id">
         <input type="hidden" value=" {{ $sekolahID->id }}" name="sekolah_id">
@@ -19,6 +19,7 @@
     <h1 class="font-bold text-xl">Penalti</h1>
     <hr class="mt border-black">
     <x-penalti></x-penalti>
+    <x-submit-nilai></x-submit-nilai>
 </form>
 <script src="{{ Storage::url('js/radio-btn.js') }}"></script>
 </x-layout>

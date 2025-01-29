@@ -53,6 +53,8 @@ class NilaiPenaltiController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        return view('dashboard');
     }
 
     /**
