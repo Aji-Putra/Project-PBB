@@ -23,8 +23,7 @@ Route::middleware('auth','panitia')->group(function () {
     Route::get('/penalti/{id}',[NilaiPenaltiController::class ,'create']);
     Route::post('/submit/penilaian/penalti',[NilaiPenaltiController::class ,'store']);
     Route::get('/cetak-sekolah/{sekolah_id}',[RekapController::class ,'cetaksekolah']);
-
-
+    Route::get('/cetak-semua-sekolah', [RekapController::class, 'cetakSemuaSekolah']);
 });
 
 Route::get('/total-juri',[RekapController::class,'rekapJuri']);

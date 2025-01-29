@@ -12,6 +12,8 @@
         <div class="w-full flex justify-end items-center gap-2" x-data="{ tambahPeserta: false }">
             <a class="w-40 bg-green-700 text-white px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
                 href="/rekap">Rekap</a>
+                <a class="w-40 bg-green-500 text-white px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
+            href="{{ url('/cetak-semua-sekolah') }}">Cetak</a>
             <a class="w-40 bg-green-500 text-white px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
                 href="{{ url('/dashboard') }}">Penilaian Peserta</a>
             <button @click="tambahPeserta = true"
@@ -86,16 +88,37 @@
                             <td class="border px-4 py-2">{{ $data->nilai_juri_2 }}</td>
                             <td class="border px-4 py-2">{{ $data->nilai_juri_3 }}</td>
                             <td class="border px-4 py-2">
+                                @php
+                                    $totalVafor = 0;
+                                @endphp
                                 @foreach($data->sekolah->nilaivafor as $vafor)
-                                    {{ $vafor->kekompakan_variasi + $vafor->tingkat_kesulitan_variasi + $vafor->kreativitas_variasi + $vafor->keindahan_variasi + $vafor->perpaduan_pbb_murni_variasi + $vafor->kekompakan_formasi + $vafor->tingkat_kesulitan_formasi + $vafor->dinamis_struktur_formasi + $vafor->penggunaan_pbb_murni_formasi +$vafor->bentuk_akhir_formasi}}
+                                    @php
+                                        $totalVafor += $vafor->kekompakan_variasi + $vafor->tingkat_kesulitan_variasi + 
+                                                       $vafor->kreativitas_variasi + $vafor->keindahan_variasi + 
+                                                       $vafor->perpaduan_pbb_murni_variasi + $vafor->kekompakan_formasi + 
+                                                       $vafor->tingkat_kesulitan_formasi + $vafor->dinamis_struktur_formasi + 
+                                                       $vafor->penggunaan_pbb_murni_formasi + $vafor->bentuk_akhir_formasi;
+                                    @endphp
                                 @endforeach
+                                {{ $totalVafor }}
                             </td>
                             <td class="border px-4 py-2">
+                                @php
+                                    $totalKostum = 0;
+                                @endphp
                                 @foreach($data->sekolah->nilaiKostum as $kostum)
-                                    {{ $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan }}
+                                    @php
+                                        $totalKostum += $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan;
+                                    @endphp
                                 @endforeach
+                                {{ $totalKostum }}
                             </td>
-                            <td class="border px-4 py-2"></td>
+                            <td class="border px-4 py-2">
+                                @php
+                                    $totalNilai = $data->nilai_juri_1 + $data->nilai_juri_2 + $data->nilai_juri_3 + $totalVafor + $totalKostum;
+                                @endphp
+                                {{ $totalNilai }}
+                            </td>
                             <td class="border px-6 py-4">
                                 <a href="{{ url('/cetak-sekolah/' . $data->sekolah_id) }}"
                                     class="w-40 flex justify-center mb-4 px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
@@ -104,11 +127,9 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
+                
             </table>
-
-
         </div>
     </div>
 </x-layout>

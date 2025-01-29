@@ -217,5 +217,78 @@ class RekapController extends Controller
     // Download PDF
     return $pdf->download('cetak-nilai-sekolah' . $sekolah_id . '.pdf');
     }
+
+    public function cetakSemuaSekolah() {
+        $sekolahData = Sekolah::with(['nilaipbb', 'nilaivafor', 'nilaikostum', 'nilaipenalti'])->get();
+    
+        $data = [];
+        
+        foreach ($sekolahData as $sekolah) {
+            $nilaiJuri1 = $sekolah->nilaipbb->where('juri_id', 2)->sum(function ($nilai) {
+                return $nilai->bersaf_kumpul + $nilai->sikap_sempurna + $nilai->istirahat_di_tempat +
+                       $nilai->hormat + $nilai->periksa_kerapihan + $nilai->setengah_lengan_lencang_kiri +
+                       $nilai->lencang_kanan + $nilai->hadap_kanan + $nilai->lencang_depan + 
+                       $nilai->hadap_kiri + $nilai->jalan_di_tempat + $nilai->balik_kanan_henti + 
+                       $nilai->tiga_langkah_kanan + $nilai->tiga_langkah_kiri + $nilai->tiga_langkah_depan +
+                       $nilai->tiga_langkah_belakang + $nilai->maju_jalan + $nilai->langkah_tegap +
+                       $nilai->langkah_berlari + $nilai->hormat_kiri + $nilai->tiap_banjar_belok_kanan +
+                       $nilai->melintang_kiri + $nilai->haluan_kiri + $nilai->tiap_banjar_belok_kiri +
+                       $nilai->bubar_jalan + $nilai->postur + $nilai->suara + $nilai->intonasi +
+                       $nilai->penguasaan_materi + $nilai->penguasaan_lapangan_pasukan;
+            });
+            $nilaiJuri2 = $sekolah->nilaipbb->where('juri_id', 3)->sum(function ($nilai) {
+                return $nilai->bersaf_kumpul + $nilai->sikap_sempurna + $nilai->istirahat_di_tempat +
+                       $nilai->hormat + $nilai->periksa_kerapihan + $nilai->setengah_lengan_lencang_kiri +
+                       $nilai->lencang_kanan + $nilai->hadap_kanan + $nilai->lencang_depan + 
+                       $nilai->hadap_kiri + $nilai->jalan_di_tempat + $nilai->balik_kanan_henti + 
+                       $nilai->tiga_langkah_kanan + $nilai->tiga_langkah_kiri + $nilai->tiga_langkah_depan +
+                       $nilai->tiga_langkah_belakang + $nilai->maju_jalan + $nilai->langkah_tegap +
+                       $nilai->langkah_berlari + $nilai->hormat_kiri + $nilai->tiap_banjar_belok_kanan +
+                       $nilai->melintang_kiri + $nilai->haluan_kiri + $nilai->tiap_banjar_belok_kiri +
+                       $nilai->bubar_jalan + $nilai->postur + $nilai->suara + $nilai->intonasi +
+                       $nilai->penguasaan_materi + $nilai->penguasaan_lapangan_pasukan;
+            });
+            $nilaiJuri3 = $sekolah->nilaipbb->where('juri_id', 4)->sum(function ($nilai) {
+                return $nilai->bersaf_kumpul + $nilai->sikap_sempurna + $nilai->istirahat_di_tempat +
+                       $nilai->hormat + $nilai->periksa_kerapihan + $nilai->setengah_lengan_lencang_kiri +
+                       $nilai->lencang_kanan + $nilai->hadap_kanan + $nilai->lencang_depan + 
+                       $nilai->hadap_kiri + $nilai->jalan_di_tempat + $nilai->balik_kanan_henti + 
+                       $nilai->tiga_langkah_kanan + $nilai->tiga_langkah_kiri + $nilai->tiga_langkah_depan +
+                       $nilai->tiga_langkah_belakang + $nilai->maju_jalan + $nilai->langkah_tegap +
+                       $nilai->langkah_berlari + $nilai->hormat_kiri + $nilai->tiap_banjar_belok_kanan +
+                       $nilai->melintang_kiri + $nilai->haluan_kiri + $nilai->tiap_banjar_belok_kiri +
+                       $nilai->bubar_jalan + $nilai->postur + $nilai->suara + $nilai->intonasi +
+                       $nilai->penguasaan_materi + $nilai->penguasaan_lapangan_pasukan;
+            });
+            
+            $totalVafor = $sekolah->nilaivafor->sum(function ($vafor) {
+                return $vafor->kekompakan_variasi + $vafor->tingkat_kesulitan_variasi + 
+                       $vafor->kreativitas_variasi + $vafor->keindahan_variasi + 
+                       $vafor->perpaduan_pbb_murni_variasi + $vafor->kekompakan_formasi + 
+                       $vafor->tingkat_kesulitan_formasi + $vafor->dinamis_struktur_formasi + 
+                       $vafor->penggunaan_pbb_murni_formasi + $vafor->bentuk_akhir_formasi;
+            });
+            
+            $totalKostum = $sekolah->nilaikostum->sum(function ($kostum) {
+                return $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan;
+            });
+            
+            $totalNilai = $nilaiJuri1 + $nilaiJuri2 + $nilaiJuri3 + $totalVafor + $totalKostum;
+            
+            $data[] = [
+                'nomor_peserta' => $sekolah->nomor_peserta,
+                'nama_sekolah' => $sekolah->nama_sekolah,
+                'nilai_juri_1' => $nilaiJuri1,
+                'nilai_juri_2' => $nilaiJuri2,
+                'nilai_juri_3' => $nilaiJuri3,
+                'nilai_vafor' => $totalVafor,
+                'nilai_kostum' => $totalKostum,
+                'total_nilai' => $totalNilai
+            ];
+        }
+        
+        $pdf = PDF::loadView('cetak-semua-sekolah', compact('data'));
+        return $pdf->download('cetak-semua-sekolah.pdf');
+    }
 }
 

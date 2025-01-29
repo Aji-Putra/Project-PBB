@@ -1,0 +1,74 @@
+{{-- @php
+    dd($data);
+@endphp --}}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cetak Semua Nilai Sekolah</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Laporan Nilai Semua Sekolah</h2>
+    @php
+        // Urutkan data berdasarkan total_nilai secara descending
+        $sortedData = collect($data)->sortByDesc('total_nilai')->values();
+    @endphp
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Juara</th>
+                <th>Nomor Peserta</th>
+                <th>Nama Sekolah</th>
+                <th>Juri PBB 1</th>
+                <th>Juri PBB 2</th>
+                <th>Juri PBB 3</th>
+                <th>Juri Vafor</th>
+                <th>Juri Kostum</th>
+                <th>Total Nilai</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($sortedData as $index => $sekolah)
+                <tr>
+                    <td>{{ $index + 1 }}</td> <!-- Ranking dimulai dari 1 -->
+                    <td>{{ $sekolah['nomor_peserta'] }}</td>
+                    <td>{{ $sekolah['nama_sekolah'] }}</td>
+                    <td>{{ $sekolah['nilai_juri_1'] }}</td>
+                    <td>{{ $sekolah['nilai_juri_2'] }}</td>
+                    <td>{{ $sekolah['nilai_juri_3'] }}</td>
+                    <td>{{ $sekolah['nilai_vafor'] }}</td>
+                    <td>{{ $sekolah['nilai_kostum'] }}</td>
+                    <td>{{ $sekolah['total_nilai'] }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</body>
+
+</html>
