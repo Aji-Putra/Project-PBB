@@ -21,7 +21,7 @@ Route::get('/dash', function () {
 
 Route::middleware('auth','panitia')->group(function () {
     Route::get('/penalti/{id}',[NilaiPenaltiController::class ,'create']);
-    Route::post('/sumbit/penilaian/penalti',[NilaiPenaltiController::class ,'store']);
+    Route::post('/submit/penilaian/penalti',[NilaiPenaltiController::class ,'store']);
 
 
 });
