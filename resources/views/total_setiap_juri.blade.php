@@ -66,14 +66,13 @@
             <table class="min-w-full table-auto">
                 <thead>
                     <tr>
-                        {{-- <th class="border px-4 py-2">Juara</th> --}}
                         <th class="border px-4 py-2">Nomor Peserta</th>
                         <th class="border px-4 py-2">Nama Sekolah</th>
                         <th class="border px-4 py-2">Juri PBB 1</th>
                         <th class="border px-4 py-2">Juri PBB 2</th>
                         <th class="border px-4 py-2">Juri PBB 3</th>
                         <th class="border px-4 py-2">Juri Vafor </th>
-                        <th class="border px-4 py-2">Juri KOSTUM </th>
+                        <th class="border px-4 py-2">Juri Kostum </th>
                         <th class="border px-4 py-2">Total Nilai</th>
                         <th class="border px-4 py-2">Cetak</th>
                     </tr>
@@ -96,10 +95,11 @@
                                     {{ $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan }}
                                 @endforeach
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="border px-4 py-2"></td>
+                            <td class="border px-6 py-4">
                                 <a href="{{ url('/cetak-sekolah/' . $data->sekolah_id) }}"
-                                    class="bg-blue-500 text-white px-4 py-2 rounded">
-                                    Cetak
+                                    class="w-40 flex justify-center mb-4 px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+                                    Cetak Detail PDF
                                 </a>
                             </td>
                         </tr>
@@ -110,6 +110,5 @@
 
 
         </div>
-
     </div>
 </x-layout>
