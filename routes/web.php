@@ -13,7 +13,7 @@ use App\Models\Sekolah;
 use Illuminate\Routing\RouteGroup;
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect('/dashboard');
 });
 Route::get('/dash', function () {
     return view('dashboard');

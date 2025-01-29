@@ -52,7 +52,7 @@ class NilaiVaforController extends Controller
         ]);
 
         $dataPasukan = $request->validate([
-            'nama_juri' => 'required',
+            'juri_id' => 'required',
             'sekolah_id' => 'required',
             'kerapihan_saf'        => 'required',
             'kerapihan_banjar'        => 'required',
