@@ -36,6 +36,7 @@ class NilaiPenaltiController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $penalti = DB::table('nilai_penalti')->insert([
             'juri_id' => $request->input('juri_id'),
             'sekolah_id' => $request->input('sekolah_id'),
@@ -53,6 +54,12 @@ class NilaiPenaltiController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        if ($request->input('manipulasi_anggota') == 'DIS') {
+            DB::table('sekolah')->where('id', $request->input('sekolah_id'))->update([
+                'status' => 'DISKUALIFIKASI', // Gantilah 'status' dengan nama field yang sesuai di tabel sekolah
+                'updated_at' => now(),
+            ]);
+        }
 
         return redirect('/dashboard');
     }

@@ -11,6 +11,7 @@ use App\Http\Controllers\SekolahController;
 
 use App\Models\Sekolah;
 use Illuminate\Routing\RouteGroup;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return redirect('/dashboard');
@@ -58,8 +59,43 @@ Route::middleware('auth','vafor')->group(function () {
 Route::get('/sekolah', [SekolahController::class, 'index'])->name('sekolah.index');
 
 Route::get('/dashboard', function () {
+
+    $userId = Auth::user()->id;
+    $role = Auth::user()->role;
+
+    // Ambil semua sekolah
     $sekolah = Sekolah::all();
-    return view('app')->with('sekolah', $sekolah);
+
+    // Filter sekolah yang sudah dinilai berdasarkan role juri
+    $sudahDinilai = $sekolah->filter(function ($item) use ($userId, $role) {
+        if ($role === 'PBB') {
+            return \App\Models\NilaiPbb::where('juri_id', $userId)->where('sekolah_id', $item->id)->exists();
+        } elseif ($role === 'vafor') {
+            return \App\Models\NilaiVafor::where('juri_id', $userId)->where('sekolah_id', $item->id)->exists();
+        } elseif ($role === 'kostum') {
+            return \App\Models\NilaiKostum::where('juri_id', $userId)->where('sekolah_id', $item->id)->exists();
+        }
+        return false;
+    });
+
+    // Filter sekolah yang belum dinilai
+    $belumDinilai = $sekolah->reject(function ($item) use ($userId, $role) {
+        if ($role === 'PBB') {
+            return \App\Models\NilaiPbb::where('juri_id', $userId)->where('sekolah_id', $item->id)->exists();
+        } elseif ($role === 'vafor') {
+            return \App\Models\NilaiVafor::where('juri_id', $userId)->where('sekolah_id', $item->id)->exists();
+        } elseif ($role === 'kostum') {
+            return \App\Models\NilaiKostum::where('juri_id', $userId)->where('sekolah_id', $item->id)->exists();
+        }
+        return false;
+    });
+
+    // Gabungkan dengan urutan sekolah yang belum dinilai di atas
+    $sortedSekolah = $belumDinilai->merge($sudahDinilai);
+    $data = [
+        'sekolah' => $sortedSekolah
+    ];
+    return view('app', $data);
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/rekap',[RekapController::class,'rekap']);
 
