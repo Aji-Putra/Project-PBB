@@ -16,6 +16,9 @@
             <h1 class="text-xl font-medium">Nomor Peserta: {{ $sekolahID->nomor_peserta }} </h1>
             <h1 class="text-xl font-medium">Nama Sekolah: {{ $sekolahID->nama_sekolah }} </h1>
         </div>
+        <div class="w-full flex justify-end">
+            <a href="{{ url()->previous() }}" class="w-20 bg-yellow-500 text-black px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-yellow-500">Kembali</a>
+        </div>
         <h1 class="font-bold text-xl">Penalti</h1>
         <hr class="mt border-black">
         <x-penalti></x-penalti>

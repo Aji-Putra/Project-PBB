@@ -14,7 +14,7 @@
                         <div class="mt-2 flex flex-col gap-1">
                             <p class="text-sm text-black">Nomor Peserta:
                                 {{ $item->nomor_peserta }}</p>
-                            <p class="text-sm text-black">Nama Sekolah:
+                            <p class="hidden text-sm text-black">Nama Sekolah:
                                 {{ $item->nama_sekolah }}</p>
                         </div>
                     </div>

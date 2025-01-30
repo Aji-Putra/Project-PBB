@@ -12,7 +12,7 @@
         <div class="w-full flex justify-end items-center gap-2" x-data="{ tambahPeserta: false }">
             <a class="w-40 bg-green-700 text-white px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
                 href="/rekap">Rekap</a>
-                <a class="w-40 bg-green-500 text-white px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
+                <a class="w-40 bg-yellow-500 text-black px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-yellow-500"
             href="{{ url('/cetak-semua-sekolah') }}">Cetak</a>
             <a class="w-40 bg-green-500 text-white px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
                 href="{{ url('/dashboard') }}">Penilaian Peserta</a>
@@ -93,10 +93,10 @@
                                 @endphp
                                 @foreach($data->sekolah->nilaivafor as $vafor)
                                     @php
-                                        $totalVafor += $vafor->kekompakan_variasi + $vafor->tingkat_kesulitan_variasi + 
-                                                       $vafor->kreativitas_variasi + $vafor->keindahan_variasi + 
-                                                       $vafor->perpaduan_pbb_murni_variasi + $vafor->kekompakan_formasi + 
-                                                       $vafor->tingkat_kesulitan_formasi + $vafor->dinamis_struktur_formasi + 
+                                        $totalVafor += $vafor->kekompakan_variasi + $vafor->tingkat_kesulitan_variasi +
+                                                       $vafor->kreativitas_variasi + $vafor->keindahan_variasi +
+                                                       $vafor->perpaduan_pbb_murni_variasi + $vafor->kekompakan_formasi +
+                                                       $vafor->tingkat_kesulitan_formasi + $vafor->dinamis_struktur_formasi +
                                                        $vafor->penggunaan_pbb_murni_formasi + $vafor->bentuk_akhir_formasi;
                                     @endphp
                                 @endforeach
@@ -128,7 +128,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-                
+
             </table>
         </div>
     </div>

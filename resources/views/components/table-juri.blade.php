@@ -9,7 +9,7 @@
                     <p class="text-sm font-normal leading-none text-slate-300">Nomor Peserta</p>
                 </th>
                 <th class="p-4 border-b border-slate-600 bg-slate-700">
-                    <p class="text-sm font-normal leading-none text-slate-300">Nama Sekolah</p>
+                    <p class="hidden text-sm font-normal leading-none text-slate-300">Nama Sekolah</p>
                 </th>
                 <th class="p-4 border-b border-slate-600 bg-slate-700">
                     <p class="text-sm font-normal leading-none text-slate-300">Aksi</p>
@@ -35,7 +35,7 @@
                         <p class="text-sm text-slate-100 font-semibold">{{ $item->nomor_peserta }}</p>
                     </td>
                     <td class="p-4 border-b border-slate-700 bg-slate-800">
-                        <p class="text-sm text-slate-300">{{ $item->nama_sekolah }}</p>
+                        <p class="hidden text-sm text-slate-300">{{ $item->nama_sekolah }}</p>
                     </td>
                     <td class="p-4 border-b border-slate-700 bg-slate-800">
                         <div class="flex gap-4 items-center" x-data="{ showModal: false }">
