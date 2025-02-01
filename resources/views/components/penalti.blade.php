@@ -39,7 +39,7 @@
             <label for="melewati_garis_batas" class="block border border-gray-500 cursor-pointer select-none md:rounded-xl rounded-md p-1 px-2 text-center peer-checked:bg-red-500 peer-checked:font-bold peer-checked:text-white transition-all">50</label>
         </p>
         <p class="flex gap-2 items-center justify-between">Melebihi Waktu Normal
-            <input class="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none w-32 h-10 peer p-1 px-2 md:rounded-xl rounded-md" placeholder="1 detik/-1 poin" type="number" name="melebihi_waktu" id="melebihi_waktu">
+            <input class="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none w-32 h-10 peer p-1 px-2 md:rounded-xl rounded-md" placeholder="1 detik/-1 poin" type="number" name="melebihi_waktu" id="melebihi_waktu" value="0">
         </p>
         <p class="flex gap-2 items-center justify-between">Manipulasi Anggota
             <input class="w-5 h-5 peer hidden font-bold" type="checkbox" name="manipulasi_anggota" id="manipulasi_anggota" value="DIS">

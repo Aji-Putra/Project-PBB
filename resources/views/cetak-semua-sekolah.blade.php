@@ -23,23 +23,40 @@
         td {
             border: 1px solid black;
             padding: 8px;
-            text-align: center;
+            text-align: left;
         }
 
         th {
             background-color: #f2f2f2;
         }
+
+        .header-title {
+            text-align: center
+        }
+
+        img {
+            width: 5rem;
+            position: absolute;
+            top: 40px
+        }
     </style>
 </head>
 
 <body>
+    <img src="{{ public_path('storage/img/logo.jpeg') }}" alt="logo">
+    <div class="header-title">
+        <h2>Lomba Baris Berbaris Gempalan Saga</h2>
+        <h3>Paskibra SMK Angkasa 2 Margahayu</h3>
+        <h3>Tingkat SMP Se-Jawa Barat Open Tahun 2025</h3>
+    </div>
+    <hr>
     <h2 style="text-align: center;">Laporan Nilai Semua Sekolah</h2>
     @php
         // Urutkan data berdasarkan total_nilai secara descending
         $sortedData = collect($data)->sortByDesc('total_nilai')->values();
     @endphp
 
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>Juara</th>

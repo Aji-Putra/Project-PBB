@@ -29,10 +29,33 @@
                                 <div class="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                     <h3 class="text-lg leading-6 font-medium text-gray-900">Tambah Peserta</h3>
                                     <div class="mt-2 flex flex-col gap-1">
-                                        <label for="">Nomor Peserta</label>
+                                        <label for="nomor_peserta">Nomor Peserta</label>
                                         <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nomor_peserta">
-                                        <label for="">Nama Sekolah</label>
-                                        <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nama_sekolah">
+                                        <label for="nama_sekolah">Nama Sekolah</label>
+                                        <select name="nama_sekolah" id="nama_sekolah" class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2">
+                                            <option class="text-gray-500" value="">Pilih Nama Sekolah</option>
+                                            <option value="SMP Negeri 2 Dayeuh Kolot">SMP Negeri 2 Dayeuh Kolot</option>
+                                            <option value="SMP Negeri 2 Katapang C">SMP Negeri 2 Katapang C</option>
+                                            <option value="SMP Negeri 2 Kersamanah Garut">SMP Negeri 2 Kersamanah Garut</option>
+                                            <option value="SMP Negeri 1 Bojongsoang A">SMP Negeri 1 Bojongsoang A</option>
+                                            <option value="SMP Negeri 2 Katapang A">SMP Negeri 2 Katapang A</option>
+                                            <option value="SMP Negeri 2 Cileunyi 2 B">SMP Negeri 2 Cileunyi 2 B</option>
+                                            <option value="SMP Negeri 3 Padalarang E">SMP Negeri 3 Padalarang E</option>
+                                            <option value="SMP Negeri 28 Bandung">SMP Negeri 28 Bandung</option>
+                                            <option value="SMP Negeri 3 Padalarang B">SMP Negeri 3 Padalarang B</option>
+                                            <option value="SMP Negeri 2 Cileunyi 2 C">SMP Negeri 2 Cileunyi 2 C</option>
+                                            <option value="Daarut Tauhid Boarding School Putri">Daarut Tauhid Boarding School Putri</option>
+                                            <option value="SMP Negeri 3 Padalarang A">SMP Negeri 3 Padalarang A</option>
+                                            <option value="SMP Negeri 2 Katapang D">SMP Negeri 2 Katapang D</option>
+                                            <option value="SMP Negeri 3 Padalarang F">SMP Negeri 3 Padalarang F</option>
+                                            <option value="SMP Negeri 9 Bandung">SMP Negeri 9 Bandung</option>
+                                            <option value="SMP Negeri 3 Padalarang C">SMP Negeri 3 Padalarang C</option>
+                                            <option value="SMP Negeri 1 Bojongsoang B">SMP Negeri 1 Bojongsoang B</option>
+                                            <option value="SMP Negeri 2 Katapang B">SMP Negeri 2 Katapang B</option>
+                                            <option value="SMP Negeri 2 Cileunyi 2 A">SMP Negeri 2 Cileunyi 2 A</option>
+                                            <option value="SMP Darul Hikmah">SMP Darul Hikmah</option>
+                                            <option value="SMP Negeri 3 Padalarang D">SMP Negeri 3 Padalarang D</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -42,9 +65,9 @@
                                 Lanjutkan
                             </button>
                             <button type="button" @click="tambahPeserta = false"
-    class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-    Batalkan
-</button>
+                                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                Batalkan
+                            </button>
                         </div>
                     </div>
                 </div>

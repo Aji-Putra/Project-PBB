@@ -27,300 +27,308 @@
             background-color: #f2f2f2;
         }
 
-        .cetak-btn {
-            margin: 20px 0;
-            padding: 10px 20px;
-            background-color: blue;
-            color: white;
-            border: none;
-            cursor: pointer;
+        .header-title {
+            text-align: center
+        }
+
+        img {
+            width: 5rem;
+            position: absolute;
+            top: 40px
         }
     </style>
 </head>
 
 <body>
-    <h2>Data Sekolah: {{ $sekolah->nama_sekolah }}</h2>
+    <img src="{{ public_path('storage/img/logo.jpeg') }}" alt="logo">
+    <div class="header-title">
+        <h2>Lomba Baris Berbaris Gempalan Saga</h2>
+        <h3>Paskibra SMK Angkasa 2 Margahayu</h3>
+        <h3>Tingkat SMP Se-Jawa Barat Open Tahun 2025</h3>
+    </div>
+    <hr>
+    <p>Nama Sekolah: {{ $sekolah->nama_sekolah }}</p>
     <p>Nomor Peserta: {{ $sekolah->nomor_peserta }}</p>
     <h3>Nilai PBB</h3>
-    <table class="table-auto border-collapse border border-gray-400">
+    <table>
         <thead>
             <tr>
-                <th class="border px-4 py-2">Materi Lomba</th>
-                <th class="border px-4 py-2">Juri 1</th>
-                <th class="border px-4 py-2">Juri 2</th>
-                <th class="border px-4 py-2">Juri 3</th>
-                <th class="border px-4 py-2">Total</th>
+                <th>Materi Lomba</th>
+                <th>Juri 1</th>
+                <th>Juri 2</th>
+                <th>Juri 3</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($juri1 as $pbb1)
             <tr>
-                <td class="border px-4 py-2">Bersaf Kumpul</td>
-                <td class="border px-4 py-2">{{ $pbb1->bersaf_kumpul }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Bersaf Kumpul</td>
+                <td>{{ $pbb1->bersaf_kumpul }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0 }}</td>
+                <td>
                     {{ $pbb1->bersaf_kumpul + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Sikap Sempurna</td>
-                <td class="border px-4 py-2">{{ $pbb1->sikap_sempurna }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->sikap_sempurna ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->sikap_sempurna ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Sikap Sempurna</td>
+                <td>{{ $pbb1->sikap_sempurna }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->sikap_sempurna ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->sikap_sempurna ?? 0 }}</td>
+                <td>
                     {{ $pbb1->sikap_sempurna + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->sikap_sempurna ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->sikap_sempurna ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Istirahat di Tempat</td>
-                <td class="border px-4 py-2">{{ $pbb1->istirahat_di_tempat }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->istirahat_di_tempat ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->istirahat_di_tempat ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Istirahat di Tempat</td>
+                <td>{{ $pbb1->istirahat_di_tempat }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->istirahat_di_tempat ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->istirahat_di_tempat ?? 0 }}</td>
+                <td>
                     {{ $pbb1->istirahat_di_tempat + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->istirahat_di_tempat ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->istirahat_di_tempat ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Hormat</td>
-                <td class="border px-4 py-2">{{ $pbb1->hormat }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Hormat</td>
+                <td>{{ $pbb1->hormat }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat ?? 0 }}</td>
+                <td>
                     {{ $pbb1->hormat + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Periksa Kerapihan</td>
-                <td class="border px-4 py-2">{{ $pbb1->periksa_kerapihan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->periksa_kerapihan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->periksa_kerapihan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Periksa Kerapihan</td>
+                <td>{{ $pbb1->periksa_kerapihan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->periksa_kerapihan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->periksa_kerapihan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->periksa_kerapihan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->periksa_kerapihan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->periksa_kerapihan ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Setengah Lengan Lencang Kiri</td>
-                <td class="border px-4 py-2">{{ $pbb1->setengah_lengan_lencang_kiri }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->setengah_lengan_lencang_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->setengah_lengan_lencang_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Setengah Lengan Lencang Kiri</td>
+                <td>{{ $pbb1->setengah_lengan_lencang_kiri }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->setengah_lengan_lencang_kiri ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->setengah_lengan_lencang_kiri ?? 0 }}</td>
+                <td>
                     {{ $pbb1->setengah_lengan_lencang_kiri + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->setengah_lengan_lencang_kiri ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->setengah_lengan_lencang_kiri ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Lencang Kanan</td>
-                <td class="border px-4 py-2">{{ $pbb1->lencang_kanan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_kanan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_kanan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Lencang Kanan</td>
+                <td>{{ $pbb1->lencang_kanan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_kanan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_kanan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->lencang_kanan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_kanan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_kanan ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Hadap Kanan</td>
-                <td class="border px-4 py-2">{{ $pbb1->hadap_kanan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kanan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kanan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Hadap Kanan</td>
+                <td>{{ $pbb1->hadap_kanan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kanan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kanan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->hadap_kanan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kanan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kanan ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Lencang Depan</td>
-                <td class="border px-4 py-2">{{ $pbb1->lencang_depan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_depan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_depan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Lencang Depan</td>
+                <td>{{ $pbb1->lencang_depan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_depan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_depan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->lencang_depan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_depan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->lencang_depan ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Hadap Kiri</td>
-                <td class="border px-4 py-2">{{ $pbb1->hadap_kiri }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Hadap Kiri</td>
+                <td>{{ $pbb1->hadap_kiri }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kiri ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kiri ?? 0 }}</td>
+                <td>
                     {{ $pbb1->hadap_kiri + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kiri ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hadap_kiri ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Jalan di Tempat</td>
-                <td class="border px-4 py-2">{{ $pbb1->jalan_di_tempat }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->jalan_di_tempat ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->jalan_di_tempat ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Jalan di Tempat</td>
+                <td>{{ $pbb1->jalan_di_tempat }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->jalan_di_tempat ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->jalan_di_tempat ?? 0 }}</td>
+                <td>
                     {{ $pbb1->jalan_di_tempat + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->jalan_di_tempat ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->jalan_di_tempat ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Balik Kanan Henti</td>
-                <td class="border px-4 py-2">{{ $pbb1->balik_kanan_henti }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->balik_kanan_henti ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->balik_kanan_henti ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Balik Kanan Henti</td>
+                <td>{{ $pbb1->balik_kanan_henti }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->balik_kanan_henti ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->balik_kanan_henti ?? 0 }}</td>
+                <td>
                     {{ $pbb1->balik_kanan_henti + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->balik_kanan_henti ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->balik_kanan_henti ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Tiga Langkah Kanan</td>
-                <td class="border px-4 py-2">{{ $pbb1->tiga_langkah_kanan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kanan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kanan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Tiga Langkah Kanan</td>
+                <td>{{ $pbb1->tiga_langkah_kanan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kanan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kanan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->tiga_langkah_kanan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kanan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kanan ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Tiga Langkah Kiri</td>
-                <td class="border px-4 py-2">{{ $pbb1->tiga_langkah_kiri }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Tiga Langkah Kiri</td>
+                <td>{{ $pbb1->tiga_langkah_kiri }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kiri ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kiri ?? 0 }}</td>
+                <td>
                     {{ $pbb1->tiga_langkah_kiri + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kiri ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_kiri ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Tiga Langkah Depan</td>
-                <td class="border px-4 py-2">{{ $pbb1->tiga_langkah_depan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_depan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_depan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Tiga Langkah Depan</td>
+                <td>{{ $pbb1->tiga_langkah_depan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_depan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_depan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->tiga_langkah_depan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_depan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_depan ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Tiga Langkah Belakang</td>
-                <td class="border px-4 py-2">{{ $pbb1->tiga_langkah_belakang }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_belakang ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_belakang ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Tiga Langkah Belakang</td>
+                <td>{{ $pbb1->tiga_langkah_belakang }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_belakang ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_belakang ?? 0 }}</td>
+                <td>
                     {{ $pbb1->tiga_langkah_belakang + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_belakang ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiga_langkah_belakang ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Maju Jalan</td>
-                <td class="border px-4 py-2">{{ $pbb1->maju_jalan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->maju_jalan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->maju_jalan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Maju Jalan</td>
+                <td>{{ $pbb1->maju_jalan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->maju_jalan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->maju_jalan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->maju_jalan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->maju_jalan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->maju_jalan ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Langkah Tegap</td>
-                <td class="border px-4 py-2">{{ $pbb1->langkah_tegap }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_tegap ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_tegap ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Langkah Tegap</td>
+                <td>{{ $pbb1->langkah_tegap }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_tegap ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_tegap ?? 0 }}</td>
+                <td>
                     {{ $pbb1->langkah_tegap + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_tegap ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_tegap ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Langkah Berlari</td>
-                <td class="border px-4 py-2">{{ $pbb1->langkah_berlari }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_berlari ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_berlari ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Langkah Berlari</td>
+                <td>{{ $pbb1->langkah_berlari }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_berlari ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_berlari ?? 0 }}</td>
+                <td>
                     {{ $pbb1->langkah_berlari + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_berlari ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->langkah_berlari ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Hormat Kiri</td>
-                <td class="border px-4 py-2">{{ $pbb1->hormat_kiri }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Hormat Kiri</td>
+                <td>{{ $pbb1->hormat_kiri }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat_kiri ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat_kiri ?? 0 }}</td>
+                <td>
                     {{ $pbb1->hormat_kiri + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat_kiri ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->hormat_kiri ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Tiap Banjar Belok Kanan</td>
-                <td class="border px-4 py-2">{{ $pbb1->tiap_banjar_belok_kanan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kanan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kanan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Tiap Banjar Belok Kanan</td>
+                <td>{{ $pbb1->tiap_banjar_belok_kanan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kanan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kanan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->tiap_banjar_belok_kanan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kanan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kanan ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Melintang Kiri</td>
-                <td class="border px-4 py-2">{{ $pbb1->melintang_kiri }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->melintang_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->melintang_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Melintang Kiri</td>
+                <td>{{ $pbb1->melintang_kiri }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->melintang_kiri ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->melintang_kiri ?? 0 }}</td>
+                <td>
                     {{ $pbb1->melintang_kiri + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->melintang_kiri ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->melintang_kiri ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Haluan Kiri</td>
-                <td class="border px-4 py-2">{{ $pbb1->haluan_kiri }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->haluan_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->haluan_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Haluan Kiri</td>
+                <td>{{ $pbb1->haluan_kiri }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->haluan_kiri ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->haluan_kiri ?? 0 }}</td>
+                <td>
                     {{ $pbb1->haluan_kiri + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->haluan_kiri ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->haluan_kiri ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Tiap Banjar Belok Kiri</td>
-                <td class="border px-4 py-2">{{ $pbb1->tiap_banjar_belok_kiri }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kiri ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Tiap Banjar Belok Kiri</td>
+                <td>{{ $pbb1->tiap_banjar_belok_kiri }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kiri ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kiri ?? 0 }}</td>
+                <td>
                     {{ $pbb1->tiap_banjar_belok_kiri + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kiri ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->tiap_banjar_belok_kiri ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Bubar Jalan</td>
-                <td class="border px-4 py-2">{{ $pbb1->bubar_jalan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->bubar_jalan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->bubar_jalan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Bubar Jalan</td>
+                <td>{{ $pbb1->bubar_jalan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->bubar_jalan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->bubar_jalan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->bubar_jalan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->bubar_jalan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->bubar_jalan ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Postur</td>
-                <td class="border px-4 py-2">{{ $pbb1->postur }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Postur</td>
+                <td>{{ $pbb1->postur }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0 }}</td>
+                <td>
                     {{ $pbb1->postur + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Suara</td>
-                <td class="border px-4 py-2">{{ $pbb1->suara }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Suara</td>
+                <td>{{ $pbb1->suara }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0 }}</td>
+                <td>
                     {{ $pbb1->suara + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Intonasi</td>
-                <td class="border px-4 py-2">{{ $pbb1->intonasi }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Intonasi</td>
+                <td>{{ $pbb1->intonasi }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0 }}</td>
+                <td>
                     {{ $pbb1->intonasi + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Penguasaan Materi</td>
-                <td class="border px-4 py-2">{{ $pbb1->penguasaan_materi }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Penguasaan Materi</td>
+                <td>{{ $pbb1->penguasaan_materi }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0 }}</td>
+                <td>
                     {{ $pbb1->penguasaan_materi + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0) }}
                 </td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Penguasaan Lapangan Pasukan</td>
-                <td class="border px-4 py-2">{{ $pbb1->penguasaan_lapangan_pasukan }}</td>
-                <td class="border px-4 py-2">{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0 }}</td>
-                <td class="border px-4 py-2">{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0 }}</td>
-                <td class="border px-4 py-2">
+                <td>Penguasaan Lapangan Pasukan</td>
+                <td>{{ $pbb1->penguasaan_lapangan_pasukan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0 }}</td>
+                <td>
                     {{ $pbb1->penguasaan_lapangan_pasukan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0) }}
                 </td>
             </tr>
@@ -331,45 +339,45 @@
 
 
     <h3>Nilai Pasukan</h3>
-    <table class="table-auto border-collapse border border-gray-400">
+    <table>
         <thead>
             <tr>
-                <th class="border px-4 py-2">Materi Lomba</th>
-                <th class="border px-4 py-2">Nilai</th>
+                <th>Materi Lomba</th>
+                <th>Nilai</th>
             </tr>
         </thead>
         @foreach ($pasukanData as $pasukan)
         <tbody>
             <tr>
-                <td class="border px-4 py-2">Kerapihan Saf</td>
-                <td class="border px-4 py-2">{{ $pasukan->kerapihan_saf }}</td>
+                <td>Kerapihan Saf</td>
+                <td>{{ $pasukan->kerapihan_saf }}</td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Kerapihan Banjar</td>
-                <td class="border px-4 py-2">{{ $pasukan->kerapihan_banjar }}</td>
+                <td>Kerapihan Banjar</td>
+                <td>{{ $pasukan->kerapihan_banjar }}</td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Kekompakan Gerak</td>
-                <td class="border px-4 py-2">{{ $pasukan->kekompakan_gerak }}</td>
+                <td>Kekompakan Gerak</td>
+                <td>{{ $pasukan->kekompakan_gerak }}</td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Penempatan Ketinggian Personel</td>
-                <td class="border px-4 py-2">{{ $pasukan->penempatan_ketinggian_personel }}</td>
+                <td>Penempatan Ketinggian Personel</td>
+                <td>{{ $pasukan->penempatan_ketinggian_personel }}</td>
             </tr>
             <tr>
-                <td class="border px-4 py-2">Performance Keseluruhan</td>
-                <td class="border px-4 py-2">{{ $pasukan->formasi_keseluruhan }}</td>
+                <td>Performance Keseluruhan</td>
+                <td>{{ $pasukan->formasi_keseluruhan }}</td>
             </tr>
         </tbody>
         @endforeach
     </table>
 
     <h3>Nilai Variasi & Formasi</h3>
-    <table class="table-auto border-collapse border border-gray-400">
+    <table>
         <thead>
             <tr>
-                <th class="border px-4 py-2">Materi Lomba</th>
-                <th class="border px-4 py-2">Total</th>
+                <th>Materi Lomba</th>
+                <th>Total</th>
             </tr>
         </thead>
         @foreach ($vaforData as $vafor)
@@ -496,6 +504,17 @@
             </tr>
         </tbody>
         @endforeach
+    </table>
+
+    <table style="margin-top: 50px; page-break-before: always;">
+        <tr>
+            <td style="text-align: center">Pelatih</td>
+            <td style="text-align: center">Panitia</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; padding: 80px 0 20px;">(___________________)</td>
+            <td style="text-align: center; padding: 80px 0 20px;">(___________________)</td>
+        </tr>
     </table>
 </body>
 
