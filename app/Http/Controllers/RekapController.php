@@ -42,10 +42,18 @@ class RekapController extends Controller
             ->groupBy('sekolah_id')
             ->get();
 
-        $penaltiData = NilaiPenalti::selectRaw('sekolah_id, SUM(tidak_ikut_daftar_ulang + 
-              tidak_ikut_upacara_pembukaan + terlambat_ke_dp_1 + tidak_sesuai_nomor_urut + 
-              terlewat_tampil + kurang_lebih_personil + anggota_sakit_di_lapangan + 
-              merusak_properti + melewati_garis_batas + melebihi_waktu + manipulasi_anggota) as total_nilai')
+            $penaltiData = NilaiPenalti::selectRaw('sekolah_id, 
+            COALESCE(SUM(tidak_ikut_daftar_ulang), 0) +
+            COALESCE(SUM(tidak_ikut_upacara_pembukaan), 0) +
+            COALESCE(SUM(terlambat_ke_dp_1), 0) +
+            COALESCE(SUM(tidak_sesuai_nomor_urut), 0) +
+            COALESCE(SUM(terlewat_tampil), 0) +
+            COALESCE(SUM(kurang_lebih_personil), 0) +
+            COALESCE(SUM(anggota_sakit_di_lapangan), 0) +
+            COALESCE(SUM(merusak_properti), 0) +
+            COALESCE(SUM(melewati_garis_batas), 0) +
+            COALESCE(SUM(melebihi_waktu), 0) +
+            COALESCE(SUM(manipulasi_anggota), 0) AS total_nilai')
             ->groupBy('sekolah_id')
             ->get();
 

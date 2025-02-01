@@ -45,7 +45,13 @@
                             <td class="border px-4 py-2">
                                 @php
                                     $totalVafor = 0;
+                                    $totalPasukan = 0;
                                 @endphp
+                                @foreach ($data->sekolah->nilaiPasukan as $pasukan)
+                                    @php
+                                        $totalPasukan += $pasukan->kerapihan_saf + $pasukan->kerapihan_banjar + $pasukan->kekompakan_gerak + $pasukan->penempatan_ketinggian_personel + $pasukan->formasi_keseluruhan
+                                    @endphp
+                                @endforeach
                                 @foreach($data->sekolah->nilaivafor as $vafor)
                                     @php
                                         $totalVafor += $vafor->kekompakan_variasi + $vafor->tingkat_kesulitan_variasi +
@@ -55,7 +61,7 @@
                                                        $vafor->penggunaan_pbb_murni_formasi + $vafor->bentuk_akhir_formasi;
                                     @endphp
                                 @endforeach
-                                {{ $totalVafor }}
+                                {{ $totalVafor + $totalPasukan }}
                             </td>
                             <td class="border px-4 py-2">
                                 @php
