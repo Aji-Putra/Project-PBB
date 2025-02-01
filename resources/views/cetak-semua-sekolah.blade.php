@@ -56,36 +56,39 @@
         $sortedData = collect($data)->sortByDesc('total_nilai')->values();
     @endphp
 
-    <table>
-        <thead>
+<table>
+    <thead>
+        <tr>
+            <th>Juara</th>
+            <th>Nomor Peserta</th>
+            <th>Nama Sekolah</th>
+            <th>Juri PBB 1</th>
+            <th>Juri PBB 2</th>
+            <th>Juri PBB 3</th>
+            <th>Juri Vafor</th>
+            <th>Juri Kostum</th>
+            <th>Penalti</th>
+            <th>Total Nilai</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($sortedData as $index => $sekolah)
             <tr>
-                <th>Juara</th>
-                <th>Nomor Peserta</th>
-                <th>Nama Sekolah</th>
-                <th>Juri PBB 1</th>
-                <th>Juri PBB 2</th>
-                <th>Juri PBB 3</th>
-                <th>Juri Vafor</th>
-                <th>Juri Kostum</th>
-                <th>Total Nilai</th>
+                <td>{{ $index + 1 }}</td> <!-- Ranking dimulai dari 1 -->
+                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 'DIS' : $sekolah['nomor_peserta'] }}</td>
+                <td>{{ $sekolah['nama_sekolah'] }}</td>
+                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_juri_1'] }}</td>
+                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_juri_2'] }}</td>
+                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_juri_3'] }}</td>
+                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_vafor'] }}</td>
+                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_kostum'] }}</td>
+                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 'DIS' : $sekolah['nilai_penalti'] }}</td>
+                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['total_nilai'] }}</td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach ($sortedData as $index => $sekolah)
-                <tr>
-                    <td>{{ $index + 1 }}</td> <!-- Ranking dimulai dari 1 -->
-                    <td>{{ $sekolah['nomor_peserta'] }}</td>
-                    <td>{{ $sekolah['nama_sekolah'] }}</td>
-                    <td>{{ $sekolah['nilai_juri_1'] }}</td>
-                    <td>{{ $sekolah['nilai_juri_2'] }}</td>
-                    <td>{{ $sekolah['nilai_juri_3'] }}</td>
-                    <td>{{ $sekolah['nilai_vafor'] }}</td>
-                    <td>{{ $sekolah['nilai_kostum'] }}</td>
-                    <td>{{ $sekolah['total_nilai'] }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+        @endforeach
+    </tbody>
+</table>
+
 </body>
 
 </html>

@@ -272,17 +272,32 @@ class RekapController extends Controller
             $totalKostum = $sekolah->nilaikostum->sum(function ($kostum) {
                 return $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan;
             });
+
+            $totalPenalti = $sekolah->nilaiPenalti->sum(function ($penalti) {
+                return $penalti->tidak_ikut_daftar_ulang 
+                    + $penalti->tidak_ikut_upacara_pembukaan 
+                    + $penalti->terlambat_ke_dp_1 
+                    + $penalti->tidak_sesuai_nomor_urut 
+                    + $penalti->terlewat_tampil 
+                    + $penalti->kurang_lebih_personil 
+                    + $penalti->anggota_sakit_di_lapangan 
+                    + $penalti->merusak_properti 
+                    + $penalti->melewati_garis_batas 
+                    + $penalti->melebihi_waktu;
+            });
             
-            $totalNilai = $nilaiJuri1 + $nilaiJuri2 + $nilaiJuri3 + $totalVafor + $totalKostum;
+            $totalNilai = $nilaiJuri1 + $nilaiJuri2 + $nilaiJuri3 + $totalVafor + $totalKostum - $totalPenalti;
             
             $data[] = [
                 'nomor_peserta' => $sekolah->nomor_peserta,
                 'nama_sekolah' => $sekolah->nama_sekolah,
+                'status'        => $sekolah->status,
                 'nilai_juri_1' => $nilaiJuri1,
                 'nilai_juri_2' => $nilaiJuri2,
                 'nilai_juri_3' => $nilaiJuri3,
                 'nilai_vafor' => $totalVafor,
                 'nilai_kostum' => $totalKostum,
+                'nilai_penalti' => $totalPenalti,
                 'total_nilai' => $totalNilai
             ];
         }

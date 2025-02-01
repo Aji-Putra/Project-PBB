@@ -496,11 +496,19 @@
             </tr>
             <tr>
                 <td>Melebihi Waktu</td>
+                @if ($penalti->melebihi_waktu === null)
+                    <td>0</td>
+                @else   
                 <td>{{ $penalti->melebihi_waktu }}</td>
+                @endif
             </tr>
             <tr>
                 <td>Manipulasi Anggota</td>
-                <td>{{ $penalti->manipulasi_anggota }}</td>
+                @if ($penalti->manipulasi_anggota === -1)
+                <td>DISKUALIFIKASI</td>
+                @else
+                <td>0</td>
+                @endif
             </tr>
         </tbody>
         @endforeach
