@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-2 mb-4">
-    <h2 class="font-medium text-lg">1. Variasi (Tidak Merubah Bentuk)</h2>
+    <h2 class="font-medium text-lg">2. Variasi (Tidak Merubah Bentuk)</h2>
     <div class="flex md:flex-row flex-col gap-2 md:items-center items-start justify-between">
         <label for="kekompakan_variasi">Kekompakan</label>
         <div id="kekompakan_variasi" class="flex flex-wrap gap-4 bg-transparent p-1 px-2 rounded md:text-base text-xs">

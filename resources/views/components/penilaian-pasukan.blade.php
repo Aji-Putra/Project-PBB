@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-2 mb-4">
-    <h2 class="font-medium text-lg">3. Pasukan</h2>
+    <h2 class="font-medium text-lg">1. Pasukan</h2>
     <div class="flex md:flex-row flex-col gap-2 md:items-center items-start justify-between">
         <label for="kerapihan_saf">Kerapihan Saf</label>
         <div id="kerapihan_saf" class="flex flex-wrap gap-4 bg-transparent p-1 px-2 rounded md:text-base text-xs">

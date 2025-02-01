@@ -41,8 +41,8 @@
                                     ->where('sekolah_id', $item->id)
                                     ->exists();
                             @endphp
-                            <a class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-red-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-red-500 
-{{ $sudahAdaPenalti ? 'opacity-50 cursor-not-allowed' : '' }}"
+                            <a class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-red-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-red-500
+                                {{ $sudahAdaPenalti ? 'opacity-50 cursor-not-allowed' : '' }}"
                                 href="{{ $sudahAdaPenalti ? '#' : '/penalti/' . $item->id }}"
                                 {{ $sudahAdaPenalti ? 'disabled' : '' }}>
                                 Penalti

@@ -36,6 +36,11 @@
             position: absolute;
             top: 40px
         }
+
+        .total {
+            background-color: #FADA7A;
+            font-weight: 700;
+        }
     </style>
 </head>
 
@@ -332,6 +337,10 @@
                     {{ $pbb1->penguasaan_lapangan_pasukan + ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0) + ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0) }}
                 </td>
             </tr>
+            <tr class="total">
+                <td colspan="4">Total Keseluruhan</td>
+                <td>200</td>
+            </tr>
         @endforeach
         </tbody>
     </table>
@@ -367,6 +376,10 @@
             <tr>
                 <td>Performance Keseluruhan</td>
                 <td>{{ $pasukan->formasi_keseluruhan }}</td>
+            </tr>
+            <tr class="total">
+                <td>Total Keseluruhan</td>
+                <td>200</td>
             </tr>
         </tbody>
         @endforeach
@@ -422,6 +435,10 @@
                 <td>Bentuk Akhir Formasi</td>
                 <td>{{ $vafor->bentuk_akhir_formasi }}</td>
             </tr>
+            <tr class="total">
+                <td>Total Keseluruhan</td>
+                <td>200</td>
+            </tr>
         </tbody>
         @endforeach
     </table>
@@ -443,6 +460,10 @@
             <tr>
                 <td>Keindahan Kerapihan</td>
                 <td>{{ $kostum->keindahan_kerapihan }}</td>
+            </tr>
+            <tr class="total">
+                <td>Total Keseluruhan</td>
+                <td>200</td>
             </tr>
         </tbody>
         @endforeach
@@ -498,7 +519,7 @@
                 <td>Melebihi Waktu</td>
                 @if ($penalti->melebihi_waktu === null)
                     <td>0</td>
-                @else   
+                @else
                 <td>{{ $penalti->melebihi_waktu }}</td>
                 @endif
             </tr>
@@ -510,11 +531,39 @@
                 <td>0</td>
                 @endif
             </tr>
+            <tr class="total">
+                <td>Total Keseluruhan</td>
+                <td>200</td>
+            </tr>
         </tbody>
         @endforeach
     </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Juri PBB 1</th>
+                <th>Juri PBB 2</th>
+                <th>Juri PBB 3</th>
+                <th>Juri Vafor</th>
+                <th>Juri Kostum</th>
+                <th>Penalti</th>
+                <th>Total Nilai</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nilai Juri PBB 1</td>
+                <td>Nilai Juri PBB 2</td>
+                <td>Nilai Juri PBB 3</td>
+                <td>Nilai Juri Vafor</td>
+                <td>Nilai Juri Kostum</td>
+                <td>Nilai Penalti</td>
+                <td>Hasil Total Nilai</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <table style="margin-top: 50px; page-break-before: always;">
+    <table style="margin-top: 50px;">
         <tr>
             <td style="text-align: center">Pelatih</td>
             <td style="text-align: center">Panitia</td>

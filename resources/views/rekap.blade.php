@@ -42,7 +42,7 @@
                             <td class="border px-4 py-2">{{ $data['penalti'] }}</td>
                             <td class="border px-4 py-2">{{ $data['total_nilai'] }}</td>
                             <td class="border px-6 py-4">
-                                <a href="{{ route('rekap.cetakPdf', $data['sekolah_id']) }}" class="w-40 mb-4 px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">Cetak PDF</a>
+                                <a href="{{ route('rekap.cetakPdf', $data['sekolah_id']) }}" class="w-32 flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">Cetak PDF</a>
                             </td>
 
                         </tr>

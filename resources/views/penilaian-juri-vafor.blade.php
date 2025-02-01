@@ -19,13 +19,13 @@
         <div class="w-full flex justify-end">
             <a href="{{ url()->previous() }}" class="w-20 bg-yellow-500 text-black px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-yellow-500">Kembali</a>
         </div>
+        <h1 class="font-bold text-xl">Penilaian Pasukan</h1>
+        <hr class="mt border-black">
+        <x-penilaian-pasukan></x-penilaian-pasukan>
         <h1 class="font-bold text-xl">Penilaian Variasi dan Formasi</h1>
         <hr class="mt border-black">
         <x-penilaian-variasi></x-penilaian-variasi>
         <x-penilaian-formasi></x-penilaian-formasi>
-        <h1 class="font-bold text-xl">Penilaian Pasukan</h1>
-        <hr class="mt border-black">
-        <x-penilaian-pasukan></x-penilaian-pasukan>
         <x-submit-nilai></x-submit-nilai>
     </form>
 <script src="{{ Storage::url('js/radio-btn.js') }}"></script>
