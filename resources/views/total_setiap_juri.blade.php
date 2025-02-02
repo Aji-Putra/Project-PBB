@@ -46,6 +46,7 @@
                                 @php
                                     $totalVafor = 0;
                                     $totalPasukan = 0;
+                                    
                                 @endphp
                                 @foreach ($data->sekolah->nilaiPasukan as $pasukan)
                                     @php
@@ -61,6 +62,9 @@
                                                        $vafor->penggunaan_pbb_murni_formasi + $vafor->bentuk_akhir_formasi;
                                     @endphp
                                 @endforeach
+                                @php
+                                    $totalVaforPasukan = $totalVafor + $totalPasukan
+                                @endphp
                                 {{ $totalVafor + $totalPasukan }}
                             </td>
                             <td class="border px-4 py-2">
@@ -87,7 +91,7 @@
                             </td>
                             <td class="border px-4 py-2">
                                 @php
-                                    $totalNilai = $data->nilai_juri_1 + $data->nilai_juri_2 + $data->nilai_juri_3 + $totalVafor + $totalKostum - $totalPenalti;
+                                    $totalNilai = $data->nilai_juri_1 + $data->nilai_juri_2 + $data->nilai_juri_3 + $totalVaforPasukan + $totalKostum - $totalPenalti;
                                 @endphp
                                 {{ $totalNilai }}
                             </td>
