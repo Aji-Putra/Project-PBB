@@ -77,8 +77,8 @@
                 <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0 }}</td>
                 <td>
                     @php
-    $bersafKumpul = $pbb1->bersaf_kumpul + 
-        ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0) + 
+    $bersafKumpul = $pbb1->bersaf_kumpul +
+        ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0) +
         ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->bersaf_kumpul ?? 0);
 @endphp
 {{ $bersafKumpul }}
@@ -453,7 +453,7 @@
         </thead>
         @foreach ($pasukanData as $pasukan)
     @php
-        $totalKeseluruhan = 
+        $totalKeseluruhan =
             $pasukan->kerapihan_saf +
             $pasukan->kerapihan_banjar +
             $pasukan->kekompakan_gerak +
@@ -494,12 +494,12 @@
         <thead>
             <tr>
                 <th>Materi Lomba</th>
-                <th>Total</th>
+                <th>Nilai</th>
             </tr>
         </thead>
         @foreach ($vaforData as $vafor)
     @php
-        $totalKeseluruhan = 
+        $totalKeseluruhan =
             $vafor->kekompakan_variasi +
             $vafor->tingkat_kesulitan_variasi +
             $vafor->kreativitas_variasi +
@@ -566,7 +566,7 @@
         <thead>
             <tr>
                 <th>Materi Lomba</th>
-                <th>Total</th>
+                <th>Nilai</th>
             </tr>
         </thead>
         @foreach ($kostumData as $kostum)
@@ -595,13 +595,13 @@
         <thead>
             <tr>
                 <th>Nama Penalti</th>
-                <th>Total</th>
+                <th>Nilai</th>
             </tr>
         </thead>
         @foreach ($penaltiData as $penalti)
     @php
         // Menjumlahkan semua penalti
-        $totalPenalti = 
+        $totalPenalti =
             ($penalti->tidak_ikut_daftar_ulang ?? 0) +
             ($penalti->tidak_ikut_upacara_pembukaan ?? 0) +
             ($penalti->terlambat_ke_dp_1 ?? 0) +
