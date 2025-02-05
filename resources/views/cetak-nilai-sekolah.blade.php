@@ -809,7 +809,7 @@
                 <td>{{ $totalnilaiVafor + $totalnilaipasukan}}</td>
                 <td>{{ $totalnilaiKostum }}</td>
                 <td>{{ $totalKeseluruhanPenalti }}</td>
-                <td>{{ $totalnilaiPBB + $totalnilaiVafor + $totalnilaipasukan + $totalnilaiKostum + $totalKeseluruhanPenalti}}</td>
+                <td>{{ $totalnilaiPBB + $totalnilaiVafor + $totalnilaipasukan + $totalnilaiKostum - $totalKeseluruhanPenalti}}</td>
             </tr>
         </tbody>
     </table>
