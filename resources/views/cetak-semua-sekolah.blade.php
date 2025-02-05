@@ -80,7 +80,7 @@
                 <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_juri_1'] }}</td>
                 <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_juri_2'] }}</td>
                 <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_juri_3'] }}</td>
-                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_vafor'] }}</td>
+                <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_vafor'] + $sekolah['nilai_pasukan']}}</td>
                 <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['nilai_kostum'] }}</td>
                 <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 'DIS' : $sekolah['nilai_penalti'] }}</td>
                 <td>{{ $sekolah['status'] === 'DISKUALIFIKASI' ? 0 : $sekolah['total_nilai'] }}</td>

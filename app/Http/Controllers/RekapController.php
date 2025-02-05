@@ -276,6 +276,10 @@ class RekapController extends Controller
                        $vafor->tingkat_kesulitan_formasi + $vafor->dinamis_struktur_formasi + 
                        $vafor->penggunaan_pbb_murni_formasi + $vafor->bentuk_akhir_formasi;
             });
+
+            $nilaiPasukan = $sekolah->nilaipasukan->sum(function ($pasukan) {
+                return $pasukan->kerapihan_saf + $pasukan->kerapihan_banjar + $pasukan->kekompakan_gerak + $pasukan->penempatan_ketinggian_personel+ $pasukan->formasi_keseluruhan;
+            });
             
             $totalKostum = $sekolah->nilaikostum->sum(function ($kostum) {
                 return $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan;
@@ -294,7 +298,7 @@ class RekapController extends Controller
                     + $penalti->melebihi_waktu;
             });
             
-            $totalNilai = $nilaiJuri1 + $nilaiJuri2 + $nilaiJuri3 + $totalVafor + $totalKostum - $totalPenalti;
+            $totalNilai = $nilaiJuri1 + $nilaiJuri2 + $nilaiJuri3 + $totalVafor +$nilaiPasukan + $totalKostum - $totalPenalti;
             
             $data[] = [
                 'nomor_peserta' => $sekolah->nomor_peserta,
@@ -304,6 +308,7 @@ class RekapController extends Controller
                 'nilai_juri_2' => $nilaiJuri2,
                 'nilai_juri_3' => $nilaiJuri3,
                 'nilai_vafor' => $totalVafor,
+                'nilai_pasukan' => $nilaiPasukan,
                 'nilai_kostum' => $totalKostum,
                 'nilai_penalti' => $totalPenalti,
                 'total_nilai' => $totalNilai
