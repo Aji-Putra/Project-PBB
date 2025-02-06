@@ -29,8 +29,8 @@
                                 <div class="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                     <h3 class="text-lg leading-6 font-medium text-gray-900">Tambah Peserta</h3>
                                     <div class="mt-2 flex flex-col gap-1">
-                                        <label for="nomor_peserta">Nomor Peserta</label>
-                                        <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nomor_peserta">
+                                        {{-- <label for="nomor_peserta">Nomor Peserta</label>
+                                        <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nomor_peserta"> --}}
                                         <label for="nama_sekolah">Nama Sekolah</label>
                                         <select name="nama_sekolah" id="nama_sekolah" class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2">
                                             <option class="text-gray-500" value="">Pilih Nama Sekolah</option>
