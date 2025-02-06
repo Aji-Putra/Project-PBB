@@ -531,7 +531,7 @@
                 <tr class="total">
                     <td colspan="4">Total Keseluruhan</td>
                     @php
-                        $totalnilaiPBB = $bersafKumpul + $sikapSempurna + $istirahatDiTempat + $hormat + $periksaKerapihan + $lencangKiri + $lencangKanan + $hadapKanan + $lencangDepan + $hadapKiri + $jalanDiTempat + $balikKananHenti + $tigaLangkahKanan + $tigaLangkahKiri + $tigaLangkahDepan + $tigaLangkahBelakang + $majuJalan + $langkahTegap + $langkahBerlari + $hormatKiri + $tiapBanjarBelokKanan + $melintangKiri + $haluanKiri + $tiapBanjarBelokKiri + $bubarJalan + $postur + $suara + $intonasi + $penguasaanMateri + $penguasaanLapanganPasukan;
+                        $totalnilaiPBB = $bersafKumpul + $sikapSempurna + $istirahatDiTempat + $hormat + $periksaKerapihan + $lencangKiri + $lencangKanan + $hadapKanan + $lencangDepan + $hadapKiri + $jalanDiTempat + $balikKananHenti + $tigaLangkahKanan + $tigaLangkahKiri + $tigaLangkahDepan + $tigaLangkahBelakang + $majuJalan + $langkahTegap + $langkahBerlari + $hormatKiri + $tiapBanjarBelokKanan + $melintangKiri + $haluanKiri + $tiapBanjarBelokKiri + $bubarJalan;
 
                         $totaljuriPbb =+ $totalnilaiPBB;
                     @endphp
@@ -542,7 +542,108 @@
         </tbody>
     </table>
 
+    <h3>Nilai Danton</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Materi Lomba</th>
+                <th>Juri 1</th>
+                <th>Juri 2</th>
+                <th>Juri 3</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Postur</td>
+                <td>{{ $pbb1->postur }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0 }}</td>
+                <td>
+                    @php
+                        $postur =
+                            $pbb1->postur +
+                            ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0) +
+                            ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->postur ?? 0);
+                    @endphp
+                    {{ $postur }}
+                </td>
+            </tr>
+            <tr>
+                <td>Suara</td>
+                <td>{{ $pbb1->suara }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0 }}</td>
+                <td>
+                    @php
+                        $suara =
+                            $pbb1->suara +
+                            ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0) +
+                            ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->suara ?? 0);
+                    @endphp
+                    {{ $suara }}
+                </td>
+            </tr>
+            <tr>
+                <td>Intonasi</td>
+                <td>{{ $pbb1->intonasi }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0 }}</td>
+                <td>
+                    @php
+                        $intonasi =
+                            $pbb1->intonasi +
+                            ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0) +
+                            ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->intonasi ?? 0);
+                    @endphp
+                    {{ $intonasi }}
+                </td>
+            </tr>
+            <tr>
+                <td>Penguasaan Materi</td>
+                <td>{{ $pbb1->penguasaan_materi }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0 }}</td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0 }}</td>
+                <td>
+                    @php
+                        $penguasaanMateri =
+                            $pbb1->penguasaan_materi +
+                            ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0) +
+                            ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_materi ?? 0);
+                    @endphp
+                    {{ $penguasaanMateri }}
+                </td>
+            </tr>
+            <tr>
+                <td>Penguasaan Lapangan Pasukan</td>
+                <td>{{ $pbb1->penguasaan_lapangan_pasukan }}</td>
+                <td>{{ $juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0 }}
+                </td>
+                <td>{{ $juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0 }}
+                </td>
+                <td>
+                    @php
+                        $penguasaanLapanganPasukan =
+                            $pbb1->penguasaan_lapangan_pasukan +
+                            ($juri2->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ??
+                                0) +
+                            ($juri3->firstWhere('sekolah_id', $pbb1->sekolah_id)->penguasaan_lapangan_pasukan ?? 0);
+                    @endphp
+                    {{ $penguasaanLapanganPasukan }}
+                </td>
+            </tr>
+            <tr class="total">
+                <td colspan="4">Total Keseluruhan</td>
+                @php
+                    $totalnilaiDanton = $postur + $suara + $intonasi + $penguasaanMateri + $penguasaanLapanganPasukan;
 
+                    $totaljuriPbb =+ $totalnilaiDanton;
+                @endphp
+                <td>{{ $totalnilaiDanton }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
     <h3>Nilai Pasukan</h3>
     <table>
@@ -563,7 +664,7 @@
                     $pasukan->kekompakan_gerak +
                     $pasukan->penempatan_ketinggian_personel +
                     $pasukan->formasi_keseluruhan;
-                    
+
                     $totalnilaipasukan =+  $totalKeseluruhanPasukan
             @endphp
             <tbody>
@@ -603,7 +704,7 @@
                 <th>Nilai</th>
             </tr>
         </thead>
-        
+
         @foreach ($vaforData as $vafor)
             @php
                 $totalKeseluruhan =
@@ -794,9 +895,10 @@
             <tr>
                 {{-- <th>Juri PBB 1</th> --}}
                 {{-- <th>Juri PBB 2</th> --}}
-                <th>Juri PBB </th>
-                <th>Juri Vafor</th>
-                <th>Juri Kostum</th>
+                <th>Nilai PBB </th>
+                <th>Nilai Danton</th>
+                <th>Nilai Vafor</th>
+                <th>Nilai Kostum</th>
                 <th>Penalti</th>
                 <th>Total Nilai</th>
             </tr>
@@ -806,6 +908,7 @@
                 {{-- <td>Nilai Juri PBB 1</td> --}}
                 {{-- <td>Nilai Juri PBB 2</td> --}}
                 <td>{{ $totalnilaiPBB }}</td>
+                <td>{{ $totalnilaiDanton }}</td>
                 <td>{{ $totalnilaiVafor + $totalnilaipasukan}}</td>
                 <td>{{ $totalnilaiKostum }}</td>
                 <td>{{ $totalKeseluruhanPenalti }}</td>
