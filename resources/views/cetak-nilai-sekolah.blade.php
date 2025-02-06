@@ -784,7 +784,7 @@
         @endphp
         @foreach ($kostumData as $kostum)
             @php
-                $totalKeseluruhankostum = $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan;
+                $totalKeseluruhankostum = $kostum->kelengkapan_atribut + $kostum->keindahan + $kostum->keseragaman + $kostum->kebersihan + $kostum->kerapihan;
 
                 $totalnilaiKostum =+ $totalKeseluruhankostum
             @endphp
@@ -794,8 +794,20 @@
                     <td>{{ $kostum->kelengkapan_atribut }}</td>
                 </tr>
                 <tr>
-                    <td>Keindahan Kerapihan</td>
-                    <td>{{ $kostum->keindahan_kerapihan }}</td>
+                    <td>Keindahan</td>
+                    <td>{{ $kostum->keindahan }}</td>
+                </tr>
+                <tr>
+                    <td>Keseragaman</td>
+                    <td>{{ $kostum->keseragaman }}</td>
+                </tr>
+                <tr>
+                    <td>Kebersihan</td>
+                    <td>{{ $kostum->kebersihan }}</td>
+                </tr>
+                <tr>
+                    <td>Kerapihan</td>
+                    <td>{{ $kostum->kerapihan }}</td>
                 </tr>
                 <tr class="total">
                     <td>Total Keseluruhan</td>
@@ -884,7 +896,7 @@
                 </tr>
                 <tr class="total">
                     <td>Total Keseluruhan</td>
-                    <td>{{ $diskualifikasi ? 'DISKUALIFIKASI' : $totalPenalti }}</td>
+                    <td>-{{ $diskualifikasi ? 'DISKUALIFIKASI' : $totalPenalti }}</td>
                 </tr>
             </tbody>
         @endforeach
@@ -911,7 +923,7 @@
                 <td>{{ $totalnilaiDanton }}</td>
                 <td>{{ $totalnilaiVafor + $totalnilaipasukan}}</td>
                 <td>{{ $totalnilaiKostum }}</td>
-                <td>{{ $totalKeseluruhanPenalti }}</td>
+                <td>-{{ $totalKeseluruhanPenalti }}</td>
                 <td>{{ $totalnilaiPBB + $totalnilaiVafor + $totalnilaipasukan + $totalnilaiKostum - $totalKeseluruhanPenalti}}</td>
             </tr>
         </tbody>

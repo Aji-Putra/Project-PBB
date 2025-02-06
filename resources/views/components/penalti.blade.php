@@ -3,8 +3,8 @@
     <input type="hidden" name="juri_id" value="{{ Auth::user()->id }}">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-5">
         <p class="flex gap-2 items-center justify-between">Tidak Daftar Ulang
-            <input class="w-5 h-5 peer hidden font-bold" type="checkbox" name="tidak_daftar_ulang" id="tidak_daftar_ulang" value="25">
-            <label for="tidak_daftar_ulang" class="block border border-gray-500 cursor-pointer select-none md:rounded-xl rounded-md p-1 px-2 text-center peer-checked:bg-red-500 peer-checked:font-bold peer-checked:text-white transition-all">25</label>
+            <input class="w-5 h-5 peer hidden font-bold" type="checkbox" name="tidak_ikut_daftar_ulang" id="tidak_ikut_daftar_ulang" value="25">
+            <label for="tidak_ikut_daftar_ulang" class="block border border-gray-500 cursor-pointer select-none md:rounded-xl rounded-md p-1 px-2 text-center peer-checked:bg-red-500 peer-checked:font-bold peer-checked:text-white transition-all">25</label>
         </p>
         <p class="flex gap-2 items-center justify-between">Tidak Ikut Upacara Pembukaan
             <input class="w-5 h-5 peer hidden font-bold" type="checkbox" name="tidak_ikut_upacara_pembukaan" id="tidak_ikut_upacara_pembukaan" value="25">

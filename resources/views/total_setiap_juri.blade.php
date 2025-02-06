@@ -46,7 +46,7 @@
                                 @php
                                     $totalVafor = 0;
                                     $totalPasukan = 0;
-                                    
+
                                 @endphp
                                 @foreach ($data->sekolah->nilaiPasukan as $pasukan)
                                     @php
@@ -79,6 +79,7 @@
                                 {{ $totalKostum }}
                             </td>
                             <td class="border px-4 py-2">
+                                -
                                 @php
                                     $totalPenalti = 0;
                                 @endphp
@@ -98,13 +99,13 @@
                             @if ($data->sekolah->status === 'DISKUALIFIKASI')
                             <td class="border px-6 py-4">
 
-                                <a class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-red-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-red-500 
+                                <a class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-red-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-red-500
                                 ">
                                                                 DISKUALIFIKASI
                                                             </a>
                             </td>
                             @else
-                                
+
                             <td class="border px-6 py-4">
                                 <a href="{{ url('/cetak-sekolah/' . $data->sekolah_id) }}"
                                     class="w-40 flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
