@@ -25,6 +25,7 @@ Route::middleware('auth','panitia')->group(function () {
     Route::post('/submit/penilaian/penalti',[NilaiPenaltiController::class ,'store']);
     Route::get('/cetak-sekolah/{sekolah_id}',[RekapController::class ,'cetaksekolah']);
     Route::get('/cetak-semua-sekolah', [RekapController::class, 'cetakSemuaSekolah']);
+    Route::get('/cetak-juara', [RekapController::class, 'cetakJuara']);
 });
 
 Route::get('/total-juri',[RekapController::class,'rekapJuri']);

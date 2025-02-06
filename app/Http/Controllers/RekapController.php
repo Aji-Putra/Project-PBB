@@ -356,4 +356,206 @@ class RekapController extends Controller
         $pdf = PDF::loadView('cetak-semua-sekolah', compact('data'));
         return $pdf->download('cetak-semua-sekolah.pdf');
     }
+
+    public function cetakjuar() {
+        $sekolahData = Sekolah::with(['nilaipbb', 'nilaivafor', 'nilaikostum'])->get();
+        $data = [];
+        foreach ($sekolahData as $sekolah) {
+            $nilaiJuri1 = $sekolah->nilaipbb->where('juri_id', 2)->sum(function ($nilai) {
+                return $nilai->bersaf_kumpul + $nilai->sikap_sempurna + $nilai->istirahat_di_tempat +
+                    $nilai->hormat + $nilai->periksa_kerapihan + $nilai->setengah_lengan_lencang_kiri +
+                    $nilai->lencang_kanan + $nilai->hadap_kanan + $nilai->lencang_depan +
+                    $nilai->hadap_kiri + $nilai->jalan_di_tempat + $nilai->balik_kanan_henti +
+                    $nilai->tiga_langkah_kanan + $nilai->tiga_langkah_kiri + $nilai->tiga_langkah_depan +
+                    $nilai->tiga_langkah_belakang + $nilai->maju_jalan + $nilai->langkah_tegap +
+                    $nilai->langkah_berlari + $nilai->hormat_kiri + $nilai->tiap_banjar_belok_kanan +
+                    $nilai->melintang_kiri + $nilai->haluan_kiri + $nilai->tiap_banjar_belok_kiri +
+                    $nilai->bubar_jalan;
+            });
+            $nilaiJuri2 = $sekolah->nilaipbb->where('juri_id', 3)->sum(function ($nilai) {
+                return $nilai->bersaf_kumpul + $nilai->sikap_sempurna + $nilai->istirahat_di_tempat +
+                    $nilai->hormat + $nilai->periksa_kerapihan + $nilai->setengah_lengan_lencang_kiri +
+                    $nilai->lencang_kanan + $nilai->hadap_kanan + $nilai->lencang_depan +
+                    $nilai->hadap_kiri + $nilai->jalan_di_tempat + $nilai->balik_kanan_henti +
+                    $nilai->tiga_langkah_kanan + $nilai->tiga_langkah_kiri + $nilai->tiga_langkah_depan +
+                    $nilai->tiga_langkah_belakang + $nilai->maju_jalan + $nilai->langkah_tegap +
+                    $nilai->langkah_berlari + $nilai->hormat_kiri + $nilai->tiap_banjar_belok_kanan +
+                    $nilai->melintang_kiri + $nilai->haluan_kiri + $nilai->tiap_banjar_belok_kiri +
+                    $nilai->bubar_jalan;
+            });
+            $nilaiJuri3 = $sekolah->nilaipbb->where('juri_id', 4)->sum(function ($nilai) {
+                return $nilai->bersaf_kumpul + $nilai->sikap_sempurna + $nilai->istirahat_di_tempat +
+                    $nilai->hormat + $nilai->periksa_kerapihan + $nilai->setengah_lengan_lencang_kiri +
+                    $nilai->lencang_kanan + $nilai->hadap_kanan + $nilai->lencang_depan +
+                    $nilai->hadap_kiri + $nilai->jalan_di_tempat + $nilai->balik_kanan_henti +
+                    $nilai->tiga_langkah_kanan + $nilai->tiga_langkah_kiri + $nilai->tiga_langkah_depan +
+                    $nilai->tiga_langkah_belakang + $nilai->maju_jalan + $nilai->langkah_tegap +
+                    $nilai->langkah_berlari + $nilai->hormat_kiri + $nilai->tiap_banjar_belok_kanan +
+                    $nilai->melintang_kiri + $nilai->haluan_kiri + $nilai->tiap_banjar_belok_kiri +
+                    $nilai->bubar_jalan;
+            });
+
+            $nilaiDantonJuri1 = $sekolah->nilaipbb->where('juri_id', 2)->sum(function ($danton) {
+                return $danton->postur + $danton->suara + $danton->intonasi + $danton->penguasaan_materi + $danton->penguasaan_lapangan_pasukan;
+            });
+            $nilaiDantonJuri2 = $sekolah->nilaipbb->where('juri_id', 3)->sum(function ($danton) {
+                return $danton->postur + $danton->suara + $danton->intonasi + $danton->penguasaan_materi + $danton->penguasaan_lapangan_pasukan;
+            });
+            $nilaiDantonJuri3 = $sekolah->nilaipbb->where('juri_id', 4)->sum(function ($danton) {
+                return $danton->postur + $danton->suara + $danton->intonasi + $danton->penguasaan_materi + $danton->penguasaan_lapangan_pasukan;
+            });
+
+            $totalVafor = $sekolah->nilaivafor->sum(function ($vafor) {
+                return $vafor->kekompakan_variasi + $vafor->tingkat_kesulitan_variasi +
+                    $vafor->kreativitas_variasi + $vafor->keindahan_variasi +
+                    $vafor->perpaduan_pbb_murni_variasi + $vafor->kekompakan_formasi +
+                    $vafor->tingkat_kesulitan_formasi + $vafor->dinamis_struktur_formasi +
+                    $vafor->penggunaan_pbb_murni_formasi + $vafor->bentuk_akhir_formasi;
+            });
+
+            $nilaiPasukan = $sekolah->nilaipasukan->sum(function ($pasukan) {
+                return $pasukan->kerapihan_saf + $pasukan->kerapihan_banjar + $pasukan->kekompakan_gerak + $pasukan->penempatan_ketinggian_personel + $pasukan->formasi_keseluruhan;
+            });
+
+            $totalKostum = $sekolah->nilaikostum->sum(function ($kostum) {
+                return $kostum->kelengkapan_atribut + $kostum->keindahan +  $kostum->kerapihan +  $kostum->keseragaman +  $kostum->kebersihan;
+            });
+
+            $totalNilai = $nilaiJuri1 + $nilaiJuri2 + $nilaiJuri3 + $totalVafor + $nilaiPasukan + $nilaiDantonJuri1 + $nilaiDantonJuri2 + $nilaiDantonJuri3 + $totalKostum;
+
+            $totalnilaiDanton = $nilaiDantonJuri1 + $nilaiDantonJuri2 + $nilaiDantonJuri3;
+
+            $data[] = [
+                'nomor_peserta' => $sekolah->nomor_peserta,
+                'nama_sekolah' => $sekolah->nama_sekolah,
+                'status'        => $sekolah->status,
+                'nilai_juri_1' => $nilaiJuri1,
+                'nilai_juri_2' => $nilaiJuri2,
+                'nilai_juri_3' => $nilaiJuri3,
+                'nilai_vafor' => $totalVafor,
+                'nilai_danton' => $totalnilaiDanton,
+                'nilai_pasukan' => $nilaiPasukan,
+                'nilai_kostum' => $totalKostum,
+                'total_nilai' => $totalNilai
+            ];
+        }
+        dd($data);
+        // return view('cetak-rekap-juara', $data);
+
+        // $pdf = PDF::loadView('cetak-rekap-juara');
+        // return $pdf->download('cetak-rekap-juar.pdf');
+    }
+
+    public function cetakJuara()
+{
+    $sekolahData = Sekolah::with(['nilaipbb', 'nilaivafor', 'nilaikostum', 'nilaipasukan'])->get();
+    $data = [];
+
+    foreach ($sekolahData as $sekolah) {
+        $nilaiJuri = $this->hitungNilaiJuri($sekolah, [2, 3, 4]);
+        $nilaiDanton = $this->hitungNilaiDanton($sekolah, [2, 3, 4]);
+
+        $totalVafor = $sekolah->nilaivafor->sum(function ($vafor) {
+            return $vafor->kekompakan_variasi + $vafor->tingkat_kesulitan_variasi +
+                $vafor->kreativitas_variasi + $vafor->keindahan_variasi +
+                $vafor->perpaduan_pbb_murni_variasi + $vafor->kekompakan_formasi +
+                $vafor->tingkat_kesulitan_formasi + $vafor->dinamis_struktur_formasi +
+                $vafor->penggunaan_pbb_murni_formasi + $vafor->bentuk_akhir_formasi;
+        });
+
+        $nilaiPasukan = $sekolah->nilaipasukan->sum(function ($pasukan) {
+            return $pasukan->kerapihan_saf + $pasukan->kerapihan_banjar + $pasukan->kekompakan_gerak +
+                $pasukan->penempatan_ketinggian_personel + $pasukan->formasi_keseluruhan;
+        });
+
+        $totalKostum = $sekolah->nilaikostum->sum(function ($kostum) {
+            return $kostum->kelengkapan_atribut + $kostum->keindahan + $kostum->kerapihan +
+                $kostum->keseragaman + $kostum->kebersihan;
+        });
+
+        $totalNilai = $nilaiJuri['total'] + $totalVafor + $nilaiPasukan + $nilaiDanton['total'] + $totalKostum;
+
+        $data[] = [
+            'nomor_peserta' => $sekolah->nomor_peserta,
+            'nama_sekolah'  => $sekolah->nama_sekolah,
+            'status'        => $sekolah->status,
+            'nilai_juri_1'  => $nilaiJuri[2],
+            'nilai_juri_2'  => $nilaiJuri[3],
+            'nilai_juri_3'  => $nilaiJuri[4],
+            'total_nilai_pbb' => $nilaiJuri[2] + $nilaiJuri[3] + $nilaiJuri[4],
+            'nilai_vafor'   => $totalVafor + $nilaiPasukan,
+            'total_nilai_danton'  => $nilaiDanton['total'],
+            'nilai_danton_juri_1'  => $nilaiDanton['juri_2'],
+            'nilai_danton_juri_2'  => $nilaiDanton['juri_3'],
+            'nilai_danton_juri_3'  => $nilaiDanton['juri_4'],
+            'nilai_pasukan' => $nilaiPasukan,
+            'nilai_kostum'  => $totalKostum,
+            'total_nilai'   => $totalNilai,
+        ];
+    }
+
+    // dd($data); // Uncomment untuk cek hasil data sebelum di-export
+    // return view('cetak-rekap-juara', ['data' => $data]);
+
+    // Jika ingin export PDF
+    $pdf = PDF::loadView('cetak-rekap-juara', ['data' => $data]);
+    return $pdf->download('cetak-rekap-juara.pdf');
+}
+
+/**
+ * Fungsi untuk menghitung nilai dari juri tertentu.
+ */
+private function hitungNilaiJuri($sekolah, $juriIds)
+{
+    $nilaiJuri = [];
+    $total = 0;
+
+    foreach ($juriIds as $juriId) {
+        $nilai = $sekolah->nilaipbb->where('juri_id', $juriId)->sum(function ($nilai) {
+            return $nilai->bersaf_kumpul + $nilai->sikap_sempurna + $nilai->istirahat_di_tempat +
+                $nilai->hormat + $nilai->periksa_kerapihan + $nilai->setengah_lengan_lencang_kiri +
+                $nilai->lencang_kanan + $nilai->hadap_kanan + $nilai->lencang_depan +
+                $nilai->hadap_kiri + $nilai->jalan_di_tempat + $nilai->balik_kanan_henti +
+                $nilai->tiga_langkah_kanan + $nilai->tiga_langkah_kiri + $nilai->tiga_langkah_depan +
+                $nilai->tiga_langkah_belakang + $nilai->maju_jalan + $nilai->langkah_tegap +
+                $nilai->langkah_berlari + $nilai->hormat_kiri + $nilai->tiap_banjar_belok_kanan +
+                $nilai->melintang_kiri + $nilai->haluan_kiri + $nilai->tiap_banjar_belok_kiri +
+                $nilai->bubar_jalan;
+        });
+
+        $nilaiJuri[$juriId] = $nilai;
+        $total += $nilai;
+    }
+
+    $nilaiJuri['total'] = $total;
+    return $nilaiJuri;
+}
+
+/**
+ * Fungsi untuk menghitung nilai danton dari juri tertentu.
+ */
+private function hitungNilaiDanton($sekolah)
+{
+    $nilaiDanton = [
+        'juri_2' => 0,
+        'juri_3' => 0,
+        'juri_4' => 0,
+        'total' => 0,
+    ];
+
+    $juriIds = [2, 3, 4]; // ID juri yang akan dihitung
+
+    foreach ($juriIds as $juriId) {
+        $nilai = $sekolah->nilaipbb->where('juri_id', $juriId)->sum(function ($danton) {
+            return $danton->postur + $danton->suara + $danton->intonasi +
+                $danton->penguasaan_materi + $danton->penguasaan_lapangan_pasukan;
+        });
+
+        $nilaiDanton["juri_$juriId"] = $nilai;  // Menyimpan nilai per juri
+        $nilaiDanton['total'] += $nilai; // Menambah ke total
+    }
+
+    return $nilaiDanton;
+}
+
 }

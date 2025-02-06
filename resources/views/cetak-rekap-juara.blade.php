@@ -1,3 +1,6 @@
+{{-- @php
+    dd($data);
+@endphp --}}
 <!DOCTYPE html>
 <html lang="id">
 
@@ -53,6 +56,14 @@
     </div>
     <hr>
     <h2 style="text-align: center;">Juara Penilaian Baris-Berbaris (PBB)</h2>
+    @php
+        $dataPbb = collect($data)->sortByDesc('total_nilai_pbb')->take(3);
+        $dataDanton = collect($data)->sortByDesc('total_nilai_danton')->take(3);
+        $dataVafor = collect($data)->sortByDesc('nilai_vafor')->take(3);
+        $dataPasukan = collect($data)->sortByDesc('nilai_pasukan')->take(3);
+        $dataKostum = collect($data)->sortByDesc('nilai_kostum')->take(3);
+        
+    @endphp
     <table>
         <thead>
             <tr>
@@ -66,15 +77,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            @php
+                $juara = 1;
+            @endphp
+            @foreach ($dataPbb as $index => $sekolah)
+                <tr>
+                    <td>Juara {{ $juara++ }}</td>
+                    <td>{{ $sekolah['nomor_peserta'] }}</td>
+                    <td>{{ $sekolah['nama_sekolah'] }}</td>
+                    <td>{{ $sekolah['nilai_juri_1'] }}</td>
+                    <td>{{ $sekolah['nilai_juri_2'] }}</td>
+                    <td>{{ $sekolah['nilai_juri_3'] }}</td>
+                    <td>{{ $sekolah['total_nilai_pbb'] }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
     <h2 style="text-align: center;">Juara Komandan Pleton (Danton)</h2>
@@ -91,15 +107,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            @php
+                $juaraDanton = 1;
+            @endphp
+            @foreach ($dataDanton as $index => $sekolah)
+                <tr>
+                    <td>Juara {{ $juaraDanton++ }}</td>
+                    <td>{{ $sekolah['nomor_peserta'] }}</td>
+                    <td>{{ $sekolah['nama_sekolah'] }}</td>
+                    <td>{{ $sekolah['nilai_danton_juri_1'] }}</td>
+                    <td>{{ $sekolah['nilai_danton_juri_2'] }}</td>
+                    <td>{{ $sekolah['nilai_danton_juri_3'] }}</td>
+                    <td>{{ $sekolah['total_nilai_danton'] }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
     <h2 style="text-align: center;">Juara Variasi & Formasi (Vafor)</h2>
@@ -113,12 +134,18 @@
             </tr>
         </thead>
         <tbody>
+            @php
+                $juaraVafor = 1;
+            @endphp
+            @foreach ($dataVafor as $index => $sekolah)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>Juara {{ $juaraVafor++ }}</td>
+                <td>{{ $sekolah['nomor_peserta'] }}</td>
+                <td>{{ $sekolah['nama_sekolah'] }}</td>
+                <td>{{ $sekolah['nilai_vafor'] }}</td>
             </tr>
+            @endforeach
+            
         </tbody>
     </table>
     <h2 style="text-align: center;">Juara Kostum</h2>
@@ -132,12 +159,17 @@
             </tr>
         </thead>
         <tbody>
+            @php
+                $juaraKostum = 1;
+            @endphp
+            @foreach ($dataKostum as $index => $sekolah)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>Juara {{ $juaraKostum++ }}</td>
+                <td>{{ $sekolah['nomor_peserta'] }}</td>
+                <td>{{ $sekolah['nama_sekolah'] }}</td>
+                <td>{{ $sekolah['nilai_kostum'] }}</td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </body>
