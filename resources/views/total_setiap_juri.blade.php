@@ -73,7 +73,7 @@
                                 @endphp
                                 @foreach($data->sekolah->nilaiKostum as $kostum)
                                     @php
-                                        $totalKostum += $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan;
+                                        $totalKostum += $kostum->kelengkapan_atribut + $kostum->keindahan + $kostum->kerapihan + $kostum->keseragaman + $kostum->kebersihan;
                                     @endphp
                                 @endforeach
                                 {{ $totalKostum }}

@@ -38,7 +38,7 @@ class RekapController extends Controller
             ->groupBy('sekolah_id')
             ->get();
 
-        $kostumData = NilaiKostum::selectRaw('sekolah_id, SUM(kelengkapan_atribut + keindahan_kerapihan) as total_nilai')
+        $kostumData = NilaiKostum::selectRaw('sekolah_id, SUM(kelengkapan_atribut + keindahan + keseragaman + kebersihan + kerapihan) as total_nilai')
             ->groupBy('sekolah_id')
             ->get();
 
@@ -119,7 +119,7 @@ class RekapController extends Controller
             ->first();
 
         $kostumData = NilaiKostum::where('sekolah_id', $sekolah_id)
-            ->selectRaw('sekolah_id, SUM(kelengkapan_atribut + keindahan_kerapihan) as total_nilai')
+            ->selectRaw('sekolah_id, SUM(kelengkapan_atribut + keindahan + kerapihan + keseragaman + kebersihan) as total_nilai')
             ->where('sekolah_id', $sekolah_id) // Pastikan filter diterapkan sebelum grup
             ->groupBy('sekolah_id')
             ->first();
@@ -317,7 +317,7 @@ class RekapController extends Controller
             });
 
             $totalKostum = $sekolah->nilaikostum->sum(function ($kostum) {
-                return $kostum->kelengkapan_atribut + $kostum->keindahan_kerapihan;
+                return $kostum->kelengkapan_atribut + $kostum->keindahan +  $kostum->kerapihan +  $kostum->keseragaman +  $kostum->kebersihan;
             });
 
             $totalPenalti = $sekolah->nilaiPenalti->sum(function ($penalti) {
