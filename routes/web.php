@@ -64,7 +64,13 @@ Route::get('/dashboard', function () {
     $role = Auth::user()->role;
 
     // Ambil semua sekolah
-    $sekolah = Sekolah::all();
+    if ($role === 'panitia') {
+        // Jika role panitia, tampilkan semua sekolah
+        $sekolah = Sekolah::all();
+    } else {
+        // Jika selain panitia, tampilkan sekolah dengan filter status 'Sudah Registrasi'
+        $sekolah = Sekolah::where('status', 'Sudah Registrasi')->get();
+    }
 
     // Filter sekolah yang sudah dinilai berdasarkan role juri
     $sudahDinilai = $sekolah->filter(function ($item) use ($userId, $role) {

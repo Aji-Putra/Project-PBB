@@ -11,10 +11,10 @@ class SekolahController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $sekolah = Sekolah::all();
-        return view('components.table-participants', compact('sekolah'));
-    }
+{
+    $sekolah = Sekolah::where('status', 'Sudah Registrasi')->get();
+    return view('components.table-participants', compact('sekolah'));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -36,17 +36,26 @@ class SekolahController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'nama_sekolah' => 'required|string|max:255',
-            'nomor_peserta' => 'required|string|max:255',
-            'status' => 'required|string|max:255',
-        ]);
+{
+    $request->validate([
+        'nama_sekolah' => 'required|string|max:255',
+        'status' => 'required|string|max:255',
+    ]);
 
-        Sekolah::create($request->all());
+    // Ambil nomor peserta terakhir dan tambahkan 1
+    $lastNomorPeserta = Sekolah::max('nomor_peserta');
+    $newNomorPeserta = str_pad((int)$lastNomorPeserta + 1, 4, '0', STR_PAD_LEFT);
 
-        return redirect()->route('dashboard')->with('success', 'Data sekolah berhasil ditambahkan.');
-    }
+    // Buat data sekolah dengan nomor peserta otomatis
+    Sekolah::create([
+        'nama_sekolah' => $request->nama_sekolah,
+        'nomor_peserta' => $newNomorPeserta,
+        'status' => $request->status,
+    ]);
+
+    return redirect()->route('dashboard')->with('success', 'Data sekolah berhasil ditambahkan.');
+}
+
 
     /**
      * Display the specified resource.
