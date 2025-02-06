@@ -39,7 +39,10 @@ class NilaiKostumController extends Controller
             'juri_id' => 'required',
             'sekolah_id' => 'required',
             'kelengkapan_atribut'        => 'required',
-            'keindahan_kerapihan'        => 'required',
+            'keindahan'        => 'required',
+            'keseragaman'        => 'required',
+            'kebersihan'        => 'required',
+            'kerapihan'        => 'required',
         ]);
         NilaiKostum::create($dataKostum);
         return redirect()->route('dashboard')->with('success', 'Nilai PBB berhasil ditambahkan!');

@@ -24,10 +24,11 @@
                     <tr>
                         <th class="border px-4 py-2">Nomor Peserta</th>
                         <th class="border px-4 py-2">Nama Sekolah</th>
-                        <th class="border px-4 py-2">Nilai PBB </th>
-                        <th class="border px-4 py-2">Nilai Danton</th>
-                        <th class="border px-4 py-2">Nilai Vafor </th>
-                        <th class="border px-4 py-2">Nilai Kostum </th>
+                        <th class="border px-4 py-2">Juri PBB 1</th>
+                        <th class="border px-4 py-2">Juri PBB 2</th>
+                        <th class="border px-4 py-2">Juri PBB 3</th>
+                        <th class="border px-4 py-2">Juri Vafor </th>
+                        <th class="border px-4 py-2">Juri Kostum </th>
                         <th class="border px-4 py-2">Penalti </th>
                         <th class="border px-4 py-2">Total Nilai</th>
                         <th class="border px-4 py-2">Cetak</th>
@@ -38,10 +39,9 @@
                         <tr>
                             <td class="border px-4 py-2">{{ $data->sekolah->nomor_peserta }}</td>
                             <td class="border px-4 py-2">{{ $data->sekolah->nama_sekolah ?? 'Tidak Diketahui' }}</td>
-                            <td class="border px-4 py-2">{{ $data->nilai_juri_1 + $data->nilai_juri_2 +$data->nilai_juri_3}}</td>
-                            <td class="border px-4 py-2">
-                               {{ $data->total_nilai_danton }}
-                            </td>
+                            <td class="border px-4 py-2">{{ $data->nilai_juri_1 }}</td>
+                            <td class="border px-4 py-2">{{ $data->nilai_juri_2 }}</td>
+                            <td class="border px-4 py-2">{{ $data->nilai_juri_3 }}</td>
                             <td class="border px-4 py-2">
                                 @php
                                     $totalVafor = 0;
@@ -91,7 +91,7 @@
                             </td>
                             <td class="border px-4 py-2">
                                 @php
-                                    $totalNilai = $data->nilai_juri_1 + $data->nilai_juri_2 + $data->nilai_juri_3 + $data->total_nilai_danton +$totalVaforPasukan + $totalKostum - $totalPenalti;
+                                    $totalNilai = $data->nilai_juri_1 + $data->nilai_juri_2 + $data->nilai_juri_3 + $totalVaforPasukan + $totalKostum - $totalPenalti;
                                 @endphp
                                 {{ $totalNilai }}
                             </td>

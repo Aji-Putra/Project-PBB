@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('juri_id');
             $table->string('sekolah_id');
             $table->integer('kelengkapan_atribut');
-            $table->integer('keindahan_kerapihan');
+            $table->integer('keindahan');
+            $table->integer('keseragaman');
+            $table->integer('kebersihan');
+            $table->integer('kerapihan');
             $table->timestamps();
         });
     }

@@ -14,7 +14,10 @@ class NilaiKostum extends Model
         'juri_id',
         'sekolah_id',
         'kelengkapan_atribut',
-        'keindahan_kerapihan'
+        'keindahan',
+        'keseragaman',
+        'kebersihan',
+        'kerapihan',
     ];
 
     public function sekolah()
