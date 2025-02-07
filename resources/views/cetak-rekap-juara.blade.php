@@ -55,15 +55,143 @@
         <h3>Tingkat SMP Se-Jawa Barat Open Tahun 2025</h3>
     </div>
     <hr>
-    <h2 style="text-align: center;">Juara Penilaian Baris-Berbaris (PBB)</h2>
     @php
         $dataPbb = collect($data)->sortByDesc('total_nilai_pbb')->take(3);
         $dataDanton = collect($data)->sortByDesc('total_nilai_danton')->take(3);
         $dataVafor = collect($data)->sortByDesc('nilai_vafor')->take(3);
         $dataPasukan = collect($data)->sortByDesc('nilai_pasukan')->take(3);
         $dataKostum = collect($data)->sortByDesc('nilai_kostum')->take(3);
-        
+        $dataJuara = collect($data)->sortByDesc('total_nilai')->take(3);
+        $dataHarapan = collect($data)->sortByDesc('total_nilai')->skip(3)->take(3); // Harapan 1-3
+        $dataMadya = collect($data)->sortByDesc('total_nilai')->skip(6)->take(3); // Madya 1-3
+        $dataBina = collect($data)->sortByDesc('total_nilai')->skip(9)->take(3);
     @endphp
+    <h2 style="text-align: center;">Juara </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Juara</th>
+                <th>Nomor Peserta</th>
+                <th>Nama Sekolah</th>
+                <th>Nilai PBB</th>
+                <th>Nilai Vafor</th>
+                <th>Nilai Kostum</th>
+                <th>Penalti</th>
+                <th>Total Nilai</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php
+                $juara = 1;
+            @endphp
+            @foreach ($dataJuara as $index => $sekolah)
+                <tr>
+                    <td>Juara {{ $juara++ }}</td>
+                    <td>{{ $sekolah['nomor_peserta'] }}</td>
+                    <td>{{ $sekolah['nama_sekolah'] }}</td>
+                    <td>{{ $sekolah['total_nilai_pbb'] }}</td>
+                    <td>{{ $sekolah['nilai_vafor'] }}</td>
+                    <td>{{ $sekolah['nilai_kostum'] }}</td>
+                    <td>-{{ $sekolah['nilai_penalti'] }}</td>
+                    <td>{{ $sekolah['total_nilai'] }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <h2 style="text-align: center;">Juara Harapan</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Juara</th>
+                <th>Nomor Peserta</th>
+                <th>Nama Sekolah</th>
+                <th>Nilai PBB</th>
+                <th>Nilai Vafor</th>
+                <th>Nilai Kostum</th>
+                <th>Penalti</th>
+                <th>Total Nilai</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php
+                $harapan = 1;
+            @endphp
+            @foreach ($dataHarapan as $index => $juara)
+                <tr>
+                    <td>Juara {{ $harapan++ }}</td>
+                    <td>{{ $juara['nomor_peserta'] }}</td>
+                    <td>{{ $juara['nama_sekolah'] }}</td>
+                    <td>{{ $juara['total_nilai_pbb'] }}</td>
+                    <td>{{ $juara['nilai_vafor'] }}</td>
+                    <td>{{ $juara['nilai_kostum'] }}</td>
+                    <td>{{ $juara['total_nilai'] }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <h2 style="text-align: center;">Juara Madya</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Juara</th>
+                <th>Nomor Peserta</th>
+                <th>Nama Sekolah</th>
+                <th>Nilai PBB</th>
+                <th>Nilai Vafor</th>
+                <th>Nilai Kostum</th>
+                <th>Penalti</th>
+                <th>Total Nilai</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php
+                $madya = 1;
+            @endphp
+            @foreach ($dataMadya as $index => $juara)
+                <tr>
+                    <td>Juara {{ $madya++ }}</td>
+                    <td>{{ $juara['nomor_peserta'] }}</td>
+                    <td>{{ $juara['nama_sekolah'] }}</td>
+                    <td>{{ $juara['total_nilai_pbb'] }}</td>
+                    <td>{{ $juara['nilai_vafor'] }}</td>
+                    <td>{{ $juara['nilai_kostum'] }}</td>
+                    <td>{{ $juara['total_nilai'] }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <h2 style="text-align: center;">Juara Bina</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Juara</th>
+                <th>Nomor Peserta</th>
+                <th>Nama Sekolah</th>
+                <th>Nilai PBB</th>
+                <th>Nilai Vafor</th>
+                <th>Nilai Kostum</th>
+                <th>Penalti</th>
+                <th>Total Nilai</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php
+                $bina = 1;
+            @endphp
+            @foreach ($dataBina as $index => $juara)
+                <tr>
+                    <td>Juara {{ $bina++ }}</td>
+                    <td>{{ $juara['nomor_peserta'] }}</td>
+                    <td>{{ $juara['nama_sekolah'] }}</td>
+                    <td>{{ $juara['total_nilai_pbb'] }}</td>
+                    <td>{{ $juara['nilai_vafor'] }}</td>
+                    <td>{{ $juara['nilai_kostum'] }}</td>
+                    <td>{{ $juara['total_nilai'] }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <h2 style="text-align: center;">Juara Penilaian Baris-Berbaris (PBB)</h2>
     <table>
         <thead>
             <tr>
@@ -78,11 +206,11 @@
         </thead>
         <tbody>
             @php
-                $juara = 1;
+                $no = 1;
             @endphp
             @foreach ($dataPbb as $index => $sekolah)
                 <tr>
-                    <td>Juara {{ $juara++ }}</td>
+                    <td>Juara {{ $no++ }}</td>
                     <td>{{ $sekolah['nomor_peserta'] }}</td>
                     <td>{{ $sekolah['nama_sekolah'] }}</td>
                     <td>{{ $sekolah['nilai_juri_1'] }}</td>
@@ -108,11 +236,11 @@
         </thead>
         <tbody>
             @php
-                $juaraDanton = 1;
+                $no = 1;
             @endphp
             @foreach ($dataDanton as $index => $sekolah)
                 <tr>
-                    <td>Juara {{ $juaraDanton++ }}</td>
+                    <td>Juara {{ $no++ }}</td>
                     <td>{{ $sekolah['nomor_peserta'] }}</td>
                     <td>{{ $sekolah['nama_sekolah'] }}</td>
                     <td>{{ $sekolah['nilai_danton_juri_1'] }}</td>
@@ -138,14 +266,14 @@
                 $juaraVafor = 1;
             @endphp
             @foreach ($dataVafor as $index => $sekolah)
-            <tr>
-                <td>Juara {{ $juaraVafor++ }}</td>
-                <td>{{ $sekolah['nomor_peserta'] }}</td>
-                <td>{{ $sekolah['nama_sekolah'] }}</td>
-                <td>{{ $sekolah['nilai_vafor'] }}</td>
-            </tr>
+                <tr>
+                    <td>Juara {{ $juaraVafor++ }}</td>
+                    <td>{{ $sekolah['nomor_peserta'] }}</td>
+                    <td>{{ $sekolah['nama_sekolah'] }}</td>
+                    <td>{{ $sekolah['nilai_vafor'] }}</td>
+                </tr>
             @endforeach
-            
+
         </tbody>
     </table>
     <h2 style="text-align: center;">Juara Kostum</h2>
@@ -163,12 +291,12 @@
                 $juaraKostum = 1;
             @endphp
             @foreach ($dataKostum as $index => $sekolah)
-            <tr>
-                <td>Juara {{ $juaraKostum++ }}</td>
-                <td>{{ $sekolah['nomor_peserta'] }}</td>
-                <td>{{ $sekolah['nama_sekolah'] }}</td>
-                <td>{{ $sekolah['nilai_kostum'] }}</td>
-            </tr>
+                <tr>
+                    <td>Juara {{ $juaraKostum++ }}</td>
+                    <td>{{ $sekolah['nomor_peserta'] }}</td>
+                    <td>{{ $sekolah['nama_sekolah'] }}</td>
+                    <td>{{ $sekolah['nilai_kostum'] }}</td>
+                </tr>
             @endforeach
         </tbody>
     </table>

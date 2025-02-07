@@ -473,7 +473,20 @@ class RekapController extends Controller
                 $kostum->keseragaman + $kostum->kebersihan;
         });
 
-        $totalNilai = $nilaiJuri['total'] + $totalVafor + $nilaiPasukan + $nilaiDanton['total'] + $totalKostum;
+        $totalPenalti = $sekolah->nilaiPenalti->sum(function ($penalti) {
+            return $penalti->tidak_ikut_daftar_ulang
+                + $penalti->tidak_ikut_upacara_pembukaan
+                + $penalti->terlambat_ke_dp_1
+                + $penalti->tidak_sesuai_nomor_urut
+                + $penalti->terlewat_tampil
+                + $penalti->kurang_lebih_personil
+                + $penalti->anggota_sakit_di_lapangan
+                + $penalti->merusak_properti
+                + $penalti->melewati_garis_batas
+                + $penalti->melebihi_waktu;
+        });
+
+        $totalNilai = $nilaiJuri['total'] + $totalVafor + $nilaiPasukan + $nilaiDanton['total'] + $totalKostum - $totalPenalti;
 
         $data[] = [
             'nomor_peserta' => $sekolah->nomor_peserta,
@@ -490,6 +503,7 @@ class RekapController extends Controller
             'nilai_danton_juri_3'  => $nilaiDanton['juri_4'],
             'nilai_pasukan' => $nilaiPasukan,
             'nilai_kostum'  => $totalKostum,
+            'nilai_penalti' => $totalPenalti,
             'total_nilai'   => $totalNilai,
         ];
     }
@@ -543,7 +557,7 @@ private function hitungNilaiDanton($sekolah)
         'total' => 0,
     ];
 
-    $juriIds = [2, 3, 4]; // ID juri yang akan dihitung
+    $juriIds = [2, 3, 4]; 
 
     foreach ($juriIds as $juriId) {
         $nilai = $sekolah->nilaipbb->where('juri_id', $juriId)->sum(function ($danton) {
@@ -551,8 +565,8 @@ private function hitungNilaiDanton($sekolah)
                 $danton->penguasaan_materi + $danton->penguasaan_lapangan_pasukan;
         });
 
-        $nilaiDanton["juri_$juriId"] = $nilai;  // Menyimpan nilai per juri
-        $nilaiDanton['total'] += $nilai; // Menambah ke total
+        $nilaiDanton["juri_$juriId"] = $nilai;  
+        $nilaiDanton['total'] += $nilai; 
     }
 
     return $nilaiDanton;
