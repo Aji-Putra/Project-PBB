@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            SekolahSeeder::class,
         ]);
         // DB::table('users')->insert([
         //     'name' => Str::random(10),

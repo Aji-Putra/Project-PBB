@@ -10,15 +10,15 @@
             href="{{ url('/rekap') }}">Rekap</a>
         {{-- <a class="w-40 bg-yellow-500 text-black px-4 py-2 text-sm font-medium flex justify-center mb-4 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-yellow-500"
             href="{{ url('/cetak-semua-sekolah') }}">Cetak</a> --}}
-        <button @click="tambahPeserta = true"
+        {{-- <button @click="tambahPeserta = true"
             class="w-40 mb-4 px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
             Tambah Peserta
-        </button>
-        <div x-show="tambahPeserta" class="fixed inset-0 transition-opacity" aria-hidden="true"
+        </button> --}}
+        {{-- <div x-show="tambahPeserta" class="fixed inset-0 transition-opacity" aria-hidden="true"
             @click="tambahPeserta = false">
             <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-        </div>
-        <form action="{{ url('/tambah/sekolah') }}" method="POST">
+        </div> --}}
+        {{-- <form action="{{ url('/tambah/sekolah') }}" method="POST">
             @csrf
             <input type="hidden" name="status" value="Belum Di Nilai">
             <div x-show="tambahPeserta" class="fixed z-10 inset-0 overflow-y-auto">
@@ -29,8 +29,8 @@
                                 <div class="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                     <h3 class="text-lg leading-6 font-medium text-gray-900">Tambah Peserta</h3>
                                     <div class="mt-2 flex flex-col gap-1">
-                                        {{-- <label for="nomor_peserta">Nomor Peserta</label>
-                                        <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nomor_peserta"> --}}
+                                        <label for="nomor_peserta">Nomor Peserta</label>
+                                        <input class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2" type="text" name="nomor_peserta">
                                         <label for="nama_sekolah">Nama Sekolah</label>
                                         <select name="nama_sekolah" id="nama_sekolah" class="border border-black p-1 px-2 rounded focus:border-transparent focus:outline-none focus:ring-blue-500 focus:ring-2">
                                             <option class="text-gray-500" value="">Pilih Nama Sekolah</option>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </form> --}}
     </div>
     <x-table-panitia :sekolah="$sekolah"></x-table-panitia>
 </div>
