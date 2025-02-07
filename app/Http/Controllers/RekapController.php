@@ -512,7 +512,7 @@ class RekapController extends Controller
 
     // Jika ingin export PDF
     $pdf = PDF::loadView('cetak-rekap-juara', ['data' => $data]);
-    return $pdf->download('cetak-rekap-juara.pdf');
+    return $pdf->stream('cetak-rekap-juara.pdf');
 }
 
 /**
