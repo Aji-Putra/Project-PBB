@@ -154,7 +154,7 @@ class RekapController extends Controller
         $pdf = PDF::loadView('rekap_pdf', compact('rekapData'));
 
         // Download file
-        return $pdf->download('Rekap_Nilai_' . $rekapData['nama_sekolah'] . '.pdf');
+        return $pdf->stream('Rekap_Nilai_' . $rekapData['nama_sekolah'] . '.pdf');
     }
 
     public function rekapJuri()
@@ -249,7 +249,7 @@ class RekapController extends Controller
         $pdf = PDF::loadView('cetak-nilai-sekolah', compact('juri1', 'juri2', 'juri3', 'pasukanData', 'vaforData', 'kostumData', 'penaltiData', 'sekolah'));
 
         // Download PDF
-        return $pdf->download('cetak-nilai-sekolah' . $sekolah_id . '.pdf');
+        return $pdf->stream('cetak-nilai-sekolah' . $sekolah_id . '.pdf');
     }
 
     public function cetakSemuaSekolah()
@@ -353,7 +353,7 @@ class RekapController extends Controller
         }
 
         $pdf = PDF::loadView('cetak-semua-sekolah', compact('data'));
-        return $pdf->download('cetak-semua-sekolah.pdf');
+        return $pdf->stream ('cetak-semua-sekolah.pdf');
     }
 
     public function cetakjuar() {
