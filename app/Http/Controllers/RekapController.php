@@ -64,8 +64,7 @@ class RekapController extends Controller
 
             $totalNilai = ($pbb->total_nilai ?? 0) +
                 ($pasukanData->firstWhere('sekolah_id', $sekolahId)->total_nilai ?? 0) +
-                ($vaforData->firstWhere('sekolah_id', $sekolahId)->total_nilai ?? 0) +
-                ($kostumData->firstWhere('sekolah_id', $sekolahId)->total_nilai ?? 0) -
+                ($vaforData->firstWhere('sekolah_id', $sekolahId)->total_nilai ?? 0) -
                 ($penaltiData->firstWhere('sekolah_id', $sekolahId)->total_nilai ?? 0);
 
             $rekapData[$sekolahId] = [
@@ -333,7 +332,7 @@ class RekapController extends Controller
                     + $penalti->melebihi_waktu;
             });
 
-            $totalNilai = $nilaiJuri1 + $nilaiJuri2 + $nilaiJuri3 + $totalVafor + $nilaiPasukan + $nilaiDantonJuri1 + $nilaiDantonJuri2 + $nilaiDantonJuri3 + $totalKostum - $totalPenalti;
+            $totalNilai = $nilaiJuri1 + $nilaiJuri2 + $nilaiJuri3 + $totalVafor + $nilaiPasukan + $nilaiDantonJuri1 + $nilaiDantonJuri2 + $nilaiDantonJuri3  - $totalPenalti;
 
             $totalnilaiDanton = $nilaiDantonJuri1 + $nilaiDantonJuri2 + $nilaiDantonJuri3;
 
@@ -486,7 +485,7 @@ class RekapController extends Controller
                 + $penalti->melebihi_waktu;
         });
 
-        $totalNilai = $nilaiJuri['total'] + $totalVafor + $nilaiPasukan + $nilaiDanton['total'] + $totalKostum - $totalPenalti;
+        $totalNilai = $nilaiJuri['total'] + $totalVafor + $nilaiPasukan + $nilaiDanton['total'] - $totalPenalti;
 
         $data[] = [
             'nomor_peserta' => $sekolah->nomor_peserta,

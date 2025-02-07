@@ -74,6 +74,7 @@
                 <th>Nomor Peserta</th>
                 <th>Nama Sekolah</th>
                 <th>Nilai PBB</th>
+                <th>Nilai Danton</th>
                 <th>Nilai Vafor</th>
                 <th>Nilai Kostum</th>
                 <th>Penalti</th>
@@ -90,6 +91,7 @@
                     <td>{{ $sekolah['nomor_peserta'] }}</td>
                     <td>{{ $sekolah['nama_sekolah'] }}</td>
                     <td>{{ $sekolah['total_nilai_pbb'] }}</td>
+                    <td>{{ $sekolah['total_nilai_danton'] }}</td>
                     <td>{{ $sekolah['nilai_vafor'] }}</td>
                     <td>{{ $sekolah['nilai_kostum'] }}</td>
                     <td>-{{ $sekolah['nilai_penalti'] }}</td>
@@ -106,6 +108,7 @@
                 <th>Nomor Peserta</th>
                 <th>Nama Sekolah</th>
                 <th>Nilai PBB</th>
+                <th>Nilai Danton</th>
                 <th>Nilai Vafor</th>
                 <th>Nilai Kostum</th>
                 <th>Penalti</th>
@@ -122,8 +125,10 @@
                     <td>{{ $juara['nomor_peserta'] }}</td>
                     <td>{{ $juara['nama_sekolah'] }}</td>
                     <td>{{ $juara['total_nilai_pbb'] }}</td>
+                    <td>{{ $juara['total_nilai_danton'] }}</td>
                     <td>{{ $juara['nilai_vafor'] }}</td>
                     <td>{{ $juara['nilai_kostum'] }}</td>
+                    <td>{{ $juara['nilai_penalti'] }}</td>
                     <td>{{ $juara['total_nilai'] }}</td>
                 </tr>
             @endforeach
@@ -137,6 +142,7 @@
                 <th>Nomor Peserta</th>
                 <th>Nama Sekolah</th>
                 <th>Nilai PBB</th>
+                <th>Nilai Danton</th>
                 <th>Nilai Vafor</th>
                 <th>Nilai Kostum</th>
                 <th>Penalti</th>
@@ -153,8 +159,10 @@
                     <td>{{ $juara['nomor_peserta'] }}</td>
                     <td>{{ $juara['nama_sekolah'] }}</td>
                     <td>{{ $juara['total_nilai_pbb'] }}</td>
+                    <td>{{ $juara['total_nilai_danton'] }}</td>
                     <td>{{ $juara['nilai_vafor'] }}</td>
                     <td>{{ $juara['nilai_kostum'] }}</td>
+                    <td>{{ $juara['nilai_penalti'] }}</td>
                     <td>{{ $juara['total_nilai'] }}</td>
                 </tr>
             @endforeach
@@ -168,6 +176,7 @@
                 <th>Nomor Peserta</th>
                 <th>Nama Sekolah</th>
                 <th>Nilai PBB</th>
+                <th>Nilai Danton</th>
                 <th>Nilai Vafor</th>
                 <th>Nilai Kostum</th>
                 <th>Penalti</th>
@@ -184,8 +193,10 @@
                     <td>{{ $juara['nomor_peserta'] }}</td>
                     <td>{{ $juara['nama_sekolah'] }}</td>
                     <td>{{ $juara['total_nilai_pbb'] }}</td>
+                    <td>{{ $juara['total_nilai_danton'] }}</td>
                     <td>{{ $juara['nilai_vafor'] }}</td>
                     <td>{{ $juara['nilai_kostum'] }}</td>
+                    <td>{{ $juara['nilai_penalti'] }}</td>
                     <td>{{ $juara['total_nilai'] }}</td>
                 </tr>
             @endforeach

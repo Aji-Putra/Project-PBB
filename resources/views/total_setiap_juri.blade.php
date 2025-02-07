@@ -94,7 +94,7 @@
                             </td>
                             <td class="border px-4 py-2">
                                 @php
-                                    $totalNilai = $data->nilai_juri_1 + $data->nilai_juri_2 + $data->nilai_juri_3 + $data->total_nilai_danton +$totalVaforPasukan + $totalKostum - $totalPenalti;
+                                    $totalNilai = $data->nilai_juri_1 + $data->nilai_juri_2 + $data->nilai_juri_3 + $data->total_nilai_danton +$totalVaforPasukan - $totalPenalti;
                                 @endphp
                                 {{ $totalNilai }}
                             </td>
